@@ -1,5 +1,6 @@
 import Image from "next/image";
 import FAQSection from "./components/FAQ";
+import Navbar from "./components/Navbar";
 
 const WA_LINK = "https://wa.me/5493484689931";
 
@@ -64,29 +65,7 @@ export default function Home() {
     <div className="overflow-x-hidden bg-[#0d0b09] text-white">
 
       {/* ─── NAVBAR ─── */}
-      <header className="sticky top-0 z-50 border-b border-[#1f0808] bg-[#0d0b09]/95 backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-          <a href="#inicio">
-            <Image
-              src="/assets/logo-superior-web.png"
-              alt="Cuatrouno Training Club"
-              width={180}
-              height={70}
-              className="h-16 w-auto object-contain"
-              priority
-            />
-          </a>
-          <a
-            href={WA_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 rounded-sm bg-[#25D366] px-5 py-2.5 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#1ebe5d]"
-          >
-            <WaIcon />
-            HABLAR POR WHATSAPP
-          </a>
-        </div>
-      </header>
+      <Navbar />
 
       <main>
 
