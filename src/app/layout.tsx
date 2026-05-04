@@ -16,6 +16,18 @@ export const metadata: Metadata = {
   title: "Cuatrouno Training Club | Asesorías Online 1:1",
   description:
     "Landing oficial de Braian Barrientos para asesorías de entrenamiento online y planes personalizados.",
+  icons: [
+    {
+      rel: "icon",
+      url: "/favicon-dark.png",
+      media: "(prefers-color-scheme: dark)",
+    },
+    {
+      rel: "icon",
+      url: "/favicon-light.png",
+      media: "(prefers-color-scheme: light)",
+    },
+  ],
 };
 
 export default function RootLayout({
