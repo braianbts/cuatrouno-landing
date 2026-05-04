@@ -476,6 +476,101 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ─── SISTEMA COMPLETO ─── */}
+        <section className="relative overflow-hidden bg-[#0d0b09] py-20">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_50%,_rgba(196,26,26,0.08),_transparent)]" />
+          <Deco char="×" className="left-6 top-10 text-5xl opacity-30" />
+          <Deco char="+" className="right-8 bottom-10 text-6xl opacity-20" blur />
+
+          <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-4 text-center">
+              <p className="text-sm font-bold uppercase tracking-widest text-[#C41A1A]">Lo que realmente funciona</p>
+            </div>
+            <h2 className="mb-4 text-center text-3xl font-black uppercase text-white sm:text-4xl lg:text-5xl">
+              NO ES SOLO ENTRENAR.
+              <br />
+              <span className="text-[#D42020]">ES UN SISTEMA COMPLETO.</span>
+            </h2>
+            <p className="mx-auto mb-12 max-w-2xl text-center text-base leading-relaxed text-zinc-400">
+              Cuando tenés entrenamiento, alimentación y seguimiento integrados en un solo lugar,
+              el progreso deja de ser una casualidad y se convierte en algo inevitable.
+            </p>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                { icon: "🏋️", title: "Entrenamiento estructurado", desc: "Rutinas diseñadas para tu nivel, tu objetivo y tu disponibilidad horaria." },
+                { icon: "🥗", title: "Alimentación organizada", desc: "Guía práctica sin dietas extremas. Comidas reales, sostenibles y fáciles de implementar." },
+                { icon: "📊", title: "Seguimiento real", desc: "Ajustes semana a semana para que nunca te estanques y siempre estés progresando." },
+                { icon: "🧠", title: "Estrategia de progreso", desc: "Un camino claro desde el día 1. Sabés dónde estás, adónde vas y cómo llegar." },
+              ].map((item) => (
+                <div key={item.title} className="flex flex-col gap-3 rounded-xl border border-[#2a1010] bg-[#111111] p-6">
+                  <span className="text-4xl">{item.icon}</span>
+                  <h3 className="font-black uppercase text-[#D42020]">{item.title}</h3>
+                  <p className="text-sm leading-relaxed text-zinc-400">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ─── ALIMENTACIÓN INTELIGENTE ─── */}
+        <section className="relative overflow-hidden bg-[#0d0b09] py-20">
+          <Deco char="+" className="left-8 top-12 text-7xl opacity-20" blur />
+          <Deco char="×" className="right-6 top-16 text-5xl opacity-25" />
+          <BrandWatermark text="NUTRICIÓN" className="left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[10vw]" />
+
+          <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+            <div className="grid items-center gap-12 lg:grid-cols-2">
+              <div>
+                <p className="mb-3 text-sm font-bold uppercase tracking-widest text-[#C41A1A]">Incluido en tu plan</p>
+                <h2 className="mb-4 text-3xl font-black uppercase leading-tight text-white sm:text-4xl">
+                  ALIMENTACIÓN INTELIGENTE,<br />
+                  <span className="text-[#D42020]">SIN COMPLICACIONES.</span>
+                </h2>
+                <p className="mb-8 text-base leading-relaxed text-zinc-400">
+                  No necesitás dietas extremas ni gastar de más. Solo un plan claro para saber
+                  qué comer, cómo organizarte y cómo sostenerlo en el tiempo.
+                </p>
+                <ul className="space-y-4">
+                  {[
+                    { t: "Guía de alimentos según tu objetivo", d: "Diferente si querés ganar músculo o perder grasa. Sin vueltas." },
+                    { t: "Ejemplos de comidas reales y sostenibles", d: "Comidas simples que podés preparar sin ser chef ni gastar una fortuna." },
+                    { t: "Checklist de compras para el super", d: "Ahorrás tiempo, dinero y evitás caer en alimentos que te sacan del camino." },
+                    { t: "Organización práctica para mantenerte", d: "Estrategia semanal para que la alimentación no sea un obstáculo más." },
+                  ].map((item) => (
+                    <li key={item.t} className="flex items-start gap-3">
+                      <div className="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-sm bg-[#C41A1A]">
+                        <svg width="12" height="9" viewBox="0 0 12 9" fill="none" aria-hidden>
+                          <path d="M1 4L4.5 7.5L11 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="font-bold text-white">{item.t}</p>
+                        <p className="mt-0.5 text-sm text-zinc-400">{item.d}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-8 text-base font-bold text-[#D42020]">
+                  → Vas a saber exactamente qué comer, cómo organizarte y cómo sostenerlo.
+                </p>
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { emoji: "📋", label: "Guía de alimentos" },
+                  { emoji: "🍽️", label: "Ejemplos de comidas" },
+                  { emoji: "🛒", label: "Lista del super" },
+                  { emoji: "📅", label: "Plan semanal" },
+                ].map((item) => (
+                  <div key={item.label} className="flex flex-col items-center justify-center gap-3 rounded-xl border border-[#2a1010] bg-[#111111] py-8 text-center">
+                    <span className="text-5xl">{item.emoji}</span>
+                    <p className="text-xs font-bold uppercase tracking-wide text-zinc-300">{item.label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* ─── PRICING ─── */}
         <section id="planes" className="relative overflow-hidden bg-[#0d0b09] py-20">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_100%,_rgba(196,26,26,0.1),_transparent)]" />
@@ -486,92 +581,138 @@ export default function Home() {
           <BrandWatermark text="PLANES" className="left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[12vw]" />
 
           <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <h2 className="mb-10 text-center text-4xl font-black uppercase text-[#D42020] sm:text-5xl">
+            <p className="mb-3 text-center text-sm font-bold uppercase tracking-widest text-[#C41A1A]">Programas Cuatrouno</p>
+            <h2 className="mb-3 text-center text-4xl font-black uppercase text-white sm:text-5xl">
               ELEGÍ TU PLAN
             </h2>
+            <p className="mb-12 text-center text-base text-zinc-400">
+              Todos los planes incluyen entrenamiento, materiales de apoyo y acompañamiento.<br className="hidden sm:block" />
+              Cuanto más largo el plan, más completo el sistema.
+            </p>
 
             <div className="grid items-end gap-4 md:grid-cols-3">
 
-              {/* SILVER */}
+              {/* PLAN BÁSICO */}
               <div className="overflow-hidden rounded-xl bg-[#111111] shadow-xl">
                 <div className="relative bg-zinc-600 px-6 pb-5 pt-4 text-center">
-                  <span className="absolute right-4 top-3 text-[10px] font-black uppercase tracking-widest text-zinc-300">SILVER</span>
-                  <h3 className="mt-3 text-2xl font-black uppercase text-white">PLAN BÁSICO</h3>
+                  <span className="absolute right-4 top-3 text-[10px] font-black uppercase tracking-widest text-zinc-300">12 semanas</span>
+                  <h3 className="mt-3 text-2xl font-black uppercase text-white">Plan Básico</h3>
                 </div>
                 <div className="px-6 pb-6 pt-5">
                   <div className="mb-5 text-center">
                     <p className="text-2xl font-black text-white">12x de $12.990</p>
-                    <p className="mt-1 text-sm text-zinc-400">o $139.990 al contado</p>
+                    <p className="mt-1 text-sm text-zinc-400">o $129.990 al contado</p>
                   </div>
                   <ul>
-                    {["12 semanas", "Plan de entrenamiento completo", "Protocolo de entrenamiento", "Clase de bienvenida", "Materiales de apoyo", "Soporte individual"].map((item) => (
+                    {[
+                      "Acceso al sistema de entrenamiento",
+                      "Rutina completa estructurada",
+                      "Materiales de apoyo en PDF",
+                      "Videollamada de bienvenida",
+                    ].map((item) => (
                       <li key={item} className="flex items-center gap-3 border-b border-zinc-800 py-3 text-sm text-zinc-300">
-                        <span className="text-base text-zinc-500">○</span>{item}
+                        <svg className="flex-shrink-0" width="14" height="11" viewBox="0 0 12 9" fill="none" aria-hidden>
+                          <path d="M1 4L4.5 7.5L11 1" stroke="#6b7280" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                        {item}
                       </li>
                     ))}
                   </ul>
                   <a href={WA_LINK} target="_blank" rel="noopener noreferrer"
                     className="mt-6 flex w-full items-center justify-center gap-2 rounded bg-zinc-600 py-3.5 text-sm font-black uppercase tracking-wider text-white transition-colors hover:bg-zinc-500">
-                    <WaIcon />¡QUIERO SUSCRIBIRME!
+                    <WaIcon />EMPEZAR AHORA
                   </a>
                 </div>
               </div>
 
-              {/* GOLD */}
+              {/* PLAN COMPLETO — destacado */}
               <div className="overflow-hidden rounded-xl bg-[#111111] shadow-2xl md:-mt-6">
                 <div className="relative bg-[#C41A1A] px-6 pb-6 pt-4 text-center">
-                  <span className="absolute right-4 top-3 text-[10px] font-black uppercase tracking-widest text-white/70">GOLD</span>
-                  <h3 className="mt-3 text-2xl font-black uppercase text-white">PLAN COMPLETO</h3>
+                  <span className="absolute right-4 top-3 rounded bg-white/20 px-2 py-0.5 text-[10px] font-black uppercase tracking-widest text-white">
+                    RECOMENDADO
+                  </span>
+                  <p className="mt-1 text-[11px] font-semibold uppercase tracking-widest text-white/70">24 semanas</p>
+                  <h3 className="mt-1 text-2xl font-black uppercase text-white">Plan Completo</h3>
                 </div>
                 <div className="px-6 pb-6 pt-5">
                   <div className="mb-5 text-center">
                     <p className="text-2xl font-black text-white">12x de $24.990</p>
-                    <p className="mt-1 text-sm text-zinc-400">o $269.990 al contado</p>
+                    <p className="mt-1 text-sm text-zinc-400">o $249.990 al contado</p>
                   </div>
                   <ul>
-                    {["24 semanas", "Plan de entrenamiento completo", "Protocolo de entrenamiento", "Clase de bienvenida", "Materiales de apoyo", "Soporte individual"].map((item) => (
+                    {[
+                      "Todo lo del Plan Básico",
+                      "Protocolo completo de entrenamiento",
+                      "Guía de alimentación práctica",
+                      "Checklist de compras y ejemplos de comidas",
+                      "Soporte individual por WhatsApp",
+                    ].map((item) => (
                       <li key={item} className="flex items-center gap-3 border-b border-zinc-800 py-3 text-sm text-zinc-300">
-                        <span className="text-base text-[#C41A1A]">○</span>{item}
+                        <svg className="flex-shrink-0" width="14" height="11" viewBox="0 0 12 9" fill="none" aria-hidden>
+                          <path d="M1 4L4.5 7.5L11 1" stroke="#C41A1A" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                        {item}
                       </li>
                     ))}
                   </ul>
                   <a href={WA_LINK} target="_blank" rel="noopener noreferrer"
                     className="mt-6 flex w-full items-center justify-center gap-2 rounded bg-[#25D366] py-3.5 text-sm font-black uppercase tracking-wider text-white transition-colors hover:bg-[#1ebe5d]">
-                    <WaIcon />¡QUIERO SUSCRIBIRME!
+                    <WaIcon />EMPEZAR AHORA
                   </a>
                   <p className="mt-2 text-center text-xs font-bold text-[#D42020]">¡El más elegido!</p>
                 </div>
               </div>
 
-              {/* BLACK */}
+              {/* PLAN PREMIUM */}
               <div className="overflow-hidden rounded-xl bg-[#111111] shadow-xl">
                 <div className="relative border-b border-zinc-800 bg-[#0a0a0a] px-6 pb-5 pt-4 text-center">
-                  <span className="absolute right-4 top-3 text-[10px] font-black uppercase tracking-widest text-zinc-500">BLACK</span>
-                  <h3 className="mt-3 text-2xl font-black uppercase text-white">PLAN PREMIUM</h3>
+                  <span className="absolute right-4 top-3 text-[10px] font-black uppercase tracking-widest text-zinc-500">48 semanas</span>
+                  <h3 className="mt-3 text-2xl font-black uppercase text-white">Plan Premium</h3>
                 </div>
                 <div className="px-6 pb-6 pt-5">
                   <div className="mb-5 text-center">
                     <p className="text-2xl font-black text-white">12x de $44.990</p>
-                    <p className="mt-1 text-sm text-zinc-400">o $479.990 al contado</p>
+                    <p className="mt-1 text-sm text-zinc-400">o $449.990 al contado</p>
                   </div>
                   <ul>
-                    {["48 semanas", "Plan de entrenamiento completo", "Protocolo de entrenamiento", "Clase de bienvenida", "Materiales de apoyo", "Soporte individual", "(Bono) Videollamada cada 30 días"].map((item) => (
+                    {[
+                      "Todo lo del Plan Completo",
+                      "Acompañamiento personalizado",
+                      "Videollamada cada 30 días",
+                      "Seguimiento continuo del progreso",
+                      "Descuentos en Cuatrouno Suplementos",
+                    ].map((item) => (
                       <li key={item} className="flex items-center gap-3 border-b border-zinc-800 py-3 text-sm text-zinc-300">
-                        <span className="text-base text-zinc-500">○</span>{item}
+                        <svg className="flex-shrink-0" width="14" height="11" viewBox="0 0 12 9" fill="none" aria-hidden>
+                          <path d="M1 4L4.5 7.5L11 1" stroke="#6b7280" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                        {item}
                       </li>
                     ))}
                   </ul>
                   <a href={WA_LINK} target="_blank" rel="noopener noreferrer"
                     className="mt-6 flex w-full items-center justify-center gap-2 rounded border border-zinc-700 bg-[#0a0a0a] py-3.5 text-sm font-black uppercase tracking-wider text-white transition-colors hover:bg-zinc-900">
-                    <WaIcon />¡QUIERO SUSCRIBIRME!
+                    <WaIcon />EMPEZAR AHORA
                   </a>
                 </div>
               </div>
 
             </div>
 
+            {/* Beneficio pago al contado */}
+            <div className="mt-8 flex items-start gap-4 rounded-xl border border-[#C41A1A]/30 bg-[#1a0808] px-6 py-5">
+              <span className="mt-0.5 text-2xl">💥</span>
+              <div>
+                <p className="font-black uppercase text-white">Mejor precio pagando al contado</p>
+                <p className="mt-1 text-sm leading-relaxed text-zinc-400">
+                  Abonando el programa completo en un solo pago accedés a un precio especial.
+                  Más compromiso con el proceso, menos costo total — y los resultados llegan antes.
+                </p>
+              </div>
+            </div>
+
             {/* Payment logos */}
-            <div className="mt-12 flex flex-col items-center gap-6">
+            <div className="mt-10 flex flex-col items-center gap-6">
               <p className="text-sm font-bold uppercase tracking-widest text-zinc-400">Medios de pago aceptados</p>
               <div className="flex flex-wrap items-center justify-center gap-8">
                 {[
