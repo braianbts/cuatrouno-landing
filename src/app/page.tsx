@@ -617,7 +617,7 @@ export default function Home() {
               </div>
               <div className="relative h-[400px] overflow-hidden rounded-2xl">
                 <video
-                  src="/assets/compromiso-video.mov"
+                  src="/assets/compromiso-video.mp4"
                   autoPlay
                   muted
                   loop
