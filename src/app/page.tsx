@@ -224,7 +224,7 @@ export default function Home() {
                 </div>
 
                 {/* Foto principal */}
-                <div className="relative overflow-hidden rounded-2xl">
+                <div className="overflow-hidden rounded-2xl">
                   <Image
                     src="/assets/braian-diploma.jpg"
                     alt="Braian Barrientos con diploma y profesores"
@@ -232,16 +232,17 @@ export default function Home() {
                     height={600}
                     className="h-[520px] w-full object-cover object-center"
                   />
-                  {/* Card superpuesta — foto de hace 10 años */}
-                  <div className="absolute bottom-4 right-4 w-32 overflow-hidden rounded-xl border-2 border-[#C41A1A] shadow-2xl sm:w-40">
-                    <Image
-                      src="/assets/yohace10.jpg"
-                      alt="Braian Barrientos en el gym — 2016"
-                      width={483}
-                      height={800}
-                      className="w-full h-auto"
-                    />
-                  </div>
+                </div>
+
+                {/* Card flotando — sale del marco, posicionada relativa al wrapper de la columna */}
+                <div className="absolute bottom-0 right-0 z-10 w-28 translate-x-1/3 translate-y-1/4 overflow-hidden rounded-xl border-2 border-[#C41A1A] shadow-2xl sm:w-36">
+                  <Image
+                    src="/assets/yohace10.jpg"
+                    alt="Braian Barrientos en el gym — 2016"
+                    width={483}
+                    height={800}
+                    className="w-full h-auto"
+                  />
                 </div>
               </div>
 
