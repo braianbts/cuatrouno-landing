@@ -233,18 +233,14 @@ export default function Home() {
                     className="h-[520px] w-full object-cover object-center"
                   />
                   {/* Card superpuesta — foto de hace 10 años */}
-                  <div className="absolute bottom-4 right-4 w-36 overflow-hidden rounded-xl border-2 border-[#C41A1A] bg-[#0d0b09] shadow-2xl sm:w-44">
-                    <div className="relative h-36 sm:h-44">
+                  <div className="absolute bottom-4 right-4 w-36 overflow-hidden rounded-xl border-2 border-[#C41A1A] shadow-2xl sm:w-44">
+                    <div className="relative h-48 sm:h-56">
                       <Image
                         src="/assets/yohace10.jpg"
                         alt="Braian Barrientos en el gym — 2016"
                         fill
-                        className="object-cover object-top"
+                        className="object-cover object-bottom"
                       />
-                    </div>
-                    <div className="px-3 py-2 text-center">
-                      <p className="text-[10px] font-black uppercase tracking-widest text-[#C41A1A]">Hace 10 años</p>
-                      <p className="text-[10px] text-zinc-400">2016 · Mis inicios</p>
                     </div>
                   </div>
                 </div>
