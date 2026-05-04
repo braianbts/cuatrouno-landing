@@ -12,22 +12,43 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Cuatrouno Training Club | Asesorías Online 1:1",
   description:
-    "Landing oficial de Braian Barrientos para asesorías de entrenamiento online y planes personalizados.",
+    "Transformá tu cuerpo con un sistema claro: entrenamiento personalizado, guía de alimentación y seguimiento 1:1 con Braian Barrientos. Planes desde 12 semanas.",
   icons: [
-    {
-      rel: "icon",
-      url: "/favicon-dark.png",
-      media: "(prefers-color-scheme: dark)",
-    },
-    {
-      rel: "icon",
-      url: "/favicon-light.png",
-      media: "(prefers-color-scheme: light)",
-    },
+    { rel: "icon", url: "/favicon-dark.png",  media: "(prefers-color-scheme: dark)" },
+    { rel: "icon", url: "/favicon-light.png", media: "(prefers-color-scheme: light)" },
   ],
+  openGraph: {
+    type: "website",
+    url: siteUrl,
+    siteName: "Cuatrouno Training Club",
+    title: "Cuatrouno Training Club | Asesorías Online 1:1",
+    description:
+      "Transformá tu cuerpo con un sistema claro: entrenamiento personalizado, guía de alimentación y seguimiento 1:1 con Braian Barrientos. Planes desde 12 semanas.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1000,
+        height: 1000,
+        alt: "Cuatrouno Training Club — Braian Barrientos",
+      },
+    ],
+    locale: "es_AR",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cuatrouno Training Club | Asesorías Online 1:1",
+    description:
+      "Transformá tu cuerpo con un sistema claro: entrenamiento personalizado, guía de alimentación y seguimiento 1:1 con Braian Barrientos.",
+    images: ["/og-image.png"],
+  },
 };
 
 export default function RootLayout({
