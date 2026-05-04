@@ -587,7 +587,7 @@ export default function Home() {
                     RECOMENDADO
                   </span>
                   <div className="relative z-10 text-4xl leading-none">🏆</div>
-                  <p className="relative z-10 mt-1 text-[11px] font-semibold uppercase tracking-widest text-[#F0C040]/80">24 semanas</p>
+                  <p className="relative z-10 mt-1 text-[11px] font-semibold uppercase tracking-widest text-white/80">24 semanas</p>
                   <h3 className="relative z-10 mt-1 text-2xl font-black uppercase text-white drop-shadow-md">Plan Completo</h3>
                 </div>
                 <div className="px-6 pb-6 pt-5">
