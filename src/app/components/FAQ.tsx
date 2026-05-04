@@ -24,10 +24,6 @@ const faqs = [
     a: "Podemos adaptar el plan tanto para gimnasio como para entrenamiento en casa con o sin equipamiento. Lo definimos en la evaluación inicial.",
   },
   {
-    q: "¿Hacen asesoría presencial en Buenos Aires?",
-    a: "Sí, contamos con modalidad presencial, online e híbrida. Podés entrenar en el local de Cuatrouno Training Club o recibir tu plan de forma remota.",
-  },
-  {
     q: "¿Cómo resuelvo mis dudas durante el plan?",
     a: "Tenés acceso directo a soporte individual vía WhatsApp para resolver tus dudas en tiempo real y recibir feedback inmediato.",
   },

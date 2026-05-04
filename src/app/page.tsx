@@ -477,35 +477,24 @@ export default function Home() {
         </section>
 
         {/* ─── SISTEMA COMPLETO ─── */}
-        <section className="relative overflow-hidden bg-[#0d0b09] py-20">
+        <section className="relative overflow-hidden bg-[#0d0b09] py-14">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_50%,_rgba(196,26,26,0.08),_transparent)]" />
-          <Deco char="×" className="left-6 top-10 text-5xl opacity-30" />
-          <Deco char="+" className="right-8 bottom-10 text-6xl opacity-20" blur />
 
           <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <div className="mb-4 text-center">
-              <p className="text-sm font-bold uppercase tracking-widest text-[#C41A1A]">Lo que realmente funciona</p>
-            </div>
-            <h2 className="mb-4 text-center text-3xl font-black uppercase text-white sm:text-4xl lg:text-5xl">
-              NO ES SOLO ENTRENAR.
-              <br />
+            <h2 className="mb-8 text-center text-2xl font-black uppercase text-white sm:text-3xl">
+              NO ES SOLO ENTRENAR.{" "}
               <span className="text-[#D42020]">ES UN SISTEMA COMPLETO.</span>
             </h2>
-            <p className="mx-auto mb-12 max-w-2xl text-center text-base leading-relaxed text-zinc-400">
-              Cuando tenés entrenamiento, alimentación y seguimiento integrados en un solo lugar,
-              el progreso deja de ser una casualidad y se convierte en algo inevitable.
-            </p>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {[
-                { icon: "🏋️", title: "Entrenamiento estructurado", desc: "Rutinas diseñadas para tu nivel, tu objetivo y tu disponibilidad horaria." },
-                { icon: "🥗", title: "Alimentación organizada", desc: "Guía práctica sin dietas extremas. Comidas reales, sostenibles y fáciles de implementar." },
-                { icon: "📊", title: "Seguimiento real", desc: "Ajustes semana a semana para que nunca te estanques y siempre estés progresando." },
-                { icon: "🧠", title: "Estrategia de progreso", desc: "Un camino claro desde el día 1. Sabés dónde estás, adónde vas y cómo llegar." },
+                { icon: "🏋️", title: "Entrenamiento estructurado" },
+                { icon: "🥗", title: "Alimentación organizada" },
+                { icon: "📊", title: "Seguimiento real" },
+                { icon: "🧠", title: "Estrategia de progreso" },
               ].map((item) => (
-                <div key={item.title} className="flex flex-col gap-3 rounded-xl border border-[#2a1010] bg-[#111111] p-6">
-                  <span className="text-4xl">{item.icon}</span>
-                  <h3 className="font-black uppercase text-[#D42020]">{item.title}</h3>
-                  <p className="text-sm leading-relaxed text-zinc-400">{item.desc}</p>
+                <div key={item.title} className="flex items-center gap-3 rounded-xl border border-[#2a1010] bg-[#111111] px-5 py-4">
+                  <span className="text-3xl">{item.icon}</span>
+                  <p className="font-black uppercase leading-tight text-[#D42020] text-sm">{item.title}</p>
                 </div>
               ))}
             </div>
@@ -513,60 +502,28 @@ export default function Home() {
         </section>
 
         {/* ─── ALIMENTACIÓN INTELIGENTE ─── */}
-        <section className="relative overflow-hidden bg-[#0d0b09] py-20">
+        <section className="relative overflow-hidden bg-[#0d0b09] py-14">
           <Deco char="+" className="left-8 top-12 text-7xl opacity-20" blur />
           <Deco char="×" className="right-6 top-16 text-5xl opacity-25" />
-          <BrandWatermark text="NUTRICIÓN" className="left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[10vw]" />
 
-          <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-            <div className="grid items-center gap-12 lg:grid-cols-2">
-              <div>
-                <p className="mb-3 text-sm font-bold uppercase tracking-widest text-[#C41A1A]">Incluido en tu plan</p>
-                <h2 className="mb-4 text-3xl font-black uppercase leading-tight text-white sm:text-4xl">
-                  ALIMENTACIÓN INTELIGENTE,<br />
-                  <span className="text-[#D42020]">SIN COMPLICACIONES.</span>
-                </h2>
-                <p className="mb-8 text-base leading-relaxed text-zinc-400">
-                  No necesitás dietas extremas ni gastar de más. Solo un plan claro para saber
-                  qué comer, cómo organizarte y cómo sostenerlo en el tiempo.
-                </p>
-                <ul className="space-y-4">
-                  {[
-                    { t: "Guía de alimentos según tu objetivo", d: "Diferente si querés ganar músculo o perder grasa. Sin vueltas." },
-                    { t: "Ejemplos de comidas reales y sostenibles", d: "Comidas simples que podés preparar sin ser chef ni gastar una fortuna." },
-                    { t: "Checklist de compras para el super", d: "Ahorrás tiempo, dinero y evitás caer en alimentos que te sacan del camino." },
-                    { t: "Organización práctica para mantenerte", d: "Estrategia semanal para que la alimentación no sea un obstáculo más." },
-                  ].map((item) => (
-                    <li key={item.t} className="flex items-start gap-3">
-                      <div className="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-sm bg-[#C41A1A]">
-                        <svg width="12" height="9" viewBox="0 0 12 9" fill="none" aria-hidden>
-                          <path d="M1 4L4.5 7.5L11 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                      </div>
-                      <div>
-                        <p className="font-bold text-white">{item.t}</p>
-                        <p className="mt-0.5 text-sm text-zinc-400">{item.d}</p>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-8 text-base font-bold text-[#D42020]">
-                  → Vas a saber exactamente qué comer, cómo organizarte y cómo sostenerlo.
-                </p>
-              </div>
-              <div className="grid grid-cols-2 gap-3">
-                {[
-                  { emoji: "📋", label: "Guía de alimentos" },
-                  { emoji: "🍽️", label: "Ejemplos de comidas" },
-                  { emoji: "🛒", label: "Lista del super" },
-                  { emoji: "📅", label: "Plan semanal" },
-                ].map((item) => (
-                  <div key={item.label} className="flex flex-col items-center justify-center gap-3 rounded-xl border border-[#2a1010] bg-[#111111] py-8 text-center">
-                    <span className="text-5xl">{item.emoji}</span>
-                    <p className="text-xs font-bold uppercase tracking-wide text-zinc-300">{item.label}</p>
-                  </div>
-                ))}
-              </div>
+          <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <p className="mb-2 text-center text-sm font-bold uppercase tracking-widest text-[#C41A1A]">Incluido en tu plan</p>
+            <h2 className="mb-8 text-center text-2xl font-black uppercase text-white sm:text-3xl">
+              ALIMENTACIÓN INTELIGENTE,{" "}
+              <span className="text-[#D42020]">SIN COMPLICACIONES.</span>
+            </h2>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {[
+                { emoji: "📋", label: "Guía de alimentos según tu objetivo" },
+                { emoji: "🍽️", label: "Ejemplos de comidas reales y sostenibles" },
+                { emoji: "🛒", label: "Checklist de compras para el super" },
+                { emoji: "📅", label: "Organización práctica semanal" },
+              ].map((item) => (
+                <div key={item.label} className="flex items-center gap-4 rounded-xl border border-[#2a1010] bg-[#111111] px-5 py-4">
+                  <span className="text-3xl">{item.emoji}</span>
+                  <p className="font-bold text-white text-sm">{item.label}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
