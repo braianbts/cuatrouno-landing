@@ -234,8 +234,8 @@ export default function Home() {
                   />
                 </div>
 
-                {/* Card flotando — sale del marco, posicionada relativa al wrapper de la columna */}
-                <div className="absolute bottom-0 right-0 z-10 w-28 translate-x-1/3 translate-y-1/4 overflow-hidden rounded-xl border-2 border-[#C41A1A] shadow-2xl sm:w-36">
+                {/* Card flotando — mobile: dentro del marco / desktop: sale del marco */}
+                <div className="absolute bottom-4 right-4 z-10 w-28 overflow-hidden rounded-xl border-2 border-[#C41A1A] shadow-2xl sm:w-32 lg:bottom-0 lg:right-0 lg:w-36 lg:translate-x-1/3 lg:translate-y-1/4">
                   <Image
                     src="/assets/yohace10.jpg"
                     alt="Braian Barrientos en el gym — 2016"
