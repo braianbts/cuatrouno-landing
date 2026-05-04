@@ -214,13 +214,16 @@ export default function Home() {
 
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div className="grid items-center gap-12 lg:grid-cols-2">
+
+              {/* Columna izquierda — foto principal + card superpuesta */}
               <div className="relative">
                 <div aria-hidden className="pointer-events-none absolute inset-0 flex select-none flex-col justify-center overflow-hidden">
                   {["BRAIAN BARRIENTOS", "BRAIAN BARRIENTOS", "BRAIAN BARRIENTOS"].map((t, i) => (
                     <div key={i} className="whitespace-nowrap text-[6vw] font-black uppercase leading-tight text-white/[0.04]">{t}</div>
                   ))}
                 </div>
-                {/* Photo — sin franja roja */}
+
+                {/* Foto principal */}
                 <div className="relative overflow-hidden rounded-2xl">
                   <Image
                     src="/assets/braian-diploma.jpg"
@@ -229,27 +232,45 @@ export default function Home() {
                     height={600}
                     className="h-[520px] w-full object-cover object-center"
                   />
+                  {/* Card superpuesta — foto de hace 10 años */}
+                  <div className="absolute bottom-4 right-4 w-36 overflow-hidden rounded-xl border-2 border-[#C41A1A] bg-[#0d0b09] shadow-2xl sm:w-44">
+                    <div className="relative h-36 sm:h-44">
+                      <Image
+                        src="/assets/yohace10.jpg"
+                        alt="Braian Barrientos en el gym — 2016"
+                        fill
+                        className="object-cover object-top"
+                      />
+                    </div>
+                    <div className="px-3 py-2 text-center">
+                      <p className="text-[10px] font-black uppercase tracking-widest text-[#C41A1A]">Hace 10 años</p>
+                      <p className="text-[10px] text-zinc-400">2016 · Mis inicios</p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
+              {/* Columna derecha — texto */}
               <div className="space-y-4">
                 <h2 className="text-3xl font-black uppercase text-[#D42020] sm:text-4xl">
                   CONOCÉ A TU ENTRENADOR
                 </h2>
                 <InfoBox>
                   Hola, soy Braian Barrientos, especialista en entrenamiento personalizado y
-                  suplementación deportiva, con experiencia trabajando con principiantes,
-                  intermedios, fitness y atletas.
+                  suplementación deportiva, con más de 10 años en el rubro trabajando con
+                  principiantes, intermedios y avanzados.
                 </InfoBox>
                 <InfoBox>
-                  Seré tu entrenador en esta transformación. Voy a brindarte la mejor experiencia
-                  cuando se trata de cambiar tu físico. Juntos vamos a quemar grasa e incrementar
-                  masa muscular para que te sientas orgulloso de lo que ves en el espejo.
+                  Empecé en el gym en 2016, sin guía, sin método y cometiendo todos los errores
+                  posibles. Esa experiencia me dio algo que ningún libro enseña: entender de
+                  verdad lo que vive alguien que empieza desde cero. Hoy la transformo en
+                  resultados reales para mis alumnos.
                 </InfoBox>
                 <InfoBox>
-                  Con experiencia en entrenamiento físico y la gestión de Cuatrouno Training Club y
-                  Cuatrouno Suplementos, sé cómo optimizar tu tiempo y esfuerzo para que progreses
-                  semana a semana sin desperdiciar ni un día.
+                  A lo largo de los años fui certificándome, creando Cuatrouno Training Club y
+                  fundando Cuatrouno Suplementos. Todo ese recorrido lo pongo al servicio de
+                  tu progreso, para que vos no pierdas el tiempo que yo perdí y llegues más
+                  rápido a donde querés estar.
                 </InfoBox>
               </div>
             </div>
