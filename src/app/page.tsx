@@ -579,13 +579,16 @@ export default function Home() {
               </div>
 
               {/* PLAN COMPLETO — destacado */}
-              <div className="overflow-hidden rounded-xl bg-[#111111] shadow-2xl md:-mt-6">
-                <div className="relative bg-[#C41A1A] px-6 pb-6 pt-4 text-center">
-                  <span className="absolute right-4 top-3 rounded bg-white/20 px-2 py-0.5 text-[10px] font-black uppercase tracking-widest text-white">
+              <div className="overflow-hidden rounded-xl bg-[#111111] shadow-2xl ring-2 ring-[#D4A843]/60 md:-mt-6">
+                <div className="relative px-6 pb-6 pt-5 text-center bg-[linear-gradient(135deg,#3D2900_0%,#A07010_25%,#E8B830_50%,#A07010_75%,#3D2900_100%)]">
+                  {/* Shimmer line */}
+                  <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(105deg,transparent_35%,rgba(255,255,255,0.12)_50%,transparent_65%)]" />
+                  <span className="absolute right-3 top-3 z-10 rounded bg-black/50 px-2 py-0.5 text-[10px] font-black uppercase tracking-widest text-[#F0C040]">
                     RECOMENDADO
                   </span>
-                  <p className="mt-1 text-[11px] font-semibold uppercase tracking-widest text-white/70">24 semanas</p>
-                  <h3 className="mt-1 text-2xl font-black uppercase text-white">Plan Completo</h3>
+                  <div className="relative z-10 text-4xl leading-none">🏆</div>
+                  <p className="relative z-10 mt-1 text-[11px] font-semibold uppercase tracking-widest text-[#F0C040]/80">24 semanas</p>
+                  <h3 className="relative z-10 mt-1 text-2xl font-black uppercase text-white drop-shadow-md">Plan Completo</h3>
                 </div>
                 <div className="px-6 pb-6 pt-5">
                   <div className="mb-5 text-center">
@@ -602,17 +605,17 @@ export default function Home() {
                     ].map((item) => (
                       <li key={item} className="flex items-center gap-3 border-b border-zinc-800 py-3 text-sm text-zinc-300">
                         <svg className="flex-shrink-0" width="14" height="11" viewBox="0 0 12 9" fill="none" aria-hidden>
-                          <path d="M1 4L4.5 7.5L11 1" stroke="#C41A1A" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                          <path d="M1 4L4.5 7.5L11 1" stroke="#D4A843" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                         {item}
                       </li>
                     ))}
                   </ul>
                   <a href={WA_LINK} target="_blank" rel="noopener noreferrer"
-                    className="mt-6 flex w-full items-center justify-center gap-2 rounded bg-[#25D366] py-3.5 text-sm font-black uppercase tracking-wider text-white transition-colors hover:bg-[#1ebe5d]">
-                    <WaIcon />EMPEZAR AHORA
+                    className="mt-6 flex w-full items-center justify-center gap-2 rounded bg-[linear-gradient(135deg,#A07010,#E8B830,#A07010)] py-3.5 text-sm font-black uppercase tracking-wider text-black transition-opacity hover:opacity-90">
+                    EMPEZAR AHORA
                   </a>
-                  <p className="mt-2 text-center text-xs font-bold text-[#D42020]">¡El más elegido!</p>
+                  <p className="mt-2 text-center text-xs font-bold text-[#D4A843]">¡El más elegido!</p>
                 </div>
               </div>
 
