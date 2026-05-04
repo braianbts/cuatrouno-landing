@@ -553,7 +553,7 @@ export default function Home() {
                 </div>
                 <div className="px-6 pb-6 pt-5">
                   <div className="mb-5 text-center">
-                    <p className="text-2xl font-black text-white">12x de $12.990</p>
+                    <p className="text-2xl font-black text-white">3x de $43.330</p>
                     <p className="mt-1 text-sm text-zinc-400">o $129.990 al contado</p>
                   </div>
                   <ul>
@@ -589,7 +589,7 @@ export default function Home() {
                 </div>
                 <div className="px-6 pb-6 pt-5">
                   <div className="mb-5 text-center">
-                    <p className="text-2xl font-black text-white">12x de $24.990</p>
+                    <p className="text-2xl font-black text-white">3x de $83.330</p>
                     <p className="mt-1 text-sm text-zinc-400">o $249.990 al contado</p>
                   </div>
                   <ul>
@@ -624,7 +624,7 @@ export default function Home() {
                 </div>
                 <div className="px-6 pb-6 pt-5">
                   <div className="mb-5 text-center">
-                    <p className="text-2xl font-black text-white">12x de $44.990</p>
+                    <p className="text-2xl font-black text-white">3x de $149.997</p>
                     <p className="mt-1 text-sm text-zinc-400">o $449.990 al contado</p>
                   </div>
                   <ul>
