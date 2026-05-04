@@ -145,7 +145,7 @@ export default function Home() {
                   <span className="text-2xl">💪</span>
                   <div>
                     <p className="text-[10px] uppercase tracking-wider text-zinc-400">Alumnos activos</p>
-                    <p className="text-xl font-black text-white">50+</p>
+                    <p className="text-xl font-black text-white">30+</p>
                   </div>
                 </div>
                 <div className="absolute right-0 top-8 translate-x-4 rounded-xl border border-[#3a1010] bg-[#1a1010]/95 p-4 shadow-xl backdrop-blur">
