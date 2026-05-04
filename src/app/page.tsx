@@ -62,7 +62,7 @@ function BrandWatermark({ text, className = "" }: { text: string; className?: st
 
 export default function Home() {
   return (
-    <div className="overflow-x-hidden bg-[#0d0b09] text-white">
+    <div className="overflow-x-clip bg-[#0d0b09] text-white">
 
       {/* ─── NAVBAR ─── */}
       <Navbar />
