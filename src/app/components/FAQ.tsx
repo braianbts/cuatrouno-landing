@@ -37,23 +37,26 @@ export default function FAQSection() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section className="bg-[#0d0b09] py-20">
-      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-        <h2 className="mb-10 text-center text-4xl font-black uppercase text-[#D42020] sm:text-5xl">
-          PREGUNTAS FRECUENTES
+    <section className="bg-[#080706] py-20">
+      <div className="mx-auto max-w-3xl px-6 sm:px-8 lg:px-10">
+        <h2 className="mb-10 text-3xl font-black uppercase leading-tight sm:text-4xl lg:text-5xl">
+          PREGUNTAS<br />
+          <span className="text-[#C41A1A]">FRECUENTES</span>
         </h2>
-        <div className="space-y-2">
+        <div className="space-y-1">
           {faqs.map((faq, i) => (
             <div key={i}>
               <button
                 onClick={() => setOpen(open === i ? null : i)}
-                className="flex w-full cursor-pointer items-center gap-4 bg-[#C41A1A] px-5 py-4 text-left font-bold uppercase text-white transition-colors hover:bg-[#D42020]"
+                className="flex w-full cursor-pointer items-center justify-between gap-4 border border-[#1a1a1a] bg-[#0e0d0c] px-6 py-4 text-left transition-colors hover:bg-[#141312]"
               >
-                <span className="text-xl font-black leading-none">{open === i ? "−" : "+"}</span>
-                <span className="text-sm leading-tight">{faq.q}</span>
+                <span className="text-[14px] font-bold text-white leading-tight">{faq.q}</span>
+                <span className="flex-shrink-0 text-xl font-black leading-none text-[#C41A1A]">
+                  {open === i ? "−" : "+"}
+                </span>
               </button>
               {open === i && (
-                <div className="bg-[#1a1410] px-5 py-4 text-sm leading-relaxed text-zinc-300">
+                <div className="border border-t-0 border-[#1a1a1a] bg-[#0a0908] px-6 py-4 text-[14px] leading-relaxed text-zinc-400">
                   {faq.a}
                 </div>
               )}
