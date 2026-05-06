@@ -137,7 +137,7 @@ export default function Home() {
             </p>
             <h1 className="text-4xl font-black uppercase leading-[0.9] tracking-tight sm:text-5xl lg:text-[4vw]">
               TRANSFORMA<br />
-              TU CUERPO,<br />
+              TU CUERPO AAA,<br />
               <span className="text-[#C41A1A]">ALCANZÁ TU<br />MEJOR VERSIÓN.</span>
             </h1>
             <p className="mt-5 max-w-sm text-[14px] leading-relaxed text-zinc-300">
