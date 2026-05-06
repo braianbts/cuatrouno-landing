@@ -673,6 +673,7 @@ export default function Home() {
                       "Checklist de compras y comidas",
                       "Soporte individual por WhatsApp",
                       "Descuentos en Cuatrouno Suplementos",
+                      "Indumentaria oficial Cuatrouno Training Club"
                     ].map((item) => (
                       <li key={item} className="flex items-center gap-3 border-b border-[#1a1a1a] py-3 text-[13px] text-zinc-400">
                         <svg className="flex-shrink-0" width="12" height="10" viewBox="0 0 12 9" fill="none" aria-hidden>
@@ -709,6 +710,7 @@ export default function Home() {
                     {[
                       "Todo lo del Plan Completo",
                       "KIT inicial suplementación básica ¡GRATIS!",
+                      "Indumentaria oficial Cuatrouno Training Club",
                       "Acompañamiento personalizado",
                       "Videollamada cada 30 días",
                       "Seguimiento continuo del progreso",
