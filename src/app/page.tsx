@@ -19,7 +19,7 @@ const testimonials = [
     initials: "LM",
     color: "#C41A1A",
     time: "21:14",
-    text: "En 3 meses con Braian logré resultados que en 2 años no había conseguido sola. El seguimiento es increíble, siempre está disponible para resolver dudas. Lo recomiendo 100%.",
+    text: "En 3 meses con Braian tuve más cambios que en años entrenando sola. Lo mejor es que no te deja tirada nunca, le escribís y te responde. Se nota que le interesa de verdad.",
   },
   {
     name: "Rodrigo Palacios",
@@ -27,7 +27,7 @@ const testimonials = [
     initials: "RP",
     color: "#1a6bc4",
     time: "20:48",
-    text: "Empecé desde cero sin ninguna experiencia. Braian me armó un plan perfecto para mis tiempos y mi realidad. Ya llevo 4 meses y los cambios son brutales. ¡Gracias profe!",
+    text: "Arranqué literalmente de cero y me daba hasta vergüenza entrar al gym. Braian me armó algo re llevadero y hoy ya estoy muchísimo más fuerte y marcado. Un antes y un después.",
   },
   {
     name: "Carla González",
@@ -35,7 +35,7 @@ const testimonials = [
     initials: "CG",
     color: "#1ac47a",
     time: "19:33",
-    text: "La guía de alimentación que incluye el plan es oro puro. Nunca había entendido tan bien cómo comer para mis objetivos. El soporte por WhatsApp es rapidísimo.",
+    text: "La parte de alimentación me cambió la cabeza. Antes no entendía nada y vivía haciendo dietas falopa. Ahora como bien, entreno mejor y encima disfruto el proceso.",
   },
   {
     name: "Matías Fernández",
@@ -43,7 +43,7 @@ const testimonials = [
     initials: "MF",
     color: "#c4a41a",
     time: "22:05",
-    text: "Llevaba más de un año estancado. Desde que empecé con Braian rompí todos mis límites. La videollamada inicial fue clave para entender qué estaba haciendo mal. Vale cada peso.",
+    text: "Estaba re estancado hace más de un año. La videollamada inicial con Braian me abrió los ojos en un montón de cosas que hacía mal. En pocas semanas ya empecé a notar cambios.",
   },
   {
     name: "Valentina Ríos",
@@ -51,7 +51,7 @@ const testimonials = [
     initials: "VR",
     color: "#c41a7a",
     time: "18:21",
-    text: "El plan se adapta completamente a mis posibilidades. Entreno desde casa con poco equipamiento y aún así los resultados son reales. Súper agradecida con Braian.",
+    text: "Entreno desde casa y siempre se me complicó ver cambios. Me adaptó todo a lo que tenía y aun así cambió muchísimo mi físico. Súper conforme con el acompañamiento.",
   },
   {
     name: "Sebastián Herrera",
@@ -59,7 +59,7 @@ const testimonials = [
     initials: "SH",
     color: "#7a1ac4",
     time: "09:47",
-    text: "Vine con el objetivo de bajar de peso y terminé ganando músculo también. La combinación de entrenamiento y guía de alimentación que da Braian es brutal. Sin dudas el mejor.",
+    text: "Entré queriendo bajar unos kilos y terminé mejorando el físico completo. Lo que más destaco es que no te vende humo ni cosas imposibles. Todo es serio y sostenible.",
   },
   {
     name: "Florencia Aguilar",
@@ -67,7 +67,7 @@ const testimonials = [
     initials: "FA",
     color: "#c47a1a",
     time: "17:02",
-    text: "El soporte por WhatsApp hace toda la diferencia. Cualquier duda que tengo me la resuelve el mismo día. Llevo 6 meses y ya no me reconozco al mirarme en el espejo. 100% recomendado.",
+    text: "El seguimiento por WhatsApp hace toda la diferencia. Sentís que realmente alguien está atrás tuyo ayudándote a progresar o corriendote continuamente (es lo que me hacia falta). Hoy me veo al espejo y estoy super conforme con mi cambio.",
   },
 ];
 
@@ -78,100 +78,137 @@ export default function Home() {
       <main>
 
         {/* ─── HERO ─── */}
-        <section
-          id="inicio"
-          className="relative flex h-screen min-h-[650px] items-center overflow-hidden"
-          style={{
-            backgroundImage: "url('/assets/braian-hero.jpg')",
-            backgroundSize: "auto 112%",
-            backgroundPosition: "82% 48%",
-            backgroundRepeat: "no-repeat",
-          }}
+<section
+  id="inicio"
+  className="relative flex h-screen min-h-[650px] items-center overflow-hidden bg-[#080706]"
+>
+  {/* Imagen hero con degradé/máscara lateral */}
+  <div
+    className="absolute inset-y-0 right-0 w-[50%] pointer-events-none"
+    style={{
+      backgroundImage: "url('/assets/braian-hero.jpg')",
+      backgroundSize: "cover",
+      backgroundPosition: "center center",
+      backgroundRepeat: "no-repeat",
+      WebkitMaskImage:
+        "linear-gradient(to right, transparent 0%, black 16%, black 76%, transparent 100%)",
+      maskImage:
+        "linear-gradient(to right, transparent 0%, black 16%, black 76%, transparent 100%)",
+    }}
+  />
+
+  {/* Oscurece imagen */}
+  <div className="absolute inset-0 bg-black/35 pointer-events-none" />
+
+  {/* Integración fuerte izquierda */}
+  <div
+    className="absolute inset-0 pointer-events-none"
+    style={{
+      background:
+        "linear-gradient(to right, #080706 0%, #080706 35%, rgba(8,7,6,0.92) 48%, rgba(8,7,6,0.45) 62%, transparent 78%)",
+    }}
+  />
+
+  {/* Integración derecha */}
+  <div
+    className="absolute inset-y-0 right-0 w-[38%] pointer-events-none"
+    style={{
+      background:
+        "linear-gradient(to left, #080706 0%, rgba(8,7,6,0.85) 25%, rgba(8,7,6,0.35) 58%, transparent 100%)",
+    }}
+  />
+
+  {/* Borde inferior */}
+  <div
+    className="absolute inset-0 pointer-events-none"
+    style={{
+      background:
+        "linear-gradient(to top, #080706 0%, rgba(8,7,6,0.75) 12%, transparent 32%)",
+    }}
+  />
+
+  {/* Borde superior */}
+  <div
+    className="absolute inset-0 pointer-events-none"
+    style={{
+      background:
+        "linear-gradient(to bottom, rgba(8,7,6,0.85) 0%, transparent 22%)",
+    }}
+  />
+
+  {/* Dot pattern texture */}
+  <div
+    className="absolute inset-0 pointer-events-none"
+    style={{
+      backgroundImage:
+        "radial-gradient(circle, rgba(255,255,255,0.055) 1px, transparent 1px)",
+      backgroundSize: "22px 22px",
+    }}
+  />
+
+  {/* Red glow — left */}
+  <div
+    className="absolute inset-0 pointer-events-none"
+    style={{
+      background:
+        "radial-gradient(ellipse 55% 75% at 0% 55%, rgba(196,26,26,0.36), transparent 58%)",
+    }}
+  />
+
+  <div className="relative z-10 w-full px-6 sm:px-12 lg:px-20">
+    <div className="w-full lg:max-w-[46%]">
+      <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.35em] text-[#C41A1A]">
+        Asesoría Personalizada y Deportiva
+      </p>
+
+      <h1 className="text-4xl font-black uppercase leading-[0.9] tracking-tight sm:text-5xl lg:text-[4vw]">
+        TRANSFORMA<br />
+        TU CUERPO,<br />
+        <span className="text-[#C41A1A]">
+          ALCANZÁ TU<br />MEJOR VERSIÓN.
+        </span>
+      </h1>
+
+      <p className="mt-5 max-w-sm text-[14px] leading-relaxed text-zinc-300">
+        Plan individualizado de entrenamiento para ganar masa muscular, mejorar tu composición corporal y llegar a donde querés estar.
+      </p>
+
+      <div className="mt-6">
+        <a
+          href={WA_LINK}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-3 rounded bg-[#25D366] px-9 py-4 text-sm font-black uppercase tracking-widest text-white transition-colors hover:bg-[#1ebe5d]"
         >
-          {/* Base dark */}
-          <div className="absolute inset-0 bg-black/25" />
+          <WaIcon size={20} />
+          ¡QUIERO EMPEZAR AHORA!
+        </a>
+      </div>
 
-          {/* Dot pattern texture */}
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.055) 1px, transparent 1px)",
-              backgroundSize: "22px 22px",
-            }}
-          />
+      <p className="mt-4 text-[11px] text-zinc-500">
+        Desde{" "}
+        <span className="line-through">$449.990</span>{" "}
+        por solo{" "}
+        <strong className="text-white">3x de $43.330</strong>{" "}
+        o{" "}
+        <strong className="text-white">$129.990</strong>{" "}
+        al contado
+      </p>
+    </div>
+  </div>
 
-          {/* Red glow — left */}
-          <div
-            className="absolute inset-0"
-            style={{ background: "radial-gradient(ellipse 55% 75% at 0% 55%, rgba(196,26,26,0.48), transparent 58%)" }}
-          />
-
-          {/* Gradientes laterales — borde izquierdo de la imagen */}
-          <div
-            className="absolute inset-0"
-            style={{ background: "linear-gradient(to right, rgba(8,7,6,1) 0%, rgba(8,7,6,1) 38%, rgba(8,7,6,0.85) 50%, rgba(8,7,6,0.3) 62%, transparent 72%)" }}
-          />
-
-          {/* Borde derecho */}
-          <div
-            className="absolute inset-0"
-            style={{ background: "linear-gradient(to left, rgba(8,7,6,1) 0%, rgba(8,7,6,0.85) 4%, rgba(8,7,6,0.3) 13%, transparent 22%)" }}
-          />
-
-          {/* Borde inferior */}
-          <div
-            className="absolute inset-0"
-            style={{ background: "linear-gradient(to top, rgba(8,7,6,1) 0%, rgba(8,7,6,0.7) 10%, transparent 26%)" }}
-          />
-
-          {/* Borde superior */}
-          <div
-            className="absolute inset-0"
-            style={{ background: "linear-gradient(to bottom, rgba(8,7,6,0.75) 0%, transparent 20%)" }}
-          />
-
-          <div className="relative z-10 w-full px-6 sm:px-12 lg:px-20">
-            <div className="w-full lg:max-w-[46%]">
-            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.35em] text-[#C41A1A]">
-              Asesoría Personalizada y Deportiva
-            </p>
-            <h1 className="text-4xl font-black uppercase leading-[0.9] tracking-tight sm:text-5xl lg:text-[4vw]">
-              TRANSFORMA<br />
-              TU CUERPO AAA,<br />
-              <span className="text-[#C41A1A]">ALCANZÁ TU<br />MEJOR VERSIÓN.</span>
-            </h1>
-            <p className="mt-5 max-w-sm text-[14px] leading-relaxed text-zinc-300">
-              Plan individualizado de entrenamiento para ganar masa muscular, mejorar tu composición corporal y llegar a donde querés estar.
-            </p>
-            <div className="mt-6">
-              <a
-                href={WA_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 rounded bg-[#25D366] px-9 py-4 text-sm font-black uppercase tracking-widest text-white transition-colors hover:bg-[#1ebe5d]"
-              >
-                <WaIcon size={20} />
-                ¡QUIERO EMPEZAR AHORA!
-              </a>
-            </div>
-            <p className="mt-4 text-[11px] text-zinc-500">
-              Desde{" "}
-              <span className="line-through">$449.990</span>{" "}
-              por solo{" "}
-              <strong className="text-white">3x de $43.330</strong>{" "}
-              o{" "}
-              <strong className="text-white">$129.990</strong>{" "}
-              al contado
-            </p>
-          </div>
-
-          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-30">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden>
-              <path d="M6 9l6 6 6-6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </div>
-          </div>
-        </section>
+  <div className="absolute bottom-10 left-1/2 z-10 -translate-x-1/2 animate-bounce opacity-30">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path
+        d="M6 9l6 6 6-6"
+        stroke="white"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  </div>
+</section>
 
         {/* ─── ABOUT BRAIAN ─── */}
         <section className="relative overflow-hidden bg-[#080706]">
@@ -203,13 +240,13 @@ export default function Home() {
 
               <div className="mt-7 space-y-5 text-[15px] leading-relaxed text-zinc-400">
                 <p>
-                  Hola, soy{" "}
-                  <strong className="text-white">Braian Barrientos</strong>, especialista en entrenamiento personalizado y suplementación deportiva, con{" "}
-                  <strong className="text-white">más de 10 años en el rubro</strong>{" "}
-                  trabajando con principiantes, intermedios y avanzados.
-                </p>
+  Hola, soy{" "}
+  <strong className="text-white">Braian Barrientos</strong>, especialista en entrenamiento personalizado y suplementación deportiva, con{" "}
+  <strong className="text-white">10 años en el rubro</strong>{" "}
+  ayudando a personas a transformar su físico, mejorar su rendimiento y construir hábitos sostenibles.
+</p>
                 <p>
-                  Empecé en el gym cometiendo todos los errores posibles. Esa experiencia me dio algo que ningún libro enseña:{" "}
+                  Empecé en el gym en 2016 cometiendo todos los errores posibles. Esa experiencia me dio algo que ningún libro enseña:{" "}
                   <strong className="text-white">entender de verdad lo que vive alguien que empieza desde cero</strong>. Hoy la transformo en resultados reales para mis alumnos.
                 </p>
                 <p>
@@ -222,7 +259,7 @@ export default function Home() {
 
               <div className="mt-10 grid grid-cols-3 gap-4 border-t border-[#1f1f1f] pt-8">
                 {[
-                  { val: "10+", label: "Años de exp." },
+                  { val: "10", label: "Años de exp." },
                   { val: "30+", label: "Alumnos activos" },
                   { val: "98%", label: "Satisfacción" },
                 ].map((s) => (
@@ -472,7 +509,7 @@ export default function Home() {
                 </h2>
                 <div className="space-y-4 text-[14px] leading-relaxed text-zinc-400">
                   <p>Tengo una tienda física especializada en suplementación deportiva. Me permite asesorarte con honestidad sobre qué tomar, cuándo y en qué dosis —{" "}
-                    <strong className="text-white">sin humo, sin comisiones, sin intereses ocultos.</strong>
+                    <strong className="text-white">sin humo, sin comisiones, sin nada raro. El objetivo principal es ayudarte.</strong>
                   </p>
                   <p>Combinando tu plan de entrenamiento con la suplementación correcta podés{" "}
                     <strong className="text-white">acelerar significativamente tus resultados</strong>.
@@ -635,6 +672,7 @@ export default function Home() {
                       "Guía de alimentación práctica",
                       "Checklist de compras y comidas",
                       "Soporte individual por WhatsApp",
+                      "Descuentos en Cuatrouno Suplementos",
                     ].map((item) => (
                       <li key={item} className="flex items-center gap-3 border-b border-[#1a1a1a] py-3 text-[13px] text-zinc-400">
                         <svg className="flex-shrink-0" width="12" height="10" viewBox="0 0 12 9" fill="none" aria-hidden>
@@ -670,6 +708,7 @@ export default function Home() {
                   <ul>
                     {[
                       "Todo lo del Plan Completo",
+                      "KIT inicial suplementación básica ¡GRATIS!",
                       "Acompañamiento personalizado",
                       "Videollamada cada 30 días",
                       "Seguimiento continuo del progreso",
