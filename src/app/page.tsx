@@ -233,10 +233,11 @@ export default function Home() {
                 style={{ background: "radial-gradient(ellipse 90% 60% at 100% 40%, rgba(196,26,26,0.12), transparent)" }}
               />
 
-              <h2 className="text-3xl font-black uppercase leading-tight sm:text-4xl xl:text-[2.8rem]">
+             <h2 className="text-3xl font-black uppercase leading-tight sm:text-4xl xl:text-[2.8rem]">
   EMPECÉ EN EL GYM EN 2016 SIN GUÍA,{" "}
-  <span className="text-white">
-    ESTRUCTURA Y RESULTADOS
+  <span className="text-[#C41A1A]">
+    HOY AYUDO A PERSONAS A ENTRENAR CON{" "}
+    <span className="text-white">ESTRUCTURA Y RESULTADOS.</span>
   </span>
 </h2>
 
