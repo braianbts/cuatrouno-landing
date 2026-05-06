@@ -235,7 +235,7 @@ export default function Home() {
 
               <h2 className="text-3xl font-black uppercase leading-tight sm:text-4xl xl:text-[2.8rem]">
                 EMPECÉ EN EL GYM EN 2016 SIN GUÍA,{" "}
-                <span className="text-[#C41A1A]">HOY TRANSFORMO LA VIDA DE MIS ALUMNOS.</span>
+                <span className="text-[#C41A1A]">HOY AYUDO A PERSONAS A ENTRENAR CON ESTRUCTURA Y RESULTADOS.</span>
               </h2>
 
               <div className="mt-7 space-y-5 text-[15px] leading-relaxed text-zinc-400">
