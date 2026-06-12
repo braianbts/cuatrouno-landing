@@ -84,7 +84,7 @@ export default function AppSection() {
                 alt="App Cuatrouno — plan del día desplegado"
                 width={968}
                 height={2000}
-                className="absolute right-[-3%] top-[-4%] w-[56%]"
+                className="absolute right-[-3%] top-[-4%] w-[63%]"
                 style={{ transform: "rotate(6deg)", zIndex: 1, filter: "drop-shadow(0 22px 32px rgba(0,0,0,.55))", height: "auto" }}
               />
               {/* front: rutina del día */}
@@ -94,7 +94,7 @@ export default function AppSection() {
                 width={794}
                 height={1824}
                 priority
-                className="relative ml-[2%] w-[62%]"
+                className="relative ml-[2%] w-[70%]"
                 style={{ transform: "rotate(-4deg)", zIndex: 2, filter: "drop-shadow(0 26px 38px rgba(0,0,0,.6))", height: "auto" }}
               />
             </div>
