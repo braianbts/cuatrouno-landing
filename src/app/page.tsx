@@ -2,6 +2,7 @@ import Image from "next/image";
 import Navbar from "./components/Navbar";
 import FAQSection from "./components/FAQ";
 import Pricing from "./components/Pricing";
+import AppSection from "./components/AppSection";
 import ScrollFx from "./components/ScrollFx";
 import { WaIcon, IgIcon, WA_LINK } from "./components/icons";
 
@@ -329,6 +330,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* ─── APP ─── */}
+        <AppSection />
 
         {/* ─── PRECIOS ─── */}
         <section id="planes" className="relative overflow-hidden bg-[#050404] py-20 sm:py-24">
