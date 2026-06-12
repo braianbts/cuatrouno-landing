@@ -31,7 +31,7 @@ const benefits = [
   { n: "03", title: "Prescripción de entrenamiento individual", text: "Sin rutinas genéricas. Recibí un entrenamiento específico para tu objetivo." },
   { n: "04", title: "Soporte individual por WhatsApp", text: "Acceso directo para resolver tus dudas en tiempo real y recibir feedback inmediato." },
   { n: "05", title: "Guía de alimentación complementaria", text: "Orientación nutricional adaptada a tus objetivos y rutina, incluida en tu plan." },
-  { n: "06", title: "Materiales de apoyo en PDF", text: "Todo el material para maximizar tus resultados a lo largo del proceso." },
+  { n: "06", title: "App personalizada con tu plan", text: "Acceso a tu app con rutina, alimentación, cardio y seguimiento. Todo organizado en tu celular, siempre disponible." },
 ];
 
 const forwhom = [
