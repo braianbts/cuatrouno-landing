@@ -5,6 +5,10 @@ import Pricing from "./components/Pricing";
 import AppSection from "./components/AppSection";
 import ScrollFx from "./components/ScrollFx";
 import { WaIcon, IgIcon, WA_LINK } from "./components/icons";
+import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
+import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
+import { TracingBeam } from "@/components/ui/tracing-beam";
+import { BackgroundBeams } from "@/components/ui/background-beams";
 
 const testimonials = [
   { name: "Lucía Martínez", location: "Caballito, CABA", initials: "LM", color: "#C41A1A", time: "21:14", text: "En 3 meses con Braian tuve más cambios que en años entrenando sola. Le escribís y te responde. Se nota que le interesa de verdad." },
@@ -15,6 +19,12 @@ const testimonials = [
   { name: "Sebastián Herrera", location: "Benavídez, Zona Norte", initials: "SH", color: "#7a1ac4", time: "09:47", text: "Entré queriendo bajar unos kilos y terminé mejorando el físico completo. No te vende humo ni cosas imposibles. Todo serio y sostenible." },
   { name: "Florencia Aguilar", location: "Palermo, CABA", initials: "FA", color: "#c47a1a", time: "17:02", text: "El seguimiento por WhatsApp hace toda la diferencia. Sentís que alguien está atrás tuyo ayudándote. Hoy me veo al espejo y estoy súper conforme." },
 ];
+
+const movingTestimonials = testimonials.map(t => ({
+  quote: t.text,
+  name: t.name,
+  title: t.location,
+}));
 
 const steps = [
   { num: "1", text: "Elegí el plan ideal para vos", img: "/assets/cf-1.jpg" },
@@ -121,6 +131,8 @@ export default function Home() {
             </div>
           </div>
 
+          <BackgroundBeams className="absolute inset-0 z-[1] opacity-30" />
+
           <div className="absolute bottom-5 left-1/2 z-10 hidden -translate-x-1/2 animate-bounce opacity-30 lg:block">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
           </div>
@@ -183,72 +195,66 @@ export default function Home() {
             <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.3em] text-[#C41A1A]">Resultados reales</p>
             <h2 className="font-display text-3xl font-black uppercase leading-tight sm:text-5xl lg:text-6xl">Lo que dicen<br />mis alumnos</h2>
           </div>
-          <div className="no-bar flex snap-x snap-mandatory gap-4 overflow-x-auto pl-6 pr-6 pb-4 sm:pl-12 sm:pr-12 lg:pl-24 lg:pr-24">
-            {testimonials.map((t, i) => (
-              <div key={i} className="w-[280px] flex-shrink-0 snap-start overflow-hidden rounded-2xl border border-white/8 bg-[#0e0d0c] sm:w-[300px]">
-                <div className="flex items-center gap-3 border-b border-white/8 bg-[#0a0908] px-4 py-3">
-                  <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full text-xs font-black text-white" style={{ background: t.color }}>{t.initials}</div>
-                  <div>
-                    <p className="text-sm font-bold leading-tight text-white">{t.name}</p>
-                    <p className="text-[10px] text-zinc-500">{t.location}</p>
-                  </div>
-                  <svg className="ml-auto text-[#25D366]" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" /></svg>
-                </div>
-                <div className="px-4 py-5">
-                  <div className="rounded-2xl rounded-tl-sm bg-[#1a1a1a] px-4 py-4">
-                    <p className="text-[13px] leading-relaxed text-zinc-200">{t.text}</p>
-                    <p className="mt-2 flex items-center justify-end gap-1 text-[10px] text-zinc-500">
-                      {t.time}
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#34b7f1" strokeWidth="2"><path d="M1.5 12.5 6 17 14.5 7" /><path d="M9 16.5 13 12" /></svg>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <InfiniteMovingCards
+            items={movingTestimonials}
+            direction="left"
+            speed="slow"
+            pauseOnHover
+          />
         </section>
 
         {/* ─── CÓMO FUNCIONA ─── */}
         <section id="funciona" className="relative overflow-hidden bg-[#080706] py-16 sm:py-20">
           <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(ellipse 80% 60% at 50% 40%, rgba(140,10,10,.30) 0%, rgba(90,10,10,.12) 55%, rgba(8,7,6,1) 85%)" }} />
-          <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-12 lg:px-20">
+          <div className="relative z-10 mx-auto max-w-4xl px-6 sm:px-12 lg:px-20">
             <div className="reveal mb-10 text-center">
               <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.3em] text-[#C41A1A]">El proceso</p>
               <h2 className="font-display text-3xl font-black uppercase leading-tight sm:text-4xl lg:text-5xl">¿Cómo funciona?</h2>
               <p className="mx-auto mt-3 max-w-md text-[14px] text-zinc-400">Seis pasos simples desde que entrás hasta que arrancás a entrenar con tu plan en la mano.</p>
             </div>
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-              {steps.map((s, i) => (
-                <div key={s.num} className={`reveal d${(i % 3) + 1} group relative aspect-[4/5] overflow-hidden rounded-xl sm:aspect-[4/3]`}>
-                  <Image src={s.img} alt="" fill className="scale-105 object-cover transition-transform duration-500 group-hover:scale-110" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/10" />
-                  <div className="absolute left-3 top-3 flex h-8 w-8 items-center justify-center rounded-full border border-[#C41A1A]/40 bg-black/60 text-sm font-black text-[#E8413F] backdrop-blur">{s.num}</div>
-                  <div className="absolute bottom-0 left-0 right-0 p-3.5">
-                    <p className="text-[10px] font-black uppercase tracking-wider text-[#E8413F]">Paso {s.num}</p>
-                    <p className="mt-0.5 text-[13px] font-bold leading-tight text-white">{s.text}</p>
+            <TracingBeam className="px-6">
+              <div className="space-y-10">
+                {steps.map((s, i) => (
+                  <div key={s.num} className={`reveal d${(i % 3) + 1} flex flex-col gap-5 sm:flex-row sm:items-center`}>
+                    <div className="group relative h-44 w-full flex-shrink-0 overflow-hidden rounded-xl sm:h-36 sm:w-52">
+                      <Image src={s.img} alt="" fill className="scale-105 object-cover transition-transform duration-500 group-hover:scale-110" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/10" />
+                    </div>
+                    <div>
+                      <div className="mb-2 flex items-center gap-3">
+                        <span className="flex h-7 w-7 items-center justify-center rounded-full border border-[#C41A1A]/40 bg-[#C41A1A]/10 text-xs font-black text-[#E8413F]">{s.num}</span>
+                        <span className="text-[10px] font-black uppercase tracking-wider text-[#E8413F]">Paso {s.num}</span>
+                      </div>
+                      <p className="text-[17px] font-bold leading-snug text-white">{s.text}</p>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            </TracingBeam>
           </div>
         </section>
 
         {/* ─── QUÉ INCLUYE ─── */}
         <section className="relative bg-[#060504] py-16 sm:py-20">
           <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-12 lg:px-20">
-            <div className="reveal">
+            <div className="reveal mb-10">
               <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.3em] text-[#C41A1A]">Incluido en tu plan</p>
-              <h2 className="mb-10 font-display text-3xl font-black uppercase leading-tight sm:text-4xl lg:text-5xl">Todo lo que vas<br />a tener acceso</h2>
+              <h2 className="font-display text-3xl font-black uppercase leading-tight sm:text-4xl lg:text-5xl">Todo lo que vas<br />a tener acceso</h2>
             </div>
-            <div className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl bg-white/5 sm:grid-cols-2 lg:grid-cols-3">
-              {benefits.map((b) => (
-                <div key={b.n} className="reveal flex flex-col gap-3 bg-[#0a0908] px-7 py-8 transition-colors hover:bg-[#0f0e0c]">
-                  <span className="font-display text-2xl font-black text-[#C41A1A]/40">{b.n}</span>
-                  <h3 className="text-sm font-black uppercase leading-tight text-white">{b.title}</h3>
-                  <p className="text-[13px] leading-relaxed text-zinc-500">{b.text}</p>
-                </div>
+            <BentoGrid className="max-w-full md:auto-rows-[14rem]">
+              {benefits.map((b, i) => (
+                <BentoGridItem
+                  key={b.n}
+                  className={[
+                    "border-white/8 bg-[#0a0908] hover:bg-[#0f0e0c] hover:border-[#C41A1A]/20",
+                    i === 0 || i === 3 ? "md:col-span-2" : "",
+                  ].join(" ")}
+                  title={<span className="text-[13px] font-black uppercase leading-tight text-white">{b.title}</span>}
+                  description={<span className="text-[12px] leading-relaxed text-zinc-500">{b.text}</span>}
+                  header={<span className="font-display text-3xl font-black text-[#C41A1A]/30">{b.n}</span>}
+                />
               ))}
-            </div>
+            </BentoGrid>
           </div>
         </section>
 

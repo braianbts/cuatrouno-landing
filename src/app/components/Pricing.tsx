@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { WaIcon, WA_LINK } from "./icons";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 type Plan = {
   name: string;
@@ -88,6 +89,7 @@ export default function Pricing() {
           if (p.featured) {
             return (
               <div key={p.name} className="reveal d1 relative flex flex-col overflow-hidden rounded-2xl ring-2 ring-[#E8B830]/60 md:-mt-4">
+                <GlowingEffect disabled={false} spread={40} proximity={80} />
                 <div className="gold-foil relative px-6 pb-6 pt-6 text-center">
                   <div className="pointer-events-none absolute inset-0" style={{ background: "linear-gradient(105deg,transparent 35%,rgba(255,255,255,.18) 50%,transparent 65%)" }} />
                   <span className="absolute right-3 top-3 z-10 rounded bg-black/40 px-2 py-0.5 text-[10px] font-black uppercase tracking-widest text-[#3D2900]">{p.badge}</span>
@@ -114,7 +116,8 @@ export default function Pricing() {
           }
 
           return (
-            <div key={p.name} className="reveal flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0c0b0a]">
+            <div key={p.name} className="reveal relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0c0b0a]">
+              <GlowingEffect disabled={false} spread={30} proximity={60} />
               <div className="border-b border-white/8 bg-[#080706] px-6 pb-5 pt-6 text-center">
                 <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">{p.weeks}</p>
                 <h3 className="mt-1 font-display text-2xl font-black uppercase text-white">{p.name}</h3>
