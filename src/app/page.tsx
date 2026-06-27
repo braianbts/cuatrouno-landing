@@ -140,6 +140,8 @@ export default function Home() {
             }}
           />
           <div className="dot-grid pointer-events-none absolute inset-0 opacity-50" />
+          {/* mobile: heavy dark overlay so text is readable */}
+          <div className="pointer-events-none absolute inset-0 sm:hidden" style={{ background: "rgba(8,7,6,.82)" }} />
           <div className="pointer-events-none absolute inset-0" style={{ background: "linear-gradient(to right,#080706 0%,#080706 23%,rgba(8,7,6,.80) 43%,rgba(8,7,6,.32) 62%,rgba(8,7,6,0) 82%)" }} />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-[24%]" style={{ background: "linear-gradient(to left,#080706 0%,transparent 100%)" }} />
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 lg:h-40" style={{ background: "linear-gradient(to top,#080706 0%,rgba(8,7,6,.45) 32%,transparent 100%)" }} />
