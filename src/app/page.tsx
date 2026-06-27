@@ -88,11 +88,6 @@ export default function Home() {
 
           <div className="relative z-10 mx-auto w-full max-w-6xl px-6 sm:px-12 lg:px-20">
             <div className="max-w-xl lg:max-w-[52%]">
-              <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-[#C41A1A]/40 bg-[#C41A1A]/10 px-3.5 py-1.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#C41A1A]" />
-                <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#E8413F] sm:text-[11px]">Asesoría personalizada 1:1</span>
-              </div>
-
               <h1 className="font-display text-[2.7rem] font-black uppercase leading-[0.92] tracking-tight sm:text-6xl lg:text-[4.4rem]">
                 Transforma<br />tu cuerpo,<br />
                 <span className="text-[#C41A1A]">Alcanzá tu<br />mejor versión.</span>
