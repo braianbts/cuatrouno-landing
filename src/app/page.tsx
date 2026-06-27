@@ -267,25 +267,46 @@ export default function Home() {
               <h2 className="font-display text-3xl font-black uppercase leading-tight sm:text-4xl lg:text-5xl">¿Cómo funciona?</h2>
               <p className="mx-auto mt-3 max-w-md text-[14px] text-zinc-400">Seis pasos simples desde que entrás hasta que arrancás a entrenar con tu plan en la mano.</p>
             </div>
-            <TracingBeam className="px-6">
-              <div className="space-y-10">
-                {steps.map((s, i) => (
-                  <div key={s.num} className={`reveal d${(i % 3) + 1} flex flex-col gap-5 sm:flex-row sm:items-center`}>
-                    <div className="group relative h-44 w-full flex-shrink-0 overflow-hidden rounded-xl sm:h-36 sm:w-52">
-                      <Image src={s.img} alt="" fill className="scale-105 object-cover transition-transform duration-500 group-hover:scale-110" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/10" />
-                    </div>
+            {/* mobile: simple list */}
+            <div className="space-y-8 md:hidden">
+              {steps.map((s, i) => (
+                <div key={s.num} className={`reveal d${(i % 3) + 1} flex flex-col gap-4`}>
+                  <div className="group relative h-44 w-full overflow-hidden rounded-xl">
+                    <Image src={s.img} alt="" fill className="scale-105 object-cover transition-transform duration-500 group-hover:scale-110" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/10" />
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-[#C41A1A]/40 bg-[#C41A1A]/10 text-xs font-black text-[#E8413F]">{s.num}</span>
                     <div>
-                      <div className="mb-2 flex items-center gap-3">
-                        <span className="flex h-7 w-7 items-center justify-center rounded-full border border-[#C41A1A]/40 bg-[#C41A1A]/10 text-xs font-black text-[#E8413F]">{s.num}</span>
-                        <span className="text-[10px] font-black uppercase tracking-wider text-[#E8413F]">Paso {s.num}</span>
-                      </div>
-                      <p className="text-[17px] font-bold leading-snug text-white">{s.text}</p>
+                      <p className="text-[10px] font-black uppercase tracking-wider text-[#E8413F]">Paso {s.num}</p>
+                      <p className="mt-0.5 text-[15px] font-bold leading-snug text-white">{s.text}</p>
                     </div>
                   </div>
-                ))}
-              </div>
-            </TracingBeam>
+                </div>
+              ))}
+            </div>
+            {/* desktop: TracingBeam */}
+            <div className="hidden md:block">
+              <TracingBeam className="px-6">
+                <div className="space-y-10">
+                  {steps.map((s, i) => (
+                    <div key={s.num} className={`reveal d${(i % 3) + 1} flex flex-row items-center gap-8`}>
+                      <div className="group relative h-36 w-52 flex-shrink-0 overflow-hidden rounded-xl">
+                        <Image src={s.img} alt="" fill className="scale-105 object-cover transition-transform duration-500 group-hover:scale-110" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/10" />
+                      </div>
+                      <div>
+                        <div className="mb-2 flex items-center gap-3">
+                          <span className="flex h-7 w-7 items-center justify-center rounded-full border border-[#C41A1A]/40 bg-[#C41A1A]/10 text-xs font-black text-[#E8413F]">{s.num}</span>
+                          <span className="text-[10px] font-black uppercase tracking-wider text-[#E8413F]">Paso {s.num}</span>
+                        </div>
+                        <p className="text-[17px] font-bold leading-snug text-white">{s.text}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </TracingBeam>
+            </div>
           </div>
         </section>
 
