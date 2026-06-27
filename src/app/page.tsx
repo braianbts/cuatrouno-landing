@@ -36,12 +36,72 @@ const steps = [
 ];
 
 const benefits = [
-  { n: "01", title: "Videollamada inicial de alineamiento", text: "Un análisis completo de tu entrenamiento, alimentación y salud para orientarte de forma 100% asertiva." },
-  { n: "02", title: "Evaluaciones mensuales", text: "Entendé cómo va tu proceso y cuáles fueron los resultados que alcanzaste mes a mes." },
-  { n: "03", title: "Prescripción de entrenamiento individual", text: "Sin rutinas genéricas. Recibí un entrenamiento específico para tu objetivo." },
-  { n: "04", title: "Soporte individual por WhatsApp", text: "Acceso directo para resolver tus dudas en tiempo real y recibir feedback inmediato." },
-  { n: "05", title: "Guía de alimentación complementaria", text: "Orientación nutricional adaptada a tus objetivos y rutina, incluida en tu plan." },
-  { n: "06", title: "App personalizada con tu plan", text: "Acceso a tu app con rutina, alimentación, cardio y seguimiento. Todo organizado en tu celular, siempre disponible." },
+  {
+    n: "01", title: "Videollamada inicial de alineamiento",
+    text: "Un análisis completo de tu entrenamiento, alimentación y salud para orientarte de forma 100% asertiva.",
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M15 10l4.553-2.069A1 1 0 0121 8.87V15.13a1 1 0 01-1.447.9L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/>
+      </svg>
+    ),
+    bg: "from-[#C41A1A]/15 to-transparent",
+  },
+  {
+    n: "02", title: "Evaluaciones mensuales",
+    text: "Entendé cómo va tu proceso y cuáles fueron los resultados que alcanzaste mes a mes.",
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+      </svg>
+    ),
+    bg: "from-[#E8B830]/10 to-transparent",
+  },
+  {
+    n: "03", title: "Prescripción de entrenamiento individual",
+    text: "Sin rutinas genéricas. Recibí un entrenamiento específico para tu objetivo.",
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M6.5 6.5h11M6.5 12h11M6.5 17.5h6M3 3h18v18H3z" strokeLinejoin="round"/>
+        <path d="M15 15l2 2 4-4" strokeWidth="2"/>
+      </svg>
+    ),
+    bg: "from-[#C41A1A]/15 to-transparent",
+  },
+  {
+    n: "04", title: "Soporte individual por WhatsApp",
+    text: "Acceso directo para resolver tus dudas en tiempo real y recibir feedback inmediato.",
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.845L.057 23.428a.5.5 0 00.612.612l5.583-1.471A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.693-.502-5.24-1.38l-.376-.213-3.895 1.026 1.026-3.895-.213-.376A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+      </svg>
+    ),
+    bg: "from-[#25D366]/10 to-transparent",
+  },
+  {
+    n: "05", title: "Guía de alimentación complementaria",
+    text: "Orientación nutricional adaptada a tus objetivos y rutina, incluida en tu plan.",
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2C8 2 5 5.5 5 9c0 2.4 1.2 4.5 3 5.7V17h8v-2.3c1.8-1.2 3-3.3 3-5.7 0-3.5-3-7-7-7z"/>
+        <path d="M9 17v2a3 3 0 006 0v-2"/>
+        <path d="M12 6v6M9 9h6"/>
+      </svg>
+    ),
+    bg: "from-[#E8B830]/10 to-transparent",
+  },
+  {
+    n: "06", title: "App personalizada con tu plan",
+    text: "Acceso a tu app con rutina, alimentación, cardio y seguimiento. Todo organizado en tu celular, siempre disponible.",
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="5" y="2" width="14" height="20" rx="2"/>
+        <path d="M12 18h.01"/>
+        <path d="M9 7h6M9 11h4"/>
+      </svg>
+    ),
+    bg: "from-[#C41A1A]/15 to-transparent",
+  },
 ];
 
 const forwhom = [
@@ -236,17 +296,22 @@ export default function Home() {
               <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.3em] text-[#C41A1A]">Incluido en tu plan</p>
               <h2 className="font-display text-3xl font-black uppercase leading-tight sm:text-4xl lg:text-5xl">Todo lo que vas<br />a tener acceso</h2>
             </div>
-            <BentoGrid className="max-w-full md:auto-rows-[14rem]">
+            <BentoGrid className="max-w-full md:auto-rows-[16rem]">
               {benefits.map((b, i) => (
                 <BentoGridItem
                   key={b.n}
                   className={[
-                    "border-white/8 bg-[#0a0908] hover:bg-[#0f0e0c] hover:border-[#C41A1A]/20",
+                    "border-white/8 bg-[#0a0908] hover:border-[#C41A1A]/30 overflow-hidden",
                     i === 0 || i === 3 ? "md:col-span-2" : "",
                   ].join(" ")}
                   title={<span className="text-[13px] font-black uppercase leading-tight text-white">{b.title}</span>}
                   description={<span className="text-[12px] leading-relaxed text-zinc-500">{b.text}</span>}
-                  header={<span className="font-display text-3xl font-black text-[#C41A1A]/30">{b.n}</span>}
+                  header={
+                    <div className={`relative flex items-end justify-between rounded-lg bg-gradient-to-br ${b.bg} p-4 h-20 border border-white/5`}>
+                      <span className="font-display text-4xl font-black text-white/5 select-none">{b.n}</span>
+                      <span className="text-[#C41A1A]">{b.icon}</span>
+                    </div>
+                  }
                 />
               ))}
             </BentoGrid>
