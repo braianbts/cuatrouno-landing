@@ -3,13 +3,13 @@
 import { useState } from "react";
 
 const faqs = [
-  { q: "¿En cuánto tiempo recibo mi plan de entrenamiento?", a: "Lo recibirás en hasta 5 días hábiles una vez que completes la ficha de evaluación inicial." },
-  { q: "¿Puedo contratar solo la asesoría de entrenamiento?", a: "Sí, podés elegir el módulo que más se adapte a tus objetivos. Consultanos por WhatsApp para conocer todas las opciones disponibles." },
-  { q: "¿Por cuánto tiempo tengo acceso al plan?", a: "Depende del plan elegido: Plan Básico 12 semanas, Plan Completo 24 semanas, y Plan Premium 48 semanas." },
-  { q: "¿Cómo funciona el seguimiento semanal?", a: "Hacemos control semanal de tus avances y realizamos ajustes para que no te estanques y sigas progresando hacia tu objetivo." },
-  { q: "¿Necesito ir al gimnasio o puedo entrenar en casa?", a: "Podemos adaptar el plan tanto para gimnasio como para entrenamiento en casa, con o sin equipamiento. Lo definimos en la evaluación inicial." },
-  { q: "¿Cómo resuelvo mis dudas durante el plan?", a: "Tenés acceso directo a soporte individual vía WhatsApp para resolver tus dudas en tiempo real y recibir feedback inmediato." },
-  { q: "¿Puedo pausar mi plan?", a: "Sí, podemos pausar el plan de acuerdo a tus necesidades. Consultanos para coordinar los detalles según tu situación." },
+  { q: "¿En cuánto tiempo recibo mi plan de entrenamiento?", a: "Lo recibirás en hasta 5 días hábiles una vez que completes la ficha de evaluación inicial y enviés tus fotos posturales." },
+  { q: "¿Por cuánto tiempo tengo acceso al plan?", a: "Depende del plan elegido: Plan Mensual (4 semanas), Plan Trimestral (12 semanas) y Plan Semestral (24 semanas). Cada uno incluye evaluaciones periódicas y ajustes del plan." },
+  { q: "¿Cómo funciona el seguimiento 1:1?", a: "Tenés acceso directo a Braian por WhatsApp para consultas en tiempo real, ajustes de rutina y feedback inmediato. No hay bots ni respuestas automáticas." },
+  { q: "¿Necesito ir al gimnasio o puedo entrenar en casa?", a: "El plan se adapta a tu situación: gimnasio, casa con equipamiento o sin equipamiento. Lo definimos en la videollamada de bienvenida." },
+  { q: "¿La app funciona en iPhone y Android?", a: "Sí, la app es compatible con ambos sistemas. Desde ahí vas a tener tu rutina, plan de alimentación, cardio, escáner de porciones, control de peso y guía de compras — todo en un solo lugar." },
+  { q: "¿Puedo contratar si soy principiante absoluto?", a: "Sí, de hecho es uno de los perfiles que mejor responde al programa. Empezar bien desde el principio evita meses de esfuerzo mal dirigido." },
+  { q: "¿Puedo pausar mi plan?", a: "Sí, coordinamos según tu situación. Escribinos por WhatsApp y lo resolvemos." },
 ];
 
 export default function FAQSection() {
