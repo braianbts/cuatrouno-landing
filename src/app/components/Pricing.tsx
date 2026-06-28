@@ -101,7 +101,7 @@ export default function Pricing() {
                 <GlowingEffect disabled={false} spread={40} proximity={80} />
                 <div className="gold-foil relative px-6 pb-6 pt-6 text-center">
                   <div className="pointer-events-none absolute inset-0" style={{ background: "linear-gradient(105deg,transparent 35%,rgba(255,255,255,.18) 50%,transparent 65%)" }} />
-                  <span className="absolute right-3 top-3 z-10 rounded bg-black/40 px-2 py-0.5 text-[10px] font-black uppercase tracking-widest text-[#3D2900]">{p.badge}</span>
+                  <span className="relative z-10 mb-2 inline-block rounded bg-black/40 px-2 py-0.5 text-[10px] font-black uppercase tracking-widest text-[#3D2900]">{p.badge}</span>
                   <p className="relative z-10 text-[10px] font-bold uppercase tracking-widest text-black/70">{p.weeks}</p>
                   <h3 className="relative z-10 mt-1 font-display text-2xl font-black uppercase text-[#1a1206] drop-shadow-sm">{p.name}</h3>
                 </div>
