@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import FAQSection from "./components/FAQ";
 import Pricing from "./components/Pricing";
 import AppSection from "./components/AppSection";
+import DiplomasSection from "./components/DiplomasSection";
 import ScrollFx from "./components/ScrollFx";
 import { WaIcon, IgIcon, WA_LINK } from "./components/icons";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
@@ -248,6 +249,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* ─── DIPLOMAS ─── */}
+        <DiplomasSection />
 
         {/* ─── TESTIMONIOS ─── */}
         <section className="relative overflow-hidden bg-[#060504] py-16 sm:py-20">
