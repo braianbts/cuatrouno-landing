@@ -4,12 +4,13 @@ import { useState, useCallback } from "react";
 import Image from "next/image";
 
 const diplomas = [
-  { src: "/diplomas/BRAIAN YAMIL BARRIENTOS.png", alt: "Diploma Braian Barrientos" },
-  { src: "/diplomas/BRAIAN YAMIL BARRIENTOS (1).png", alt: "Diploma Braian Barrientos" },
-  { src: "/diplomas/BRAIAN YAMIL BARRIENTOS (2).png", alt: "Diploma Braian Barrientos" },
-  { src: "/diplomas/BRAIAN YAMIL BARRIENTOS (3).png", alt: "Diploma Braian Barrientos" },
-  { src: "/diplomas/BRAIAN YAMIL BARRIENTOS (4).png", alt: "Diploma Braian Barrientos" },
-  { src: "/diplomas/BRAIAN YAMIL BARRIENTOS (5).png", alt: "Diploma Braian Barrientos" },
+  { src: "/diplomas/egresado.png",                          label: "Egresado 2026",              inst: "IFBB Academy" },
+  { src: "/diplomas/BRAIAN YAMIL BARRIENTOS (4).png",       label: "Entrenador en Fisicoculturismo", inst: "IFBB Academy" },
+  { src: "/diplomas/BRAIAN YAMIL BARRIENTOS (2).png",       label: "Experto en Suplementación", inst: "IFBB Academy" },
+  { src: "/diplomas/BRAIAN YAMIL BARRIENTOS (3).png",       label: "Supplementation Expert",    inst: "IAF Fitness" },
+  { src: "/diplomas/BRAIAN YAMIL BARRIENTOS.png",           label: "Hipertrofia IFBB",           inst: "IFBB Academy" },
+  { src: "/diplomas/BRAIAN YAMIL BARRIENTOS (1).png",       label: "Muscular Hypertrophy",       inst: "IAF Fitness" },
+  { src: "/diplomas/BRAIAN YAMIL BARRIENTOS (5).png",       label: "Coach Bodybuilding & Fitness", inst: "IAF Fitness" },
 ];
 
 export default function DiplomasSection() {
@@ -41,22 +42,18 @@ export default function DiplomasSection() {
             >
               <Image
                 src={d.src}
-                alt={d.alt}
+                alt={d.label}
                 fill
                 className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                 sizes="320px"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-              <div className="absolute bottom-3 left-3 flex items-center gap-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <div className="flex h-7 w-7 items-center justify-center rounded-full bg-white/10 backdrop-blur">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
-                  </svg>
-                </div>
-                <span className="text-[11px] font-bold text-white/80">Ver diploma</span>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-3.5">
+                <p className="text-[11px] font-black uppercase leading-tight text-white drop-shadow">{d.label}</p>
+                <p className="mt-0.5 text-[10px] text-zinc-400">{d.inst}</p>
               </div>
-              <div className="absolute right-3 top-3 flex h-6 w-6 items-center justify-center rounded-full bg-[#C41A1A]/80 text-[10px] font-black text-white">
-                {i + 1}
+              <div className="absolute right-3 top-3 flex h-6 w-6 items-center justify-center rounded-full bg-[#C41A1A]/80 text-[10px] font-black text-white opacity-0 transition-opacity group-hover:opacity-100">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
               </div>
             </button>
           ))}
