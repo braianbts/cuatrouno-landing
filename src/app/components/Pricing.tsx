@@ -28,7 +28,7 @@ const plans: Plan[] = [
     subContado: "o 2x de $59.990",
     perWeek: "≈ $27.497 / semana",
     perMonth: "≈ $109.990 / mes",
-    features: ["Rutina completa personalizada", "Plan de alimentación estructurado", "Materiales de apoyo en PDF", "Videollamada de bienvenida", "Soporte por WhatsApp"],
+    features: ["Rutina completa personalizada", "Plan de alimentación estructurado", "App personalizada con rutina, alimentación, escáner de porciones, control de peso y guía de compras", "Videollamada de bienvenida", "Soporte por WhatsApp"],
   },
   {
     name: "Plan Trimestral",
@@ -41,7 +41,7 @@ const plans: Plan[] = [
     subContado: "o 3x de $74.990",
     perWeek: "≈ $15.384 / semana",
     perMonth: "≈ $66.663 / mes",
-    features: ["Todo lo del Plan Mensual", "Protocolo de entrenamiento progresivo", "Guía de alimentación práctica", "Checklist de compras y comidas", "Soporte individual por WhatsApp", "Descuentos en Cuatrouno Suplementos"],
+    features: ["Todo lo del Plan Mensual", "Protocolo de entrenamiento progresivo", "Guía de alimentación práctica", "App personalizada con rutina, alimentación, escáner de porciones, control de peso y guía de compras", "Soporte individual por WhatsApp", "Descuentos en Cuatrouno Suplementos"],
   },
   {
     name: "Plan Semestral",
@@ -52,7 +52,7 @@ const plans: Plan[] = [
     subContado: "o 3x de $124.990",
     perWeek: "≈ $12.692 / semana · mejor valor",
     perMonth: "≈ $54.998 / mes · mejor valor",
-    features: ["Todo lo del Plan Trimestral", "KIT inicial de suplementación ¡GRATIS!", "Indumentaria oficial Training Club", "Acompañamiento personalizado", "Videollamada cada 30 días", "Seguimiento continuo del progreso", "Descuentos en Cuatrouno Suplementos"],
+    features: ["Todo lo del Plan Trimestral", "KIT inicial de suplementación ¡GRATIS!", "Indumentaria oficial Training Club", "App personalizada con rutina, alimentación, escáner de porciones, control de peso y guía de compras", "Videollamada cada 30 días", "Seguimiento continuo del progreso", "Descuentos en Cuatrouno Suplementos"],
   },
 ];
 
