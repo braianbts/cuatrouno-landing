@@ -213,9 +213,12 @@ export default function Home() {
         <section id="sobre" className="relative overflow-hidden bg-[#080706]">
           <div className="flex min-h-[80vh] flex-col lg:flex-row">
             <div className="relative aspect-[4/5] w-full lg:aspect-auto lg:w-1/2">
-              <Image src="/assets/braian-hero.jpg" alt="Braian Barrientos" fill className="object-cover object-center lg:hidden" style={{ backgroundPosition: "58% 16%" }} />
+              {/* mobile: crossfade between both images */}
+              <Image src="/assets/braian-hero.jpg" alt="Braian Barrientos" fill className="img-fade-a object-cover object-[58%_16%] lg:hidden" />
+              <Image src="/assets/braian-diploma.jpg" alt="Braian Barrientos" fill className="img-fade-b object-cover object-center lg:hidden" />
+              {/* desktop: diploma only */}
               <Image src="/assets/braian-diploma.jpg" alt="Braian Barrientos" fill className="hidden object-cover object-center lg:block" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#080706] via-[#080706]/20 to-transparent lg:hidden" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#080706] via-[#080706]/30 to-transparent lg:hidden" />
               <div className="absolute inset-0 hidden bg-gradient-to-r from-transparent via-transparent to-[#080706] lg:block" />
             </div>
 

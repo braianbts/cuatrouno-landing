@@ -74,6 +74,24 @@ body {
   html { scroll-behavior: auto; }
 }
 
+/* hero image crossfade mobile */
+@keyframes img-fade-a {
+  0%, 40%  { opacity: 1; }
+  50%, 90% { opacity: 0; }
+  100%     { opacity: 1; }
+}
+@keyframes img-fade-b {
+  0%, 40%  { opacity: 0; }
+  50%, 90% { opacity: 1; }
+  100%     { opacity: 0; }
+}
+.img-fade-a { animation: img-fade-a 7s ease-in-out infinite; }
+.img-fade-b { animation: img-fade-b 7s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .img-fade-a { animation: none; opacity: 1; }
+  .img-fade-b { animation: none; opacity: 0; }
+}
+
 /* InfiniteMovingCards */
 @keyframes scroll {
   to { transform: translate(calc(-50% - 0.5rem)); }
