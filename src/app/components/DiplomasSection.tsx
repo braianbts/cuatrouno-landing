@@ -10,6 +10,7 @@ const nacionales = [
 ];
 
 const internacionales = [
+  { src: "/diplomas/egresado.png",                    label: "Egresado 2026",                  inst: "IAF Fitness · Internacional" },
   { src: "/diplomas/BRAIAN YAMIL BARRIENTOS (3).png", label: "Supplementation Expert",         inst: "IAF Fitness · Internacional" },
   { src: "/diplomas/BRAIAN YAMIL BARRIENTOS (1).png", label: "Muscular Hypertrophy",            inst: "IAF Fitness · Internacional" },
   { src: "/diplomas/BRAIAN YAMIL BARRIENTOS (5).png", label: "Coach Bodybuilding & Fitness",    inst: "IAF Fitness · Internacional" },
