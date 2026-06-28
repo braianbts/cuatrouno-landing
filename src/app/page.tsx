@@ -352,14 +352,14 @@ export default function Home() {
                   <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.3em] text-[#C41A1A]">Incluido en tu plan</p>
                   <h2 className="font-display text-4xl font-black uppercase leading-tight xl:text-5xl">Todo lo que<br />vas a tener</h2>
                 </div>
-                <BentoGrid className="max-w-full md:auto-rows-[13rem]">
+                <BentoGrid className="max-w-full md:auto-rows-auto">
                   {benefits.map((b, i) => (
                     <BentoGridItem
                       key={b.n}
                       className={["border-white/8 bg-[#0a0908] hover:border-[#C41A1A]/30 overflow-hidden", i === 0 || i === 3 ? "md:col-span-2" : ""].join(" ")}
                       title={<span className="text-[12px] font-black uppercase leading-tight text-white">{b.title}</span>}
                       description={<span className="text-[11px] leading-relaxed text-zinc-500">{b.text}</span>}
-                      header={<div className={`relative flex items-end justify-between rounded-lg bg-gradient-to-br ${b.bg} p-3 h-16 border border-white/5`}><span className="font-display text-3xl font-black text-white/5 select-none">{b.n}</span><span className="text-[#C41A1A] scale-90">{b.icon}</span></div>}
+                      header={<div className={`relative flex items-end justify-between rounded-lg bg-gradient-to-br ${b.bg} p-3 h-14 border border-white/5`}><span className="font-display text-3xl font-black text-white/5 select-none">{b.n}</span><span className="text-[#C41A1A] scale-90">{b.icon}</span></div>}
                     />
                   ))}
                 </BentoGrid>
