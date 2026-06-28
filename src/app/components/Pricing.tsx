@@ -4,6 +4,9 @@ import { useState, useEffect } from "react";
 import { WaIcon, WA_LINK } from "./icons";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 
+const MESES = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+const mesActual = () => MESES[new Date().getMonth()];
+
 type Plan = {
   name: string;
   weeks: string;
@@ -94,7 +97,7 @@ export default function Pricing() {
       <div className="reveal mb-8 flex items-center justify-center gap-3 rounded-xl border border-[#C41A1A]/30 bg-[#C41A1A]/8 px-5 py-3.5">
         <span className="h-2 w-2 animate-pulse rounded-full bg-[#C41A1A]" />
         <p className="text-center text-[13px] font-bold text-white/90">
-          Acepto <span className="text-[#C41A1A]">máximo 5 alumnos nuevos por mes</span> — quedan <span className="text-[#C41A1A]">2 lugares disponibles</span> en junio
+          Acepto <span className="text-[#C41A1A]">máximo 5 alumnos nuevos por mes</span> — quedan <span className="text-[#C41A1A]">2 lugares disponibles</span> en {mesActual()}
         </p>
       </div>
 
