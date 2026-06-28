@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { WaIcon, WA_LINK } from "./icons";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 
@@ -66,6 +66,15 @@ function Check({ gold }: { gold?: boolean }) {
 
 export default function Pricing() {
   const [mode, setMode] = useState<"cuotas" | "contado">("cuotas");
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && (window as any).fbq) {
+      (window as any).fbq("track", "ViewContent", {
+        content_name: "Planes Cuatrouno Training",
+        content_category: "Entrenamiento Personal",
+      });
+    }
+  }, []);
 
   return (
     <>
