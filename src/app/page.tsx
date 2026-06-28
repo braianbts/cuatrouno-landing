@@ -152,12 +152,12 @@ export default function Home() {
           <div className="relative z-10 mx-auto w-full max-w-6xl px-6 sm:px-12 lg:px-20">
             <div className="max-w-xl lg:max-w-[52%]">
               <h1 className="font-display text-[2.7rem] font-black uppercase leading-[0.92] tracking-tight sm:text-6xl lg:text-[4.4rem]">
-                Transforma<br />tu cuerpo,<br />
-                <span className="text-[#C41A1A]">Alcanzá tu<br />mejor versión.</span>
+                ¿Cuánto tiempo más<br />sin ver el cuerpo<br />que querés?<br />
+                <span className="text-[#C41A1A]">Hoy empieza<br />a cambiar.</span>
               </h1>
 
               <p className="mt-5 max-w-md text-[15px] leading-relaxed text-zinc-300 sm:text-base">
-                Plan de entrenamiento <strong className="text-white">100% individualizado</strong> para ganar masa muscular, mejorar tu composición corporal y sostener el progreso — con seguimiento real, no rutinas genéricas.
+                Entrenamiento 100% personalizado + <strong className="text-white">app con tu rutina, alimentación y seguimiento</strong> — sin rutinas genéricas ni PDFs abandonados.
               </p>
 
               <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
@@ -167,14 +167,14 @@ export default function Home() {
                       <svg key={i} width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.783 1.401 8.171L12 18.896l-7.335 3.869 1.401-8.171L.132 9.211l8.2-1.193z" /></svg>
                     ))}
                   </div>
-                  <span className="text-[12px] font-semibold text-zinc-300">+30 alumnos activos</span>
+                  <span className="text-[12px] font-semibold text-zinc-300">7 certificaciones internacionales</span>
                 </div>
                 <div className="h-4 w-px bg-white/15" />
-                <span className="text-[12px] font-semibold text-zinc-300">10 años de experiencia</span>
+                <span className="text-[12px] font-semibold text-zinc-300">En el gym desde 2016</span>
               </div>
 
               <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
-                <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center justify-center gap-3 rounded-md bg-[#25D366] px-7 py-4 text-sm font-black uppercase tracking-widest text-white shadow-lg shadow-[#25D366]/20 transition-all hover:bg-[#1ebe5d] hover:shadow-[#25D366]/30 active:scale-[.98]">
+                <a href={WA_LINK_MSG} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center justify-center gap-3 rounded-md bg-[#25D366] px-7 py-4 text-sm font-black uppercase tracking-widest text-white shadow-lg shadow-[#25D366]/20 transition-all hover:bg-[#1ebe5d] hover:shadow-[#25D366]/30 active:scale-[.98]">
                   <WaIcon size={20} />
                   Quiero empezar ahora
                 </a>
@@ -182,10 +182,6 @@ export default function Home() {
                   Ver planes
                 </a>
               </div>
-
-              <p className="mt-4 text-[12px] text-zinc-400">
-                Desde <strong className="text-white">2x de $59.990</strong> o <strong className="text-white">$109.990</strong> al contado
-              </p>
             </div>
           </div>
 
