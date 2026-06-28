@@ -268,84 +268,104 @@ export default function Home() {
           />
         </section>
 
-        {/* ─── CÓMO FUNCIONA ─── */}
+        {/* ─── CÓMO FUNCIONA + QUÉ INCLUYE ─── */}
         <section id="funciona" className="relative overflow-hidden bg-[#080706] py-16 sm:py-20">
-          <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(ellipse 80% 60% at 50% 40%, rgba(140,10,10,.30) 0%, rgba(90,10,10,.12) 55%, rgba(8,7,6,1) 85%)" }} />
-          <div className="relative z-10 mx-auto max-w-4xl px-6 sm:px-12 lg:px-20">
-            <div className="reveal mb-10 text-center">
-              <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.3em] text-[#C41A1A]">El proceso</p>
-              <h2 className="font-display text-3xl font-black uppercase leading-tight sm:text-4xl lg:text-5xl">¿Cómo funciona?</h2>
-              <p className="mx-auto mt-3 max-w-md text-[14px] text-zinc-400">Seis pasos simples desde que entrás hasta que arrancás a entrenar con tu plan en la mano.</p>
-            </div>
-            {/* mobile: simple list */}
-            <div className="space-y-8 md:hidden">
-              {steps.map((s, i) => (
-                <div key={s.num} className={`reveal d${(i % 3) + 1} flex flex-col gap-4`}>
-                  <div className="group relative h-44 w-full overflow-hidden rounded-xl">
-                    <Image src={s.img} alt="" fill className="scale-105 object-cover transition-transform duration-500 group-hover:scale-110" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/10" />
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-[#C41A1A]/40 bg-[#C41A1A]/10 text-xs font-black text-[#E8413F]">{s.num}</span>
-                    <div>
-                      <p className="text-[10px] font-black uppercase tracking-wider text-[#E8413F]">Paso {s.num}</p>
-                      <p className="mt-0.5 text-[15px] font-bold leading-snug text-white">{s.text}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            {/* desktop: TracingBeam */}
-            <div className="hidden md:block">
-              <TracingBeam className="px-6">
-                <div className="space-y-10">
-                  {steps.map((s, i) => (
-                    <div key={s.num} className={`reveal d${(i % 3) + 1} flex flex-row items-center gap-8`}>
-                      <div className="group relative h-36 w-52 flex-shrink-0 overflow-hidden rounded-xl">
-                        <Image src={s.img} alt="" fill className="scale-105 object-cover transition-transform duration-500 group-hover:scale-110" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/10" />
-                      </div>
-                      <div>
-                        <div className="mb-2 flex items-center gap-3">
-                          <span className="flex h-7 w-7 items-center justify-center rounded-full border border-[#C41A1A]/40 bg-[#C41A1A]/10 text-xs font-black text-[#E8413F]">{s.num}</span>
-                          <span className="text-[10px] font-black uppercase tracking-wider text-[#E8413F]">Paso {s.num}</span>
-                        </div>
-                        <p className="text-[17px] font-bold leading-snug text-white">{s.text}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </TracingBeam>
-            </div>
-          </div>
-        </section>
+          <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(ellipse 80% 60% at 30% 50%, rgba(140,10,10,.18) 0%, transparent 70%)" }} />
 
-        {/* ─── QUÉ INCLUYE ─── */}
-        <section className="relative bg-[#060504] py-16 sm:py-20">
-          <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-12 lg:px-20">
-            <div className="reveal mb-10">
-              <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.3em] text-[#C41A1A]">Incluido en tu plan</p>
-              <h2 className="font-display text-3xl font-black uppercase leading-tight sm:text-4xl lg:text-5xl">Todo lo que vas<br />a tener acceso</h2>
-            </div>
-            <BentoGrid className="max-w-full md:auto-rows-[16rem]">
-              {benefits.map((b, i) => (
-                <BentoGridItem
-                  key={b.n}
-                  className={[
-                    "border-white/8 bg-[#0a0908] hover:border-[#C41A1A]/30 overflow-hidden",
-                    i === 0 || i === 3 ? "md:col-span-2" : "",
-                  ].join(" ")}
-                  title={<span className="text-[13px] font-black uppercase leading-tight text-white">{b.title}</span>}
-                  description={<span className="text-[12px] leading-relaxed text-zinc-500">{b.text}</span>}
-                  header={
-                    <div className={`relative flex items-end justify-between rounded-lg bg-gradient-to-br ${b.bg} p-4 h-20 border border-white/5`}>
-                      <span className="font-display text-4xl font-black text-white/5 select-none">{b.n}</span>
-                      <span className="text-[#C41A1A]">{b.icon}</span>
+          <div className="relative z-10 mx-auto max-w-[90rem] px-6 sm:px-12 lg:px-20">
+
+            {/* ── MOBILE: stacked ── */}
+            <div className="lg:hidden">
+              <div className="reveal mb-10 text-center">
+                <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.3em] text-[#C41A1A]">El proceso</p>
+                <h2 className="font-display text-3xl font-black uppercase leading-tight sm:text-4xl">¿Cómo funciona?</h2>
+                <p className="mx-auto mt-3 max-w-md text-[14px] text-zinc-400">Seis pasos simples desde que entrás hasta que arrancás a entrenar con tu plan en la mano.</p>
+              </div>
+              <div className="space-y-8">
+                {steps.map((s, i) => (
+                  <div key={s.num} className={`reveal d${(i % 3) + 1} flex flex-col gap-4`}>
+                    <div className="group relative h-44 w-full overflow-hidden rounded-xl">
+                      <Image src={s.img} alt="" fill className="scale-105 object-cover transition-transform duration-500 group-hover:scale-110" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/10" />
                     </div>
-                  }
-                />
-              ))}
-            </BentoGrid>
+                    <div className="flex items-start gap-4">
+                      <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-[#C41A1A]/40 bg-[#C41A1A]/10 text-xs font-black text-[#E8413F]">{s.num}</span>
+                      <div>
+                        <p className="text-[10px] font-black uppercase tracking-wider text-[#E8413F]">Paso {s.num}</p>
+                        <p className="mt-0.5 text-[15px] font-bold leading-snug text-white">{s.text}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-14 reveal">
+                <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.3em] text-[#C41A1A]">Incluido en tu plan</p>
+                <h2 className="mb-8 font-display text-3xl font-black uppercase leading-tight sm:text-4xl">Todo lo que vas<br />a tener acceso</h2>
+                <BentoGrid className="max-w-full md:auto-rows-[16rem]">
+                  {benefits.map((b, i) => (
+                    <BentoGridItem
+                      key={b.n}
+                      className={["border-white/8 bg-[#0a0908] hover:border-[#C41A1A]/30 overflow-hidden", i === 0 || i === 3 ? "md:col-span-2" : ""].join(" ")}
+                      title={<span className="text-[13px] font-black uppercase leading-tight text-white">{b.title}</span>}
+                      description={<span className="text-[12px] leading-relaxed text-zinc-500">{b.text}</span>}
+                      header={<div className={`relative flex items-end justify-between rounded-lg bg-gradient-to-br ${b.bg} p-4 h-20 border border-white/5`}><span className="font-display text-4xl font-black text-white/5 select-none">{b.n}</span><span className="text-[#C41A1A]">{b.icon}</span></div>}
+                    />
+                  ))}
+                </BentoGrid>
+              </div>
+            </div>
+
+            {/* ── DESKTOP: side by side ── */}
+            <div className="hidden lg:grid lg:grid-cols-[1fr_1.15fr] lg:gap-16 lg:items-start">
+
+              {/* LEFT — Cómo funciona */}
+              <div>
+                <div className="reveal mb-8 sticky top-24">
+                  <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.3em] text-[#C41A1A]">El proceso</p>
+                  <h2 className="font-display text-4xl font-black uppercase leading-tight xl:text-5xl">¿Cómo<br />funciona?</h2>
+                  <p className="mt-3 text-[14px] text-zinc-400">Seis pasos simples desde que entrás hasta que arrancás a entrenar con tu plan en la mano.</p>
+                </div>
+                <TracingBeam>
+                  <div className="space-y-8 pl-4">
+                    {steps.map((s, i) => (
+                      <div key={s.num} className={`reveal d${(i % 3) + 1} flex items-center gap-5`}>
+                        <div className="group relative h-24 w-36 flex-shrink-0 overflow-hidden rounded-xl">
+                          <Image src={s.img} alt="" fill className="scale-105 object-cover transition-transform duration-500 group-hover:scale-110" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/10" />
+                        </div>
+                        <div>
+                          <div className="mb-1.5 flex items-center gap-2">
+                            <span className="flex h-6 w-6 items-center justify-center rounded-full border border-[#C41A1A]/40 bg-[#C41A1A]/10 text-[10px] font-black text-[#E8413F]">{s.num}</span>
+                            <span className="text-[9px] font-black uppercase tracking-wider text-[#E8413F]">Paso {s.num}</span>
+                          </div>
+                          <p className="text-[14px] font-bold leading-snug text-white">{s.text}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </TracingBeam>
+              </div>
+
+              {/* RIGHT — Qué incluye */}
+              <div>
+                <div className="reveal mb-8">
+                  <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.3em] text-[#C41A1A]">Incluido en tu plan</p>
+                  <h2 className="font-display text-4xl font-black uppercase leading-tight xl:text-5xl">Todo lo que<br />vas a tener</h2>
+                </div>
+                <BentoGrid className="max-w-full md:auto-rows-[13rem]">
+                  {benefits.map((b, i) => (
+                    <BentoGridItem
+                      key={b.n}
+                      className={["border-white/8 bg-[#0a0908] hover:border-[#C41A1A]/30 overflow-hidden", i === 0 || i === 3 ? "md:col-span-2" : ""].join(" ")}
+                      title={<span className="text-[12px] font-black uppercase leading-tight text-white">{b.title}</span>}
+                      description={<span className="text-[11px] leading-relaxed text-zinc-500">{b.text}</span>}
+                      header={<div className={`relative flex items-end justify-between rounded-lg bg-gradient-to-br ${b.bg} p-3 h-16 border border-white/5`}><span className="font-display text-3xl font-black text-white/5 select-none">{b.n}</span><span className="text-[#C41A1A] scale-90">{b.icon}</span></div>}
+                    />
+                  ))}
+                </BentoGrid>
+              </div>
+
+            </div>
           </div>
         </section>
 
