@@ -129,7 +129,7 @@ export default function Home() {
       <main>
 
         {/* ─── HERO ─── */}
-        <section id="inicio" className="relative flex min-h-[100svh] items-center overflow-hidden bg-[#080706] pt-20 pb-12 lg:pt-16">
+        <section id="inicio" className="relative flex min-h-[100svh] items-center overflow-hidden bg-[#080706] pt-24 pb-12 lg:pt-28">
           <div
             className="pointer-events-none absolute inset-y-0 right-0 w-full sm:w-[82%] lg:w-[60%]"
             style={{
@@ -151,10 +151,13 @@ export default function Home() {
 
           <div className="relative z-10 mx-auto w-full max-w-6xl px-6 sm:px-12 lg:px-20">
             <div className="max-w-xl lg:max-w-[52%]">
-              <h1 className="font-display text-[2.7rem] font-black uppercase leading-[0.92] tracking-tight sm:text-6xl lg:text-[4.4rem]">
-                ¿Cuánto tiempo más<br />sin ver el cuerpo<br />que querés?<br />
-                <span className="text-[#C41A1A]">Hoy empieza<br />a cambiar.</span>
+              <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.2em] text-[#C41A1A]">Entrenamiento personal online</p>
+              <h1 className="font-display text-[2.1rem] font-black uppercase leading-[0.95] tracking-tight sm:text-5xl lg:text-[3.6rem]">
+                ¿Cuánto tiempo más<br />sin ver el cuerpo<br />que querés?
               </h1>
+              <p className="mt-3 font-display text-[1.6rem] font-black uppercase leading-tight tracking-tight text-[#C41A1A] sm:text-4xl lg:text-[2.8rem]">
+                Hoy empieza a cambiar.
+              </p>
 
               <p className="mt-5 max-w-md text-[15px] leading-relaxed text-zinc-300 sm:text-base">
                 Entrenamiento 100% personalizado + <strong className="text-white">app con tu rutina, alimentación y seguimiento</strong> — sin rutinas genéricas ni PDFs abandonados.
