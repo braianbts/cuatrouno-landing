@@ -5,7 +5,7 @@ import Pricing from "./components/Pricing";
 import AppSection from "./components/AppSection";
 import DiplomasSection from "./components/DiplomasSection";
 import ScrollFx from "./components/ScrollFx";
-import { WaIcon, IgIcon, WA_LINK } from "./components/icons";
+import { WaIcon, IgIcon, WA_LINK, WA_LINK_MSG } from "./components/icons";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import { TracingBeam } from "@/components/ui/tracing-beam";
@@ -544,6 +544,18 @@ export default function Home() {
           </a>
         </div>
       </div>
+
+      {/* ─── FLOATING WA BUTTON ─── */}
+      <a
+        href={WA_LINK_MSG}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Contactar por WhatsApp"
+        className="fixed bottom-6 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] shadow-lg shadow-[#25D366]/30 transition-all duration-300 hover:scale-110 hover:shadow-[#25D366]/50 active:scale-95 lg:bottom-8 lg:right-8"
+        style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
+      >
+        <WaIcon size={26} />
+      </a>
 
       <ScrollFx />
     </div>

@@ -18,3 +18,4 @@ export function IgIcon({ size = 18, className = "" }: { size?: number; className
 }
 
 export const WA_LINK = "https://wa.me/5493484689931";
+export const WA_LINK_MSG = "https://wa.me/5493484689931?text=%C2%A1Hola%21%20Quiero%20entrenar%F0%9F%92%AA";
