@@ -356,7 +356,7 @@ export default function Home() {
                   {benefits.map((b, i) => (
                     <BentoGridItem
                       key={b.n}
-                      className={["border-white/8 bg-[#0a0908] hover:border-[#C41A1A]/30 overflow-hidden", i === 0 || i === 5 ? "md:col-span-2" : ""].join(" ")}
+                      className={["border-white/8 bg-[#0a0908] hover:border-[#C41A1A]/30 overflow-hidden", i === 0 ? "md:col-span-2" : i === 5 ? "md:col-span-3" : ""].join(" ")}
                       title={<span className="text-[12px] font-black uppercase leading-tight text-white">{b.title}</span>}
                       description={<span className="text-[11px] leading-relaxed text-zinc-500">{b.text}</span>}
                       header={<div className={`relative flex items-end justify-between rounded-lg bg-gradient-to-br ${b.bg} p-3 h-14 border border-white/5`}><span className="font-display text-3xl font-black text-white/5 select-none">{b.n}</span><span className="text-[#C41A1A] scale-90">{b.icon}</span></div>}
