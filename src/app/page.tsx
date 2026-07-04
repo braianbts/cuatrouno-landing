@@ -109,6 +109,30 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ─── STATS STRIP ─── */}
+        <div className="border-y border-white/[0.06] bg-[#0d0c0b]">
+          <div className="mx-auto grid max-w-6xl grid-cols-2 divide-x divide-white/[0.06] px-6 sm:grid-cols-4 sm:px-12 lg:px-20">
+            {[
+              { n: "10",  label: "Años de experiencia" },
+              { n: "30+", label: "Alumnos activos" },
+              { n: "7",   label: "Certificaciones internacionales" },
+            ].map((s) => (
+              <div key={s.label} className="flex flex-col items-center justify-center py-7 text-center">
+                <span className="font-display text-[2.2rem] font-black leading-none text-[#C41A1A] sm:text-[2.6rem]">{s.n}</span>
+                <span className="mt-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-zinc-500">{s.label}</span>
+              </div>
+            ))}
+            <div className="flex flex-col items-center justify-center py-7 text-center">
+              <span className="font-display text-[2.2rem] font-black leading-none text-[#C41A1A] sm:text-[2.6rem]">2</span>
+              <span className="mt-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-zinc-500">Marcas propias</span>
+              <div className="mt-2 flex gap-3">
+                <a href="https://www.instagram.com/cuatrouno_suplementos/" target="_blank" rel="noopener noreferrer" className="text-[10px] font-semibold text-zinc-600 transition-colors hover:text-[#C41A1A]">@cuatrouno_suplementos</a>
+                <a href="https://www.instagram.com/cuatrouno_trainingclub/" target="_blank" rel="noopener noreferrer" className="text-[10px] font-semibold text-zinc-600 transition-colors hover:text-[#C41A1A]">@cuatrouno_trainingclub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* ─── SOBRE BRAIAN ─── */}
         <section id="sobre" className="relative overflow-hidden bg-[#080706]">
           <div className="flex flex-col lg:flex-row">
