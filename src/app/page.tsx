@@ -3,12 +3,10 @@ import Navbar from "./components/Navbar";
 import FAQSection from "./components/FAQ";
 import Pricing from "./components/Pricing";
 import AppSection from "./components/AppSection";
-import DiplomasSection from "./components/DiplomasSection";
+import CredBadges from "./components/CredBadges";
 import ScrollFx from "./components/ScrollFx";
 import { WaIcon, IgIcon, WA_LINK, WA_LINK_MSG } from "./components/icons";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
-import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
-import { TracingBeam } from "@/components/ui/tracing-beam";
 import { BackgroundBeams } from "@/components/ui/background-beams";
 
 const testimonials = [
@@ -28,91 +26,11 @@ const movingTestimonials = testimonials.map(t => ({
 }));
 
 const steps = [
-  { num: "1", text: "Elegí el plan ideal para vos", img: "/assets/cf-1.jpg" },
-  { num: "2", text: "Completá tu ficha de evaluación", img: "/assets/cf-2.avif" },
-  { num: "3", text: "Enviá tus fotos para evaluación postural", img: "/assets/cf-3.webp" },
-  { num: "4", text: "Preparación de tu entrenamiento personalizado", img: "/assets/cf-4.jpg" },
-  { num: "5", text: "Videollamada de bienvenida con Braian", img: "/assets/cf-5.webp" },
-  { num: "6", text: "Envío de materiales y acompañamiento", img: "/assets/cf-6.jpeg" },
+  { num: "1", text: "Elegí el plan que se adapta a tu objetivo", img: "/assets/cf-1.jpg" },
+  { num: "2", text: "Videollamada con Braian para armar tu planilla personalizada", img: "/assets/cf-5.webp" },
+  { num: "3", text: "Activación de tu app con toda tu rutina, alimentación y seguimiento", img: "/assets/cf-6.jpeg" },
 ];
 
-const benefits = [
-  {
-    n: "01", title: "Videollamada inicial de alineamiento",
-    text: "Un análisis completo de tu entrenamiento, alimentación y salud para orientarte de forma 100% asertiva.",
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M15 10l4.553-2.069A1 1 0 0121 8.87V15.13a1 1 0 01-1.447.9L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/>
-      </svg>
-    ),
-    bg: "from-[#C41A1A]/15 to-transparent",
-  },
-  {
-    n: "02", title: "Evaluaciones mensuales",
-    text: "Entendé cómo va tu proceso y cuáles fueron los resultados que alcanzaste mes a mes.",
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-      </svg>
-    ),
-    bg: "from-[#E8B830]/10 to-transparent",
-  },
-  {
-    n: "03", title: "Prescripción de entrenamiento individual",
-    text: "Sin rutinas genéricas. Recibí un entrenamiento específico para tu objetivo.",
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M6.5 6.5h11M6.5 12h11M6.5 17.5h6M3 3h18v18H3z" strokeLinejoin="round"/>
-        <path d="M15 15l2 2 4-4" strokeWidth="2"/>
-      </svg>
-    ),
-    bg: "from-[#C41A1A]/15 to-transparent",
-  },
-  {
-    n: "04", title: "Soporte individual por WhatsApp",
-    text: "Acceso directo para resolver tus dudas en tiempo real y recibir feedback inmediato.",
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.845L.057 23.428a.5.5 0 00.612.612l5.583-1.471A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.693-.502-5.24-1.38l-.376-.213-3.895 1.026 1.026-3.895-.213-.376A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
-      </svg>
-    ),
-    bg: "from-[#25D366]/10 to-transparent",
-  },
-  {
-    n: "05", title: "Guía de alimentación complementaria",
-    text: "Orientación nutricional adaptada a tus objetivos y rutina, incluida en tu plan.",
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2C8 2 5 5.5 5 9c0 2.4 1.2 4.5 3 5.7V17h8v-2.3c1.8-1.2 3-3.3 3-5.7 0-3.5-3-7-7-7z"/>
-        <path d="M9 17v2a3 3 0 006 0v-2"/>
-        <path d="M12 6v6M9 9h6"/>
-      </svg>
-    ),
-    bg: "from-[#E8B830]/10 to-transparent",
-  },
-  {
-    n: "06", title: "App personalizada con tu plan",
-    text: "Acceso a tu app con rutina, alimentación, cardio y seguimiento. Todo organizado en tu celular, siempre disponible.",
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="5" y="2" width="14" height="20" rx="2"/>
-        <path d="M12 18h.01"/>
-        <path d="M9 7h6M9 11h4"/>
-      </svg>
-    ),
-    bg: "from-[#C41A1A]/15 to-transparent",
-  },
-];
-
-const forwhom = [
-  { label: "Para principiantes:", text: "que todavía no entrenan o llevan menos de 6 meses y quieren empezar de la manera correcta." },
-  { label: "Para intermedios:", text: "que entrenan hace al menos 6 meses pero se sienten estancados, sin grandes resultados visibles." },
-  { label: "Para avanzados:", text: "que entrenan hace más de un año y buscan más rendimiento y resultados más rápidos." },
-  { label: null, text: "Para personas que ya no se reconocen al mirarse al espejo y necesitan ayuda para bajar de peso y recuperar la autoestima." },
-  { label: null, text: "Para quienes tienen mucha dificultad para ganar masa muscular." },
-  { label: null, text: "Para personas con una rutina agitada que necesitan el entrenamiento adaptado a su ritmo de vida." },
-];
 
 const paymentLogos = [
   { src: "/assets/mercadopago-nuevo-logo.webp", name: "Mercado Pago", h: "h-7" },
@@ -194,20 +112,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ─── TRUST STRIP ─── */}
-        <section className="border-y border-white/5 bg-[#060504] py-6">
-          <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-6 sm:flex-row sm:justify-between sm:px-12">
-            <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-zinc-500">Detrás de Cuatrouno</p>
-            <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-[12px] font-semibold uppercase tracking-wider text-zinc-400">
-              <span>Cuatrouno Training Club</span>
-              <span className="hidden h-3 w-px bg-white/15 sm:block" />
-              <span>Cuatrouno Suplementos</span>
-              <span className="hidden h-3 w-px bg-white/15 sm:block" />
-              <span>Tienda física · Zona Norte</span>
-            </div>
-          </div>
-        </section>
-
         {/* ─── SOBRE BRAIAN ─── */}
         <section id="sobre" className="relative overflow-hidden bg-[#080706]">
           <div className="flex min-h-[80vh] flex-col lg:flex-row">
@@ -238,18 +142,10 @@ export default function Home() {
                 <div><p className="font-display text-3xl font-black text-[#C41A1A] sm:text-4xl">30+</p><p className="mt-1 text-[10px] uppercase tracking-wider text-zinc-500">Alumnos activos</p></div>
                 <div><p className="font-display text-3xl font-black text-[#C41A1A] sm:text-4xl">98%</p><p className="mt-1 text-[10px] uppercase tracking-wider text-zinc-500">Satisfacción</p></div>
               </div>
-              <div className="reveal d4 mt-8">
-                <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 rounded-md bg-[#25D366] px-7 py-4 text-sm font-black uppercase tracking-widest text-white transition-all hover:bg-[#1ebe5d] active:scale-[.98]">
-                  <WaIcon size={18} />
-                  Quiero trabajar con Braian
-                </a>
-              </div>
+              <CredBadges />
             </div>
           </div>
         </section>
-
-        {/* ─── DIPLOMAS ─── */}
-        <DiplomasSection />
 
         {/* ─── TESTIMONIOS ─── */}
         <section className="relative overflow-hidden bg-[#060504] py-16 sm:py-20">
@@ -266,191 +162,29 @@ export default function Home() {
           />
         </section>
 
-        {/* ─── CÓMO FUNCIONA + QUÉ INCLUYE ─── */}
+        {/* ─── CÓMO FUNCIONA ─── */}
         <section id="funciona" className="relative overflow-hidden bg-[#080706] py-16 sm:py-20">
           <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(ellipse 80% 60% at 30% 50%, rgba(140,10,10,.18) 0%, transparent 70%)" }} />
-
-          <div className="relative z-10 mx-auto max-w-[90rem] px-6 sm:px-12 lg:px-20">
-
-            {/* ── MOBILE: stacked ── */}
-            <div className="lg:hidden">
-              <div className="reveal mb-10 text-center">
-                <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.3em] text-[#C41A1A]">El proceso</p>
-                <h2 className="font-display text-3xl font-black uppercase leading-tight sm:text-4xl">¿Cómo funciona?</h2>
-                <p className="mx-auto mt-3 max-w-md text-[14px] text-zinc-400">Seis pasos simples desde que entrás hasta que arrancás a entrenar con tu plan en la mano.</p>
-              </div>
-              <div className="space-y-8">
-                {steps.map((s, i) => (
-                  <div key={s.num} className={`reveal d${(i % 3) + 1} flex flex-col gap-4`}>
-                    <div className="group relative h-44 w-full overflow-hidden rounded-xl">
-                      <Image src={s.img} alt="" fill className="scale-105 object-cover transition-transform duration-500 group-hover:scale-110" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/10" />
-                    </div>
-                    <div className="flex items-start gap-4">
-                      <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-[#C41A1A]/40 bg-[#C41A1A]/10 text-xs font-black text-[#E8413F]">{s.num}</span>
-                      <div>
-                        <p className="text-[10px] font-black uppercase tracking-wider text-[#E8413F]">Paso {s.num}</p>
-                        <p className="mt-0.5 text-[15px] font-bold leading-snug text-white">{s.text}</p>
-                      </div>
-                    </div>
+          <div className="relative z-10 mx-auto max-w-5xl px-6 sm:px-12 lg:px-20">
+            <div className="reveal mb-12 text-center">
+              <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.3em] text-[#C41A1A]">El proceso</p>
+              <h2 className="font-display text-3xl font-black uppercase leading-tight sm:text-5xl">¿Cómo funciona?</h2>
+              <p className="mx-auto mt-3 max-w-md text-[14px] text-zinc-400">Tres pasos simples desde que entrás hasta que arrancás a entrenar con tu plan en la mano.</p>
+            </div>
+            <div className="grid gap-6 sm:grid-cols-3">
+              {steps.map((s, i) => (
+                <div key={s.num} className={`reveal d${i + 1} flex flex-col gap-4 rounded-2xl border border-white/8 bg-[#0c0b0a] overflow-hidden`}>
+                  <div className="group relative h-44 w-full overflow-hidden">
+                    <Image src={s.img} alt="" fill className="scale-105 object-cover transition-transform duration-500 group-hover:scale-110" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/10" />
+                    <span className="absolute top-3 left-3 flex h-7 w-7 items-center justify-center rounded-full border border-[#C41A1A]/50 bg-[#C41A1A]/15 text-xs font-black text-[#E8413F]">{s.num}</span>
                   </div>
-                ))}
-              </div>
-              <div className="mt-14 reveal">
-                <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.3em] text-[#C41A1A]">Incluido en tu plan</p>
-                <h2 className="mb-8 font-display text-3xl font-black uppercase leading-tight sm:text-4xl">Todo lo que vas<br />a tener acceso</h2>
-                <BentoGrid className="max-w-full md:auto-rows-[16rem]">
-                  {benefits.map((b, i) => (
-                    <BentoGridItem
-                      key={b.n}
-                      className={["border-white/8 bg-[#0a0908] hover:border-[#C41A1A]/30 overflow-hidden", i === 0 || i === 3 ? "md:col-span-2" : ""].join(" ")}
-                      title={<span className="text-[13px] font-black uppercase leading-tight text-white">{b.title}</span>}
-                      description={<span className="text-[12px] leading-relaxed text-zinc-500">{b.text}</span>}
-                      header={<div className={`relative flex items-end justify-between rounded-lg bg-gradient-to-br ${b.bg} p-4 h-20 border border-white/5`}><span className="font-display text-4xl font-black text-white/5 select-none">{b.n}</span><span className="text-[#C41A1A]">{b.icon}</span></div>}
-                    />
-                  ))}
-                </BentoGrid>
-              </div>
-            </div>
-
-            {/* ── DESKTOP: side by side ── */}
-            <div className="hidden lg:grid lg:grid-cols-[1fr_1.15fr] lg:gap-16 lg:items-start">
-
-              {/* LEFT — Cómo funciona */}
-              <div>
-                <div className="reveal mb-8">
-                  <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.3em] text-[#C41A1A]">El proceso</p>
-                  <h2 className="font-display text-4xl font-black uppercase leading-tight xl:text-5xl">¿Cómo<br />funciona?</h2>
-                  <p className="mt-3 text-[14px] text-zinc-400">Seis pasos simples desde que entrás hasta que arrancás a entrenar con tu plan en la mano.</p>
-                </div>
-                <TracingBeam>
-                  <div className="space-y-8 pl-4">
-                    {steps.map((s, i) => (
-                      <div key={s.num} className={`reveal d${(i % 3) + 1} flex items-center gap-5`}>
-                        <div className="group relative h-24 w-36 flex-shrink-0 overflow-hidden rounded-xl">
-                          <Image src={s.img} alt="" fill className="scale-105 object-cover transition-transform duration-500 group-hover:scale-110" />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/10" />
-                        </div>
-                        <div>
-                          <div className="mb-1.5 flex items-center gap-2">
-                            <span className="flex h-6 w-6 items-center justify-center rounded-full border border-[#C41A1A]/40 bg-[#C41A1A]/10 text-[10px] font-black text-[#E8413F]">{s.num}</span>
-                            <span className="text-[9px] font-black uppercase tracking-wider text-[#E8413F]">Paso {s.num}</span>
-                          </div>
-                          <p className="text-[14px] font-bold leading-snug text-white">{s.text}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </TracingBeam>
-              </div>
-
-              {/* RIGHT — Qué incluye */}
-              <div>
-                <div className="reveal mb-8">
-                  <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.3em] text-[#C41A1A]">Incluido en tu plan</p>
-                  <h2 className="font-display text-4xl font-black uppercase leading-tight xl:text-5xl">Todo lo que<br />vas a tener</h2>
-                </div>
-                <BentoGrid className="max-w-full md:auto-rows-auto">
-                  {benefits.map((b, i) => (
-                    <BentoGridItem
-                      key={b.n}
-                      className={["overflow-hidden", i === 0 ? "md:col-span-2" : i === 5 ? "md:col-span-3" : "", i === 5 ? "border-[#E8B830]/30 bg-[#0d0b04] hover:border-[#E8B830]/60 hover:shadow-lg hover:shadow-[#E8B830]/10" : "border-white/8 bg-[#0a0908] hover:border-[#C41A1A]/30"].join(" ")}
-                      title={<span className={`text-[12px] font-black uppercase leading-tight ${i === 5 ? "text-[#E8B830]" : "text-white"}`}>{b.title}</span>}
-                      description={<span className="text-[11px] leading-relaxed text-zinc-500">{b.text}</span>}
-                      header={
-                        i === 5 ? (
-                          <div className="relative flex items-end justify-between rounded-lg bg-gradient-to-br from-[#E8B830]/15 to-transparent p-3 h-14 border border-[#E8B830]/15">
-                            <span className="font-display text-3xl font-black text-[#E8B830]/10 select-none">{b.n}</span>
-                            <span className="text-[#E8B830] scale-90">{b.icon}</span>
-                          </div>
-                        ) : (
-                          <div className={`relative flex items-end justify-between rounded-lg bg-gradient-to-br ${b.bg} p-3 h-14 border border-white/5`}><span className="font-display text-3xl font-black text-white/5 select-none">{b.n}</span><span className="text-[#C41A1A] scale-90">{b.icon}</span></div>
-                        )
-                      }
-                    />
-                  ))}
-                </BentoGrid>
-              </div>
-
-            </div>
-          </div>
-        </section>
-
-        {/* ─── PARA QUIÉN ─── */}
-        <section className="relative overflow-hidden bg-[#080706] py-16 sm:py-20">
-          <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(ellipse 50% 60% at 0% 50%, rgba(196,26,26,.10), transparent)" }} />
-          <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-12 lg:px-20">
-            <div className="flex flex-col gap-12 lg:flex-row lg:items-center">
-              <div className="reveal relative h-[360px] flex-shrink-0 sm:h-[460px] lg:w-[42%]">
-                <div className="absolute bottom-0 left-0 top-0 overflow-hidden rounded-2xl" style={{ width: "47%" }}>
-                  <Image src="/assets/hombre-panza-gym.webp" alt="" fill className="object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                </div>
-                <div className="absolute right-0 top-0 overflow-hidden rounded-2xl" style={{ width: "50%", height: "49%" }}>
-                  <Image src="/assets/rollo2.avif" alt="" fill className="object-cover object-center" />
-                </div>
-                <div className="absolute bottom-0 right-0 overflow-hidden rounded-2xl" style={{ width: "50%", height: "49%" }}>
-                  <Image src="/assets/rollo3.avif" alt="" fill className="object-cover object-top" />
-                </div>
-              </div>
-
-              <div className="flex-1">
-                <h2 className="reveal mb-7 font-display text-3xl font-black uppercase leading-tight sm:text-4xl lg:text-5xl">¿Para quién<br /><span className="text-[#C41A1A]">es esto?</span></h2>
-                <div className="space-y-1">
-                  {forwhom.map((f, i) => (
-                    <div key={i} className="reveal flex items-start gap-4 border-b border-white/8 py-3.5">
-                      <div className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded bg-[#C41A1A]">
-                        <svg width="11" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                      </div>
-                      <p className="text-[14px] leading-relaxed text-zinc-300">
-                        {f.label && <span className="font-bold text-white">{f.label} </span>}
-                        {f.text}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-                <div className="reveal mt-8">
-                  <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 rounded-md bg-[#25D366] px-7 py-4 text-sm font-black uppercase tracking-widest text-white transition-all hover:bg-[#1ebe5d] active:scale-[.98]">
-                    <WaIcon size={18} />
-                    ¡Soy candidato, empezar!
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ─── SUPLEMENTOS ─── */}
-        <section className="relative overflow-hidden bg-[#060504] py-16 sm:py-20">
-          <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(ellipse 50% 60% at 100% 50%, rgba(196,26,26,.10), transparent)" }} />
-          <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-12 lg:px-20">
-            <div className="flex flex-col gap-10 lg:flex-row lg:items-center">
-              <div className="reveal flex-1 space-y-6 lg:max-w-[42%]">
-                <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#C41A1A]">Más que un entrenador</p>
-                <h2 className="font-display text-3xl font-black uppercase leading-tight sm:text-4xl">Soy fundador de <span className="text-[#C41A1A]">Cuatrouno Suplementos</span></h2>
-                <div className="space-y-4 text-[14px] leading-relaxed text-zinc-400">
-                  <p>Tengo una tienda física especializada en suplementación deportiva. Me permite asesorarte con honestidad sobre qué tomar, cuándo y en qué dosis — <strong className="text-white">sin humo, sin comisiones, sin nada raro.</strong></p>
-                  <p>Combinando tu plan de entrenamiento con la suplementación correcta podés <strong className="text-white">acelerar significativamente tus resultados</strong>.</p>
-                  <p>Yo entiendo el <strong className="text-white">ecosistema completo de la transformación física.</strong></p>
-                </div>
-                <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 rounded-md bg-[#25D366] px-7 py-4 text-sm font-black uppercase tracking-widest text-white transition-all hover:bg-[#1ebe5d] active:scale-[.98]">
-                  <WaIcon size={18} />
-                  Quiero asesoría completa
-                </a>
-              </div>
-              <div className="flex flex-1 flex-col gap-4 sm:flex-row">
-                <div className="reveal d1 relative min-h-[300px] flex-1 overflow-hidden rounded-2xl sm:min-h-[380px]">
-                  <Image src="/assets/cuatro-uno-local.jpg" alt="Cuatrouno Suplementos" fill className="object-cover object-center" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#060504]/70 to-transparent" />
-                  <div className="absolute bottom-4 left-4 flex items-center gap-3 rounded-xl border border-white/10 bg-black/70 p-3 backdrop-blur">
-                    <Image src="/assets/logo-suplementos.jpg" alt="" width={40} height={24} className="h-6 w-auto rounded" />
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-zinc-200">Tienda física</span>
+                  <div className="px-5 pb-5">
+                    <p className="text-[10px] font-black uppercase tracking-wider text-[#E8413F]">Paso {s.num}</p>
+                    <p className="mt-1 text-[15px] font-bold leading-snug text-white">{s.text}</p>
                   </div>
                 </div>
-                <div className="reveal d2 relative min-h-[300px] flex-1 overflow-hidden rounded-2xl sm:min-h-[380px]">
-                  <iframe src="https://maps.google.com/maps?q=-34.348825,-58.794437&z=16&output=embed" width="100%" height="100%" style={{ border: 0, minHeight: "300px" }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Cuatrouno Suplementos — ubicación" />
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
@@ -529,28 +263,13 @@ export default function Home() {
         </div>
       </footer>
 
-      {/* ─── STICKY MOBILE CTA ─── */}
-      <div id="sticky-cta" className="fixed inset-x-0 bottom-0 z-40 translate-y-full border-t border-white/10 bg-[#0d0b09]/95 px-4 py-3 backdrop-blur-md transition-transform duration-300 lg:hidden" style={{ paddingBottom: "calc(0.75rem + env(safe-area-inset-bottom))" }}>
-        <div className="flex items-center gap-3">
-          <div className="flex-1">
-            <p className="text-[11px] font-semibold uppercase tracking-wider text-zinc-400">Plan desde</p>
-            <p className="text-sm font-black text-white">2x de $59.990 <span className="font-medium text-zinc-500">/ contado $109.990</span></p>
-          </div>
-          <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 rounded-md bg-[#25D366] px-5 py-3 text-[13px] font-black uppercase tracking-wider text-white active:scale-[.97]">
-            <WaIcon size={18} />
-            Empezar
-          </a>
-        </div>
-      </div>
-
-      {/* ─── FLOATING WA BUTTON ─── */}
+      {/* ─── FLOATING WA BUTTON (desktop only) ─── */}
       <a
         href={WA_LINK_MSG}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Contactar por WhatsApp"
-        className="fixed bottom-6 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] shadow-lg shadow-[#25D366]/30 transition-all duration-300 hover:scale-110 hover:shadow-[#25D366]/50 active:scale-95 lg:bottom-8 lg:right-8"
-        style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
+        className="fixed bottom-8 right-8 z-50 hidden h-14 w-14 items-center justify-center rounded-full bg-[#25D366] shadow-lg shadow-[#25D366]/30 transition-all duration-300 hover:scale-110 hover:shadow-[#25D366]/50 active:scale-95 lg:flex"
       >
         <WaIcon size={26} />
       </a>
