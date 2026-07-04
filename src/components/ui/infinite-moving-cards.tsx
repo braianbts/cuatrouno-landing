@@ -9,6 +9,7 @@ export const InfiniteMovingCards = ({
   speed = "fast",
   pauseOnHover = true,
   className,
+  light = false,
 }: {
   items: {
     quote: string;
@@ -19,6 +20,7 @@ export const InfiniteMovingCards = ({
   speed?: "fast" | "normal" | "slow";
   pauseOnHover?: boolean;
   className?: string;
+  light?: boolean;
 }) => {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const scrollerRef = React.useRef<HTMLUListElement>(null);
@@ -87,11 +89,16 @@ export const InfiniteMovingCards = ({
       >
         {items.map((item, idx) => (
           <li
-            className="relative w-[320px] max-w-full shrink-0 rounded-2xl border border-white/8 bg-[#0e0d0c] px-7 py-6 md:w-[360px]"
+            className={cn(
+              "relative w-[320px] max-w-full shrink-0 rounded-2xl px-7 py-6 md:w-[360px]",
+              light
+                ? "border border-zinc-200 bg-white shadow-sm"
+                : "border border-white/8 bg-[#0e0d0c]"
+            )}
             key={item.name}
           >
             <blockquote>
-              <span className="relative z-20 block text-[13px] leading-relaxed text-zinc-200">
+              <span className={cn("relative z-20 block text-[13px] leading-relaxed", light ? "text-zinc-600" : "text-zinc-200")}>
                 {item.quote}
               </span>
               <div className="relative z-20 mt-5 flex flex-row items-center gap-3">
@@ -99,8 +106,8 @@ export const InfiniteMovingCards = ({
                   {(item.name as string).split(" ").map((n: string) => n[0]).join("").slice(0, 2)}
                 </div>
                 <span className="flex flex-col gap-0.5">
-                  <span className="text-[13px] font-bold text-white">{item.name}</span>
-                  <span className="text-[11px] text-zinc-500">{item.title}</span>
+                  <span className={cn("text-[13px] font-bold", light ? "text-zinc-900" : "text-white")}>{item.name}</span>
+                  <span className={cn("text-[11px]", light ? "text-zinc-400" : "text-zinc-500")}>{item.title}</span>
                 </span>
               </div>
             </blockquote>

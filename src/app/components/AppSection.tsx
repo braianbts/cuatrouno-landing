@@ -43,11 +43,7 @@ const features = [
 
 export default function AppSection() {
   return (
-    <section className="relative overflow-hidden bg-[#080706] py-20 sm:py-24">
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{ background: "radial-gradient(ellipse 70% 55% at 50% 0%, rgba(196,26,26,.08), transparent 60%)" }}
-      />
+    <section className="relative overflow-hidden py-20 sm:py-24" style={{ background: "radial-gradient(ellipse 65% 55% at 15% 10%, rgba(232,65,63,.55) 0%, transparent 55%), radial-gradient(ellipse 55% 50% at 88% 85%, rgba(232,184,48,.45) 0%, transparent 52%), radial-gradient(ellipse 45% 40% at 5% 90%, rgba(196,26,26,.38) 0%, transparent 48%), #f5f5f5" }}>
 
       <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-12 lg:px-20">
 
@@ -56,11 +52,11 @@ export default function AppSection() {
           <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.3em] text-[#C41A1A]">
             Tu plan, siempre con vos
           </p>
-          <h2 className="font-display text-3xl font-black uppercase leading-[1.05] sm:text-4xl lg:text-5xl">
+          <h2 className="font-display text-3xl font-black uppercase leading-[1.05] text-zinc-900 sm:text-4xl lg:text-5xl">
             Nada de PDFs perdidos<br />
             <span className="text-[#C41A1A]">ni rutinas en capturas.</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-lg text-[15px] leading-relaxed text-zinc-400">
+          <p className="mx-auto mt-4 max-w-lg text-[15px] leading-relaxed text-zinc-500">
             Al arrancar con Braian recibís acceso a tu app personal: qué comer hoy, qué entrenar y cómo vas. Abrís el celular y está todo ahí.
           </p>
         </div>
@@ -71,7 +67,7 @@ export default function AppSection() {
           <div className="reveal relative order-1 mx-auto w-full max-w-[300px] sm:max-w-[360px] lg:mx-0">
             <div
               className="pointer-events-none absolute left-1/2 top-1/2 h-[78%] w-[88%] -translate-x-1/2 -translate-y-1/2 rounded-full"
-              style={{ background: "radial-gradient(ellipse at center, rgba(196,26,26,.24), transparent 70%)" }}
+              style={{ background: "radial-gradient(ellipse at center, rgba(196,26,26,.10), transparent 70%)" }}
             />
             <div
               className="pointer-events-none absolute bottom-[5%] left-1/2 h-6 w-[60%] -translate-x-1/2 rounded-[50%]"
@@ -106,19 +102,19 @@ export default function AppSection() {
               {features.map((f, i) => (
                 <div
                   key={i}
-                  className={`reveal d${i + 1} rounded-2xl border border-white/8 bg-white/[.02] p-5 transition-colors hover:border-[#C41A1A]/30 hover:bg-white/[.035]`}
+                  className={`reveal d${i + 1} rounded-2xl border border-zinc-200 bg-zinc-50 p-5 transition-colors hover:border-[#C41A1A]/30 hover:bg-zinc-100`}
                 >
                   <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-[#C41A1A]/10 text-[#E8413F]">
                     {f.icon}
                   </div>
-                  <p className="font-display text-[14px] font-black uppercase tracking-wide text-white">{f.q}</p>
-                  <p className="mt-1.5 text-[13px] leading-relaxed text-zinc-400">{f.a}</p>
+                  <p className="font-display text-[14px] font-black uppercase tracking-wide text-zinc-900">{f.q}</p>
+                  <p className="mt-1.5 text-[13px] leading-relaxed text-zinc-500">{f.a}</p>
                 </div>
               ))}
             </div>
 
             <div className="reveal mt-7 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <p className="max-w-xs text-[13px] leading-relaxed text-zinc-500">
+              <p className="max-w-xs text-[13px] leading-relaxed text-zinc-400">
                 No entrenás solo — hay alguien mirando los números con vos.
               </p>
               <a

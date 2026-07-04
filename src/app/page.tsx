@@ -5,8 +5,8 @@ import Pricing from "./components/Pricing";
 import AppSection from "./components/AppSection";
 import CredBadges from "./components/CredBadges";
 import ScrollFx from "./components/ScrollFx";
-import { WaIcon, IgIcon, WA_LINK, WA_LINK_MSG } from "./components/icons";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
+import { WaIcon, IgIcon, WA_LINK, WA_LINK_MSG } from "./components/icons";
 import { BackgroundBeams } from "@/components/ui/background-beams";
 
 const testimonials = [
@@ -19,11 +19,6 @@ const testimonials = [
   { name: "Florencia Aguilar", location: "Palermo, CABA", initials: "FA", color: "#c47a1a", time: "17:02", text: "El seguimiento por WhatsApp hace toda la diferencia. Sentís que alguien está atrás tuyo ayudándote. Hoy me veo al espejo y estoy súper conforme." },
 ];
 
-const movingTestimonials = testimonials.map(t => ({
-  quote: t.text,
-  name: t.name,
-  title: t.location,
-}));
 
 const steps = [
   { num: "1", text: "Elegí el plan que se adapta a tu objetivo", img: "/assets/cf-1.jpg" },
@@ -31,6 +26,8 @@ const steps = [
   { num: "3", text: "Activación de tu app con toda tu rutina, alimentación y seguimiento", img: "/assets/cf-6.jpeg" },
 ];
 
+
+const movingTestimonials = testimonials.map(t => ({ quote: t.text, name: t.name, title: t.location }));
 
 const paymentLogos = [
   { src: "/assets/mercadopago-nuevo-logo.webp", name: "Mercado Pago", h: "h-7" },
@@ -114,8 +111,8 @@ export default function Home() {
 
         {/* ─── SOBRE BRAIAN ─── */}
         <section id="sobre" className="relative overflow-hidden bg-[#080706]">
-          <div className="flex min-h-[80vh] flex-col lg:flex-row">
-            <div className="relative aspect-[4/5] w-full lg:aspect-auto lg:w-1/2">
+          <div className="flex flex-col lg:flex-row">
+            <div className="relative aspect-[4/5] w-full lg:aspect-auto lg:min-h-[700px] lg:w-1/2">
               {/* mobile: crossfade between both images */}
               <Image src="/assets/braian-hero.jpg" alt="Braian Barrientos" fill className="img-fade-a object-cover object-[58%_16%] lg:hidden" />
               <Image src="/assets/braian-diploma.jpg" alt="Braian Barrientos" fill className="img-fade-b object-cover object-center lg:hidden" />
@@ -125,7 +122,7 @@ export default function Home() {
               <div className="absolute inset-0 hidden bg-gradient-to-r from-transparent via-transparent to-[#080706] lg:block" />
             </div>
 
-            <div className="relative flex flex-col justify-center px-6 py-14 sm:px-12 lg:w-1/2 lg:px-16 xl:px-20">
+            <div className="relative flex flex-col justify-center px-6 py-14 sm:px-12 lg:w-1/2 lg:px-16 lg:py-20 xl:px-20">
               <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(ellipse 90% 60% at 100% 40%, rgba(196,26,26,.12), transparent)" }} />
               <p className="reveal mb-3 text-[11px] font-bold uppercase tracking-[0.3em] text-[#C41A1A]">Quién soy</p>
               <h2 className="reveal d1 font-display text-[1.7rem] font-black uppercase leading-[1.05] sm:text-4xl xl:text-[2.7rem]">
@@ -148,18 +145,20 @@ export default function Home() {
         </section>
 
         {/* ─── TESTIMONIOS ─── */}
-        <section className="relative overflow-hidden bg-[#060504] py-16 sm:py-20">
-          <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(ellipse 50% 60% at 0% 50%, rgba(196,26,26,.10), transparent)" }} />
-          <div className="reveal mb-10 px-6 sm:px-12 lg:px-24">
-            <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.3em] text-[#C41A1A]">Resultados reales</p>
-            <h2 className="font-display text-3xl font-black uppercase leading-tight sm:text-5xl lg:text-6xl">Lo que dicen<br />mis alumnos</h2>
+        <section className="relative overflow-hidden py-16 sm:py-20" style={{ background: "linear-gradient(to bottom, #060504 0%, #0f0404 50%, #1c0505 100%)" }}>
+          <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(ellipse 90% 60% at 50% 100%, rgba(196,26,26,.30), transparent 70%)" }} />
+          <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-12 lg:px-20">
+            <div className="reveal mb-12 text-center">
+              <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.05] px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-400">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                Testimonios
+              </span>
+              <h2 className="font-display text-3xl font-black uppercase leading-tight sm:text-5xl lg:text-6xl">
+                Lo que dicen<br /><span className="text-[#C41A1A]">mis alumnos</span>
+              </h2>
+            </div>
           </div>
-          <InfiniteMovingCards
-            items={movingTestimonials}
-            direction="left"
-            speed="slow"
-            pauseOnHover
-          />
+          <InfiniteMovingCards items={movingTestimonials} direction="left" speed="slow" pauseOnHover className="mx-auto" />
         </section>
 
         {/* ─── CÓMO FUNCIONA ─── */}
