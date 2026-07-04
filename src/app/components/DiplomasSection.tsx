@@ -22,7 +22,7 @@ function DiplomaCard({ d, onClick }: { d: typeof nacionales[0]; onClick: () => v
   return (
     <button
       onClick={onClick}
-      className="group relative h-56 w-80 flex-shrink-0 overflow-hidden rounded-2xl border border-[#e8e6e3] bg-white transition-all duration-300 hover:border-[#C41A1A]/40 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#C41A1A]/10 sm:h-64 sm:w-96"
+      className="group relative h-56 w-80 flex-shrink-0 overflow-hidden rounded-2xl border border-white/8 bg-[#0a0908] transition-all duration-300 hover:border-[#C41A1A]/50 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/50 sm:h-64 sm:w-96"
     >
       <Image
         src={d.src}
@@ -74,8 +74,10 @@ export default function DiplomasSection() {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-[#f7f6f4] py-16 sm:py-24">
-        <div className="pointer-events-none absolute left-0 top-0 h-full w-px bg-gradient-to-b from-transparent via-[#C41A1A]/15 to-transparent" />
+      <section className="relative overflow-hidden bg-[#080706] py-16 sm:py-24">
+        {/* bg decorations */}
+        <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(ellipse 70% 40% at 50% 0%, rgba(196,26,26,.08), transparent)" }} />
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-px bg-gradient-to-b from-transparent via-[#C41A1A]/20 to-transparent" />
 
         {/* header */}
         <div className="relative z-10 mb-12 px-6 sm:px-12 lg:px-20">
@@ -85,15 +87,15 @@ export default function DiplomasSection() {
                 <span className="h-1.5 w-1.5 rounded-full bg-[#C41A1A]" />
                 <p className="text-[10px] font-black uppercase tracking-[0.3em] text-[#E8413F]">Formación y certificaciones</p>
               </div>
-              <h2 className="font-display text-3xl font-black uppercase leading-tight text-[#0f0e0d] sm:text-4xl lg:text-5xl">
+              <h2 className="font-display text-3xl font-black uppercase leading-tight sm:text-4xl lg:text-5xl">
                 Mi respaldo<br /><span className="text-[#C41A1A]">académico</span>
               </h2>
-              <p className="mt-3 max-w-md text-[14px] leading-relaxed text-zinc-600">No improviso. Cada plan está respaldado por formación continua — nacional e internacional.</p>
+              <p className="mt-3 max-w-md text-[14px] leading-relaxed text-zinc-500">No improviso. Cada plan está respaldado por formación continua — nacional e internacional.</p>
             </div>
             <div className="flex gap-6 lg:flex-col lg:items-end lg:gap-2">
               <div className="text-right">
-                <p className="font-display text-3xl font-black text-[#0f0e0d]">{all.length}</p>
-                <p className="text-[10px] uppercase tracking-wider text-zinc-500">Certificaciones</p>
+                <p className="font-display text-3xl font-black text-white">{all.length}</p>
+                <p className="text-[10px] uppercase tracking-wider text-zinc-600">Certificaciones</p>
               </div>
             </div>
           </div>
@@ -119,7 +121,7 @@ export default function DiplomasSection() {
           </div>
         </div>
 
-        <p className="mt-5 text-center text-[11px] text-zinc-400 lg:hidden">← Deslizá para ver todos →</p>
+        <p className="mt-5 text-center text-[11px] text-zinc-700 lg:hidden">← Deslizá para ver todos →</p>
       </section>
 
       {/* Lightbox */}

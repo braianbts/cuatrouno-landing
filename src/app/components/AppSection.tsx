@@ -43,7 +43,12 @@ const features = [
 
 export default function AppSection() {
   return (
-    <section className="relative overflow-hidden bg-[#f7f6f4] py-20 sm:py-24">
+    <section className="relative overflow-hidden bg-[#080706] py-20 sm:py-24">
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{ background: "radial-gradient(ellipse 70% 55% at 50% 0%, rgba(196,26,26,.08), transparent 60%)" }}
+      />
+
       <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-12 lg:px-20">
 
         {/* header */}
@@ -51,11 +56,11 @@ export default function AppSection() {
           <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.3em] text-[#C41A1A]">
             Tu plan, siempre con vos
           </p>
-          <h2 className="font-display text-3xl font-black uppercase leading-[1.05] text-[#0f0e0d] sm:text-4xl lg:text-5xl">
+          <h2 className="font-display text-3xl font-black uppercase leading-[1.05] sm:text-4xl lg:text-5xl">
             Nada de PDFs perdidos<br />
             <span className="text-[#C41A1A]">ni rutinas en capturas.</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-lg text-[15px] leading-relaxed text-zinc-600">
+          <p className="mx-auto mt-4 max-w-lg text-[15px] leading-relaxed text-zinc-400">
             Al arrancar con Braian recibís acceso a tu app personal: qué comer hoy, qué entrenar y cómo vas. Abrís el celular y está todo ahí.
           </p>
         </div>
@@ -66,21 +71,23 @@ export default function AppSection() {
           <div className="reveal relative order-1 mx-auto w-full max-w-[300px] sm:max-w-[360px] lg:mx-0">
             <div
               className="pointer-events-none absolute left-1/2 top-1/2 h-[78%] w-[88%] -translate-x-1/2 -translate-y-1/2 rounded-full"
-              style={{ background: "radial-gradient(ellipse at center, rgba(196,26,26,.12), transparent 70%)" }}
+              style={{ background: "radial-gradient(ellipse at center, rgba(196,26,26,.24), transparent 70%)" }}
             />
             <div
               className="pointer-events-none absolute bottom-[5%] left-1/2 h-6 w-[60%] -translate-x-1/2 rounded-[50%]"
-              style={{ background: "radial-gradient(ellipse at center, rgba(0,0,0,.18), transparent 72%)", filter: "blur(9px)" }}
+              style={{ background: "radial-gradient(ellipse at center, rgba(0,0,0,.55), transparent 72%)", filter: "blur(9px)" }}
             />
             <div className="app-float relative" style={{ perspective: "1200px" }}>
+              {/* back: plan desplegado */}
               <Image
                 src="/mockup1cel.png"
                 alt="App Cuatrouno — plan del día desplegado"
                 width={968}
                 height={2000}
                 className="absolute right-[-3%] top-[-4%] w-[63%]"
-                style={{ transform: "rotate(6deg)", zIndex: 1, filter: "drop-shadow(0 22px 32px rgba(0,0,0,.18))", height: "auto" }}
+                style={{ transform: "rotate(6deg)", zIndex: 1, filter: "drop-shadow(0 22px 32px rgba(0,0,0,.55))", height: "auto" }}
               />
+              {/* front: rutina del día */}
               <Image
                 src="/mockup2cel.png"
                 alt="App Cuatrouno — rutina del día"
@@ -88,7 +95,7 @@ export default function AppSection() {
                 height={1824}
                 priority
                 className="relative ml-[2%] w-[70%]"
-                style={{ transform: "rotate(-4deg)", zIndex: 2, filter: "drop-shadow(0 26px 38px rgba(0,0,0,.22))", height: "auto" }}
+                style={{ transform: "rotate(-4deg)", zIndex: 2, filter: "drop-shadow(0 26px 38px rgba(0,0,0,.6))", height: "auto" }}
               />
             </div>
           </div>
@@ -99,13 +106,13 @@ export default function AppSection() {
               {features.map((f, i) => (
                 <div
                   key={i}
-                  className={`reveal d${i + 1} rounded-2xl border border-[#e8e6e3] bg-white p-5 shadow-sm transition-all duration-200 hover:border-[#C41A1A]/25 hover:shadow-md`}
+                  className={`reveal d${i + 1} rounded-2xl border border-white/8 bg-white/[.02] p-5 transition-colors hover:border-[#C41A1A]/30 hover:bg-white/[.035]`}
                 >
-                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-[#C41A1A]/8 text-[#C41A1A]">
+                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-[#C41A1A]/10 text-[#E8413F]">
                     {f.icon}
                   </div>
-                  <p className="font-display text-[14px] font-black uppercase tracking-wide text-[#0f0e0d]">{f.q}</p>
-                  <p className="mt-1.5 text-[13px] leading-relaxed text-zinc-600">{f.a}</p>
+                  <p className="font-display text-[14px] font-black uppercase tracking-wide text-white">{f.q}</p>
+                  <p className="mt-1.5 text-[13px] leading-relaxed text-zinc-400">{f.a}</p>
                 </div>
               ))}
             </div>
@@ -118,7 +125,7 @@ export default function AppSection() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex flex-shrink-0 items-center justify-center gap-3 rounded-full bg-[#C41A1A] px-7 py-4 text-sm font-black uppercase tracking-widest text-white transition-all hover:bg-[#a81616] hover:shadow-lg hover:shadow-[#C41A1A]/20 active:scale-[.98]"
+                className="inline-flex flex-shrink-0 items-center justify-center gap-3 rounded-md bg-[#25D366] px-7 py-4 text-sm font-black uppercase tracking-widest text-white transition-all hover:bg-[#1ebe5d] active:scale-[.98]"
               >
                 <WaIcon size={18} />
                 Quiero mi plan
@@ -128,6 +135,7 @@ export default function AppSection() {
         </div>
       </div>
 
+      {/* float animation (reduced-motion safe) */}
       <style>{`
         @keyframes app-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
         .app-float { animation: app-float 6s ease-in-out infinite; }
