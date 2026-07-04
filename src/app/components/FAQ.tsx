@@ -16,26 +16,29 @@ export default function FAQSection() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="bg-[#080706] py-16 sm:py-20">
+    <section id="faq" className="bg-white py-16 sm:py-20">
       <div className="mx-auto max-w-3xl px-6 sm:px-12 lg:px-20">
-        <h2 className="reveal mb-10 font-display text-3xl font-black uppercase leading-tight sm:text-4xl lg:text-5xl">
-          Preguntas<br /><span className="text-[#C41A1A]">frecuentes</span>
-        </h2>
-        <div className="space-y-2.5">
+        <div className="mb-10">
+          <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.3em] text-[#C41A1A]">Dudas frecuentes</p>
+          <h2 className="reveal font-display text-3xl font-black uppercase leading-tight sm:text-4xl lg:text-5xl text-[#0f0e0d]">
+            Preguntas<br /><span className="text-[#C41A1A]">frecuentes</span>
+          </h2>
+        </div>
+        <div className="space-y-2">
           {faqs.map((faq, i) => {
             const isOpen = open === i;
             return (
-              <div key={i} className="overflow-hidden rounded-xl border border-white/8 bg-[#0e0d0c]">
+              <div key={i} className={`overflow-hidden rounded-2xl border transition-all duration-200 ${isOpen ? "border-[#C41A1A]/20 bg-[#fef9f9]" : "border-[#e8e6e3] bg-white hover:border-[#C41A1A]/20"}`}>
                 <button
                   onClick={() => setOpen(isOpen ? null : i)}
-                  className="flex w-full cursor-pointer items-center justify-between gap-4 px-5 py-4 text-left transition-colors hover:bg-white/[0.03] sm:px-6"
+                  className="flex w-full cursor-pointer items-center justify-between gap-4 px-5 py-4 text-left sm:px-6"
                 >
-                  <span className="text-[14px] font-bold leading-tight text-white">{faq.q}</span>
+                  <span className="text-[14px] font-bold leading-tight text-[#0f0e0d]">{faq.q}</span>
                   <span className={`flex-shrink-0 text-2xl font-light leading-none text-[#C41A1A] transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}>+</span>
                 </button>
                 <div className="grid transition-[grid-template-rows] duration-300" style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}>
                   <div className="overflow-hidden">
-                    <p className="px-5 pb-5 text-[14px] leading-relaxed text-zinc-400 sm:px-6">{faq.a}</p>
+                    <p className="px-5 pb-5 text-[14px] leading-relaxed text-zinc-600 sm:px-6">{faq.a}</p>
                   </div>
                 </div>
               </div>

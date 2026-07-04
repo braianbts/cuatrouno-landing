@@ -25,7 +25,9 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 z-50 w-full border-b transition-all duration-300 ${
-        scrolled ? "border-white/10 bg-black/55 backdrop-blur-xl" : "border-white/5 bg-[#0d0b09]/80 backdrop-blur-md"
+        scrolled
+          ? "border-black/8 bg-white/90 backdrop-blur-xl shadow-sm"
+          : "border-black/5 bg-white/80 backdrop-blur-md"
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3 sm:px-10 lg:px-14">
@@ -33,9 +35,9 @@ export default function Navbar() {
           <Image src="/assets/logo-superior-web.png" alt="Cuatrouno Training Club" width={180} height={70} priority className="h-11 w-auto object-contain sm:h-14" />
         </a>
 
-        <nav className="hidden items-center gap-8 text-[13px] font-semibold uppercase tracking-wider text-zinc-300 lg:flex">
+        <nav className="hidden items-center gap-8 text-[13px] font-semibold uppercase tracking-wider text-zinc-600 lg:flex">
           {links.map((l) => (
-            <a key={l.href} href={l.href} className="nav-link transition-colors hover:text-white">{l.label}</a>
+            <a key={l.href} href={l.href} className="nav-link transition-colors hover:text-[#0f0e0d]">{l.label}</a>
           ))}
         </nav>
 
@@ -44,17 +46,17 @@ export default function Navbar() {
             href={WA_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden items-center gap-2 rounded-md bg-[#25D366] px-5 py-2.5 text-[13px] font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#1ebe5d] sm:flex"
+            className="hidden items-center gap-2 rounded-full bg-[#C41A1A] px-5 py-2.5 text-[13px] font-bold uppercase tracking-wider text-white transition-all hover:bg-[#a81616] hover:shadow-md hover:shadow-[#C41A1A]/20 sm:flex"
           >
-            <WaIcon size={18} />
+            <WaIcon size={16} />
             WhatsApp
           </a>
           <button
             aria-label="Menú"
             onClick={() => setOpen((v) => !v)}
-            className="flex h-10 w-10 items-center justify-center rounded-md border border-white/10 text-white lg:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-xl border border-black/10 text-zinc-700 lg:hidden"
           >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round">
               <line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" />
             </svg>
           </button>
@@ -62,10 +64,10 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="border-t border-white/5 bg-[#0d0b09]/98 px-4 py-4 backdrop-blur-md lg:hidden">
-          <nav className="flex flex-col gap-1 text-sm font-semibold uppercase tracking-wider text-zinc-200">
+        <div className="border-t border-black/5 bg-white px-4 py-4 shadow-lg lg:hidden">
+          <nav className="flex flex-col gap-1 text-sm font-semibold uppercase tracking-wider text-zinc-700">
             {links.map((l) => (
-              <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="rounded-md px-3 py-3 transition-colors hover:bg-white/5">{l.label}</a>
+              <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="rounded-xl px-3 py-3 transition-colors hover:bg-zinc-50 hover:text-[#C41A1A]">{l.label}</a>
             ))}
           </nav>
         </div>

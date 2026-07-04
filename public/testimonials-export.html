@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testimonios — Cuatrouno Training Club</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #ffffff;
+    font-family: 'Inter', system-ui, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    padding: 48px;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .header .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #E8413F;
+    margin-bottom: 10px;
+  }
+  .header h1 {
+    font-size: 52px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #ffffff;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  .card {
+    background: #0e0d0c;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 18px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .quote-mark {
+    font-size: 48px;
+    line-height: 0.6;
+    color: #C41A1A;
+    font-weight: 900;
+    opacity: 0.5;
+  }
+
+  .quote-text {
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: #d4d4d4;
+    flex: 1;
+  }
+
+  .author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 14px;
+  }
+
+  .avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #C41A1A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 900;
+    color: white;
+    flex-shrink: 0;
+    letter-spacing: 0.5px;
+  }
+
+  .author-info { display: flex; flex-direction: column; gap: 2px; }
+  .author-name { font-size: 13px; font-weight: 700; color: #ffffff; }
+  .author-loc  { font-size: 11px; color: #52525b; }
+
+  .stars {
+    display: flex;
+    gap: 3px;
+    margin-bottom: 4px;
+  }
+
+  .logo-row {
+    text-align: center;
+    margin-top: 36px;
+    opacity: 0.35;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="tag">Resultados reales</div>
+  <h1>Lo que dicen<br>mis alumnos</h1>
+</div>
+
+<div class="grid">
+
+  <div class="card">
+    <div class="quote-mark">"</div>
+    <div class="stars"><svg width="13" height="13" viewBox="0 0 24 24" fill="#E8B830"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.783 1.401 8.171L12 18.896l-7.335 3.869 1.401-8.171L.132 9.211l8.2-1.193z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#E8B830"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.783 1.401 8.171L12 18.896l-7.335 3.869 1.401-8.171L.132 9.211l8.2-1.193z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#E8B830"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.783 1.401 8.171L12 18.896l-7.335 3.869 1.401-8.171L.132 9.211l8.2-1.193z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#E8B830"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.783 1.401 8.171L12 18.896l-7.335 3.869 1.401-8.171L.132 9.211l8.2-1.193z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#E8B830"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.783 1.401 8.171L12 18.896l-7.335 3.869 1.401-8.171L.132 9.211l8.2-1.193z"/></svg></div>
+    <p class="quote-text">En 3 meses con Braian tuve más cambios que en años entrenando sola. Le escribís y te responde. Se nota que le interesa de verdad.</p>
+    <div class="author">
+      <div class="avatar">LM</div>
+      <div class="author-info">
+        <span class="author-name">Lucía Martínez</span>
+        <span class="author-loc">Caballito, CABA</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="quote-mark">"</div>
+    <div class="stars"><svg width="13" height="13" viewBox="0 0 24 24" fill="#E8B830"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.783 1.401 8.171L12 18.896l-7.335 3.869 1.401-8.171L.132 9.211l8.2-1.193z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#E8B830"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.783 1.401 8.171L12 18.896l-7.335 3.869 1.401-8.171L.132 9.211l8.2-1.193z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#E8B830"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.783 1.401 8.171L12 18.896l-7.335 3.869 1.401-8.171L.132 9.211l8.2-1.193z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#E8B830"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.783 1.401 8.171L12 18.896l-7.335 3.869 1.401-8.171L.132 9.211l8.2-1.193z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#E8B830"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.783 1.401 8.171L12 18.896l-7.335 3.869 1.401-8.171L.132 9.211l8.2-1.193z"/></svg></div>
+    <p class="quote-text">Arranqué literalmente de cero y me daba vergüenza entrar al gym. Braian me armó algo re llevadero y hoy estoy muchísimo más fuerte. Un antes y un después.</p>
+    <div class="author">
+      <div class="avatar">RP</div>
+      <div class="author-info">
+        <span class="author-name">Rodrigo Palacios</span>
+        <span class="author-loc">Escobar, Zona Norte</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="quote-mark">"</div>
+    <div class="stars"><svg width="13" height="13" viewBox="0 0 24 24" fill="#E8B830"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.783 1.401 8.171L12 18.896l-7.335 3.869 1.401-8.171L.132 9.211l8.2-1.193z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#E8B830"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.783 1.401 8.171L12 18.896l-7.335 3.869 1.401-8.171L.132 9.211l8.2-1.193z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#E8B830"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.783 1.401 8.171L12 18.896l-7.335 3.869 1.401-8.171L.132 9.211l8.2-1.193z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#E8B830"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.783 1.401 8.171L12 18.896l-7.335 3.869 1.401-8.171L.132 9.211l8.2-1.193z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#E8B830"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.783 1.401 8.171L12 18.896l-7.335 3.869 1.401-8.171L.132 9.211l8.2-1.193z"/></svg></div>
+    <p class="quote-text">La parte de alimentación me cambió la cabeza. Ahora como bien, entreno mejor y encima disfruto el proceso.</p>
+    <div class="author">
+      <div class="avatar">CG</div>
+      <div class="author-info">
+        <span class="author-name">Carla González</span>
+        <span class="author-loc">Belgrano, CABA</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="quote-mark">"</div>
+    <div class="stars"><svg width="13" height="13" viewBox="0 0 24 24" fill="#E8B830"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.783 1.401 8.171L12 18.896l-7.335 3.869 1.401-8.171L.132 9.211l8.2-1.193z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#E8B830"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.783 1.401 8.171L12 18.896l-7.335 3.869 1.401-8.171L.132 9.211l8.2-1.193z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#E8B830"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.783 1.401 8.171L12 18.896l-7.335 3.869 1.401-8.171L.132 9.211l8.2-1.193z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#E8B830"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.783 1.401 8.171L12 18.896l-7.335 3.869 1.401-8.171L.132 9.211l8.2-1.193z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#E8B830"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.783 1.401 8.171L12 18.896l-7.335 3.869 1.401-8.171L.132 9.211l8.2-1.193z"/></svg></div>
+    <p class="quote-text">Estaba re estancado hace más de un año. La videollamada inicial me abrió los ojos en un montón de cosas que hacía mal.</p>
+    <div class="author">
+      <div class="avatar">MF</div>
+      <div class="author-info">
+        <span class="author-name">Matías Fernández</span>
+        <span class="author-loc">Maschwitz, Zona Norte</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="quote-mark">"</div>
+    <div class="stars"><svg width="13" height="13" viewBox="0 0 24 24" fill="#E8B830"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.783 1.401 8.171L12 18.896l-7.335 3.869 1.401-8.171L.132 9.211l8.2-1.193z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#E8B830"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.783 1.401 8.171L12 18.896l-7.335 3.869 1.401-8.171L.132 9.211l8.2-1.193z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#E8B830"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.783 1.401 8.171L12 18.896l-7.335 3.869 1.401-8.171L.132 9.211l8.2-1.193z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#E8B830"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.783 1.401 8.171L12 18.896l-7.335 3.869 1.401-8.171L.132 9.211l8.2-1.193z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#E8B830"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.783 1.401 8.171L12 18.896l-7.335 3.869 1.401-8.171L.132 9.211l8.2-1.193z"/></svg></div>
+    <p class="quote-text">Entreno desde casa y siempre se me complicó ver cambios. Me adaptó todo a lo que tenía y aun así cambió muchísimo mi físico.</p>
+    <div class="author">
+      <div class="avatar">VR</div>
+      <div class="author-info">
+        <span class="author-name">Valentina Ríos</span>
+        <span class="author-loc">Tigre, Zona Norte</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="quote-mark">"</div>
+    <div class="stars"><svg width="13" height="13" viewBox="0 0 24 24" fill="#E8B830"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.783 1.401 8.171L12 18.896l-7.335 3.869 1.401-8.171L.132 9.211l8.2-1.193z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#E8B830"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.783 1.401 8.171L12 18.896l-7.335 3.869 1.401-8.171L.132 9.211l8.2-1.193z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#E8B830"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.783 1.401 8.171L12 18.896l-7.335 3.869 1.401-8.171L.132 9.211l8.2-1.193z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#E8B830"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.783 1.401 8.171L12 18.896l-7.335 3.869 1.401-8.171L.132 9.211l8.2-1.193z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#E8B830"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.783 1.401 8.171L12 18.896l-7.335 3.869 1.401-8.171L.132 9.211l8.2-1.193z"/></svg></div>
+    <p class="quote-text">Entré queriendo bajar unos kilos y terminé mejorando el físico completo. No te vende humo ni cosas imposibles. Todo serio y sostenible.</p>
+    <div class="author">
+      <div class="avatar">SH</div>
+      <div class="author-info">
+        <span class="author-name">Sebastián Herrera</span>
+        <span class="author-loc">Benavídez, Zona Norte</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="quote-mark">"</div>
+    <div class="stars"><svg width="13" height="13" viewBox="0 0 24 24" fill="#E8B830"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.783 1.401 8.171L12 18.896l-7.335 3.869 1.401-8.171L.132 9.211l8.2-1.193z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#E8B830"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.783 1.401 8.171L12 18.896l-7.335 3.869 1.401-8.171L.132 9.211l8.2-1.193z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#E8B830"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.783 1.401 8.171L12 18.896l-7.335 3.869 1.401-8.171L.132 9.211l8.2-1.193z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#E8B830"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.783 1.401 8.171L12 18.896l-7.335 3.869 1.401-8.171L.132 9.211l8.2-1.193z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#E8B830"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.783 1.401 8.171L12 18.896l-7.335 3.869 1.401-8.171L.132 9.211l8.2-1.193z"/></svg></div>
+    <p class="quote-text" style="font-size:15px;">El seguimiento por WhatsApp hace toda la diferencia. Sentís que alguien está atrás tuyo ayudándote. Hoy me veo al espejo y estoy súper conforme.</p>
+    <div class="author">
+      <div class="avatar">FA</div>
+      <div class="author-info">
+        <span class="author-name">Florencia Aguilar</span>
+        <span class="author-loc">Palermo, CABA</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="logo-row">Cuatrouno Training Club · @braianbarrientos__</div>
+
+</body>
+</html>
