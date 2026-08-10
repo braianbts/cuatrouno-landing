@@ -119,7 +119,7 @@ export default function AppSection() {
               </p>
               <div className="flex flex-col gap-3 sm:flex-row sm:flex-shrink-0">
                 <a
-                  href="https://cuatrouno-trainingclub-app.vercel.app/"
+                  href="/app/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded-md border border-zinc-300 bg-white px-6 py-4 text-sm font-black uppercase tracking-widest text-zinc-900 transition-colors hover:border-zinc-400"
