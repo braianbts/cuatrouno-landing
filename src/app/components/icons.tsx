@@ -17,5 +17,6 @@ export function IgIcon({ size = 18, className = "" }: { size?: number; className
   );
 }
 
-export const WA_LINK = "https://wa.me/5493484381444";
-export const WA_LINK_MSG = "https://wa.me/5493484381444?text=%C2%A1Hola%21%20Quiero%20entrenar%F0%9F%92%AA";
+export const WA_PHONE = "5493484381444";
+export const WA_LINK = `https://wa.me/${WA_PHONE}`;
+export const WA_LINK_MSG = `https://wa.me/${WA_PHONE}?text=${encodeURIComponent("¡Hola! Quiero entrenar💪")}`;

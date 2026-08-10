@@ -5,6 +5,8 @@ import Pricing from "./components/Pricing";
 import AppSection from "./components/AppSection";
 import CredBadges from "./components/CredBadges";
 import ScrollFx from "./components/ScrollFx";
+import { BookingProvider } from "./components/BookingContext";
+import ReservarButton from "./components/ReservarButton";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import { WaIcon, IgIcon, WA_LINK, WA_LINK_MSG } from "./components/icons";
 import { BackgroundBeams } from "@/components/ui/background-beams";
@@ -39,6 +41,7 @@ const paymentLogos = [
 
 export default function Home() {
   return (
+    <BookingProvider>
     <div className="overflow-x-clip bg-[#080706] text-white">
       <Navbar />
       <main>
@@ -95,10 +98,25 @@ export default function Home() {
                   <WaIcon size={20} />
                   Quiero empezar ahora
                 </a>
-                <a href="#planes" className="inline-flex items-center justify-center gap-2 rounded-md border border-white/15 px-6 py-4 text-sm font-bold uppercase tracking-widest text-zinc-200 transition-colors hover:border-white/30 hover:text-white">
-                  Ver planes
+                <ReservarButton className="inline-flex items-center justify-center gap-2 rounded-md border border-white/15 px-6 py-4 text-sm font-bold uppercase tracking-widest text-zinc-200 transition-colors hover:border-white/30 hover:text-white">
+                  Reservar sesión
+                </ReservarButton>
+                <a href="#planes" className="inline-flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-widest text-zinc-400 transition-colors hover:text-white">
+                  Ver planes →
                 </a>
               </div>
+            </div>
+          </div>
+
+          {/* floating stat cards over the photo */}
+          <div className="pointer-events-none absolute bottom-16 right-4 z-10 hidden flex-col gap-3 sm:right-8 sm:bottom-10 md:flex lg:right-14">
+            <div className="reveal d1 flex items-center gap-3 rounded-xl border border-white/10 bg-black/55 px-5 py-3.5 backdrop-blur-md">
+              <span className="font-display text-2xl uppercase text-[#E8413F] lg:text-3xl">98%</span>
+              <span className="max-w-[7rem] text-[10px] font-bold uppercase leading-tight tracking-wide text-zinc-300">Satisfacción de mis alumnos</span>
+            </div>
+            <div className="reveal d2 ml-8 flex items-center gap-3 rounded-xl border border-white/10 bg-black/55 px-5 py-3.5 backdrop-blur-md">
+              <span className="font-display text-2xl uppercase text-white lg:text-3xl">30+</span>
+              <span className="max-w-[7rem] text-[10px] font-bold uppercase leading-tight tracking-wide text-zinc-300">Alumnos entrenando ahora</span>
             </div>
           </div>
 
@@ -202,15 +220,15 @@ export default function Home() {
             </div>
             <div className="grid gap-6 sm:grid-cols-3">
               {steps.map((s, i) => (
-                <div key={s.num} className={`reveal d${i + 1} flex flex-col gap-4 rounded-2xl border border-white/8 bg-[#0c0b0a] overflow-hidden`}>
-                  <div className="group relative h-44 w-full overflow-hidden">
+                <div key={s.num} className={`reveal d${i + 1} group relative flex flex-col overflow-hidden rounded-2xl border border-white/8 bg-[#0c0b0a]`}>
+                  <div className="relative h-72 w-full overflow-hidden sm:h-80">
                     <Image src={s.img} alt="" fill className="scale-105 object-cover transition-transform duration-500 group-hover:scale-110" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/10" />
-                    <span className="absolute top-3 left-3 flex h-7 w-7 items-center justify-center rounded-full border border-[#C41A1A]/50 bg-[#C41A1A]/15 text-xs font-black text-[#E8413F]">{s.num}</span>
-                  </div>
-                  <div className="px-5 pb-5">
-                    <p className="text-[10px] font-black uppercase tracking-wider text-[#E8413F]">Paso {s.num}</p>
-                    <p className="mt-1 text-[15px] font-bold leading-snug text-white">{s.text}</p>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/10" />
+                    <span className="font-display absolute left-4 top-4 flex h-9 w-9 items-center justify-center rounded-full border border-[#C41A1A]/50 bg-[#C41A1A]/20 text-sm uppercase text-[#E8413F] backdrop-blur-sm">{s.num}</span>
+                    <div className="absolute inset-x-0 bottom-0 p-5">
+                      <p className="text-[10px] font-black uppercase tracking-wider text-[#E8413F]">Paso {s.num}</p>
+                      <p className="font-display mt-1 text-[17px] uppercase leading-snug text-white">{s.text}</p>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -257,16 +275,39 @@ export default function Home() {
         {/* ─── FAQ ─── */}
         <FAQSection />
 
-        {/* ─── CTA FINAL ─── */}
-        <section className="relative overflow-hidden bg-[#060504] py-16">
+        {/* ─── CTA FINAL / STATS BAND ─── */}
+        <section className="relative overflow-hidden bg-[#060504] py-20 sm:py-28">
           <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(ellipse 60% 100% at 50% 100%, rgba(196,26,26,.18), transparent 70%)" }} />
+          <p aria-hidden className="font-display pointer-events-none absolute left-1/2 top-4 w-full -translate-x-1/2 whitespace-nowrap text-center text-[20vw] uppercase leading-none text-[#C41A1A]/10 sm:top-0 sm:text-[13vw]">
+            Cuatrouno
+          </p>
+
           <div className="relative z-10 mx-auto max-w-3xl px-5 text-center">
-            <h2 className="reveal font-display text-3xl font-black uppercase leading-tight sm:text-4xl">¿Listo para tu<br /><span className="text-[#C41A1A]">mejor versión?</span></h2>
+            <h2 className="reveal font-display text-3xl uppercase leading-tight sm:text-4xl">¿Listo para tu<br /><span className="text-[#C41A1A]">mejor versión?</span></h2>
             <p className="reveal d1 mx-auto mt-4 max-w-md text-[15px] text-zinc-400">Escribime por WhatsApp y armamos juntos el plan ideal para tu objetivo, tu rutina y tu realidad.</p>
-            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="reveal d2 mt-8 inline-flex w-full items-center justify-center gap-3 rounded-md bg-[#25D366] py-5 text-sm font-black uppercase tracking-widest text-white shadow-lg shadow-[#25D366]/20 transition-all hover:bg-[#1ebe5d] active:scale-[.99] sm:w-auto sm:px-12">
-              <WaIcon size={20} />
-              Entrar en contacto por WhatsApp
-            </a>
+            <div className="reveal d2 mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center">
+              <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-3 rounded-md bg-[#25D366] px-8 py-5 text-sm font-black uppercase tracking-widest text-white shadow-lg shadow-[#25D366]/20 transition-all hover:bg-[#1ebe5d] active:scale-[.99]">
+                <WaIcon size={20} />
+                WhatsApp
+              </a>
+              <ReservarButton className="inline-flex items-center justify-center gap-2 rounded-md border border-white/15 px-8 py-5 text-sm font-bold uppercase tracking-widest text-zinc-200 transition-colors hover:border-white/30 hover:text-white">
+                Reservar sesión
+              </ReservarButton>
+            </div>
+          </div>
+
+          <div className="reveal d3 relative z-10 mx-auto mt-16 grid max-w-4xl grid-cols-2 divide-x divide-white/10 border-y border-white/10 px-6 sm:grid-cols-4 sm:px-0">
+            {[
+              { n: "10", label: "Años de experiencia" },
+              { n: "30+", label: "Alumnos activos" },
+              { n: "7", label: "Certificaciones" },
+              { n: "98%", label: "Satisfacción" },
+            ].map((s) => (
+              <div key={s.label} className="flex flex-col items-center justify-center py-7 text-center">
+                <span className="font-display text-3xl uppercase text-[#C41A1A] sm:text-4xl">{s.n}</span>
+                <span className="mt-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-zinc-500">{s.label}</span>
+              </div>
+            ))}
           </div>
         </section>
 
@@ -305,5 +346,6 @@ export default function Home() {
 
       <ScrollFx />
     </div>
+    </BookingProvider>
   );
 }

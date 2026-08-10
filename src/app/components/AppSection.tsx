@@ -117,15 +117,25 @@ export default function AppSection() {
               <p className="max-w-xs text-[13px] leading-relaxed text-zinc-400">
                 No entrenás solo — hay alguien mirando los números con vos.
               </p>
-              <a
-                href={WA_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex flex-shrink-0 items-center justify-center gap-3 rounded-md bg-[#25D366] px-7 py-4 text-sm font-black uppercase tracking-widest text-white transition-all hover:bg-[#1ebe5d] active:scale-[.98]"
-              >
-                <WaIcon size={18} />
-                Quiero mi plan
-              </a>
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-shrink-0">
+                <a
+                  href="https://cuatrouno-trainingclub-app.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-md border border-zinc-300 bg-white px-6 py-4 text-sm font-black uppercase tracking-widest text-zinc-900 transition-colors hover:border-zinc-400"
+                >
+                  Ver la app
+                </a>
+                <a
+                  href={WA_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-3 rounded-md bg-[#25D366] px-7 py-4 text-sm font-black uppercase tracking-widest text-white transition-all hover:bg-[#1ebe5d] active:scale-[.98]"
+                >
+                  <WaIcon size={18} />
+                  Quiero mi plan
+                </a>
+              </div>
             </div>
           </div>
         </div>

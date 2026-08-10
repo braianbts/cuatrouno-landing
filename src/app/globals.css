@@ -29,8 +29,8 @@ body {
 
 ::selection { background: var(--red); color: #fff; }
 
-/* Geist is already the global font; this just keeps display headings consistent */
-.font-display { font-family: var(--font-geist-sans), system-ui, sans-serif; }
+/* Anton for big display headings/numbers/wordmark; body copy stays on Geist */
+.font-display { font-family: var(--font-anton), var(--font-geist-sans), system-ui, sans-serif; font-weight: 400; letter-spacing: 0.01em; }
 
 /* hide scrollbars on horizontal scrollers */
 .no-bar { scrollbar-width: none; -ms-overflow-style: none; }
