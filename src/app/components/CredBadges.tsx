@@ -18,14 +18,14 @@ export default function CredBadges() {
 
   return (
     <>
-      <div className="reveal d4 mt-7 border-t border-white/8 pt-6">
+      <div className="reveal d4 mt-7 border-t-2 border-white/15 pt-6">
         <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.25em] text-zinc-600">Formación certificada</p>
         <div className="flex flex-wrap gap-2">
           {certs.map((c, i) => (
             <button
               key={c.label}
               onClick={() => setOpen(i)}
-              className="flex cursor-pointer items-center gap-1.5 rounded-full border border-white/8 bg-white/[0.04] px-3 py-1.5 transition-colors hover:border-[#C41A1A]/40 hover:bg-[#C41A1A]/8"
+              className="flex cursor-pointer items-center gap-1.5 border border-white/15 px-3 py-1.5 transition-colors hover:border-[#C41A1A]/50 hover:bg-[#C41A1A]/8"
             >
               <span className="text-[9px] font-black uppercase tracking-wider text-[#C41A1A]">{c.org}</span>
               <span className="h-2.5 w-px bg-white/15" />
