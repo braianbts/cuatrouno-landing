@@ -16,8 +16,6 @@ type Plan = {
   contado: string;
   subCuotas: string;
   subContado: string;
-  perWeek: string;
-  perMonth: string;
   features: string[];
 };
 
@@ -29,8 +27,6 @@ const plans: Plan[] = [
     contado: "$109.990",
     subCuotas: "o $109.990 al contado",
     subContado: "o 2x de $59.990",
-    perWeek: "≈ $27.497 / semana",
-    perMonth: "≈ $109.990 / mes",
     features: ["Rutina completa personalizada", "Plan de alimentación estructurado", "Guía de alimentación práctica y de suplementación", "App personalizada con rutina, alimentación, escáner de porciones, control de peso y guía de compras", "Videollamada de bienvenida", "Soporte por WhatsApp"],
   },
   {
@@ -42,8 +38,6 @@ const plans: Plan[] = [
     contado: "$199.990",
     subCuotas: "o $199.990 al contado",
     subContado: "o 3x de $74.990",
-    perWeek: "≈ $15.384 / semana",
-    perMonth: "≈ $66.663 / mes",
     features: ["Todo lo del Plan Mensual", "Protocolo de entrenamiento progresivo", "Guía de alimentación práctica y de suplementación", "App personalizada con rutina, alimentación, escáner de porciones, control de peso y guía de compras", "Soporte individual por WhatsApp", "Descuentos en Cuatrouno Suplementos"],
   },
   {
@@ -53,8 +47,6 @@ const plans: Plan[] = [
     contado: "$329.990",
     subCuotas: "o $329.990 al contado",
     subContado: "o 3x de $124.990",
-    perWeek: "≈ $12.692 / semana · mejor valor",
-    perMonth: "≈ $54.998 / mes · mejor valor",
     features: ["Todo lo del Plan Trimestral", "KIT inicial de suplementación ¡GRATIS!", "Indumentaria oficial Training Club", "App personalizada con rutina, alimentación, escáner de porciones, control de peso y guía de compras", "Videollamada cada 30 días", "Seguimiento continuo del progreso", "Descuentos en Cuatrouno Suplementos"],
   },
 ];
@@ -117,12 +109,10 @@ export default function Pricing() {
                   <h3 className="relative z-10 mt-1 font-display text-2xl font-black uppercase text-[#1a1206] drop-shadow-sm">{p.name}</h3>
                 </div>
                 <div className="flex flex-1 flex-col bg-[#0c0b0a] px-7 pb-7 pt-7">
-                  <div className="mb-1 text-center">
+                  <div className="mb-5 text-center">
                     <p className="font-display text-3xl font-black text-white">{price}</p>
                     <p className="mt-1 text-[12px] text-zinc-500">{sub}</p>
                   </div>
-                  <p className="text-center text-[12px] font-bold uppercase tracking-wide text-[#E8B830]">{p.perWeek}</p>
-                  <p className="mb-5 mt-0.5 text-center text-[11px] uppercase tracking-wide text-[#E8B830]/60">{p.perMonth}</p>
                   <ul className="flex-1">
                     {p.features.map((f) => (
                       <li key={f} className="flex items-start gap-3 border-b border-white/6 py-2.5 text-[13px] leading-snug text-zinc-300"><Check gold /><span>{f}</span></li>
@@ -143,12 +133,10 @@ export default function Pricing() {
                 <h3 className="mt-1 font-display text-2xl font-black uppercase text-white">{p.name}</h3>
               </div>
               <div className="flex flex-1 flex-col px-7 pb-7 pt-7">
-                <div className="mb-1 text-center">
+                <div className="mb-5 text-center">
                   <p className="font-display text-3xl font-black text-white">{price}</p>
                   <p className="mt-1 text-[12px] text-zinc-500">{sub}</p>
                 </div>
-                <p className="text-center text-[12px] font-bold uppercase tracking-wide text-zinc-500">{p.perWeek}</p>
-                <p className="mb-5 mt-0.5 text-center text-[11px] uppercase tracking-wide text-zinc-600">{p.perMonth}</p>
                 <ul className="flex-1">
                   {p.features.map((f) => (
                     <li key={f} className="flex items-start gap-3 border-b border-white/6 py-2.5 text-[13px] leading-snug text-zinc-300"><Check /><span>{f}</span></li>
