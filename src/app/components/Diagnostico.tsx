@@ -102,23 +102,10 @@ export default function Diagnostico() {
             <h3 className="font-display text-3xl font-black uppercase text-white transition-opacity duration-200">{plan.name}</h3>
             <p className="mt-2 min-h-[3.5rem] text-[14px] leading-relaxed text-zinc-400">{why}</p>
 
-            <div className="mt-4 grid grid-cols-2 border-t border-white/10">
-              <div className="border-b border-r border-white/10 py-3 pr-3">
-                <p className="text-[10px] font-bold uppercase tracking-wider text-zinc-500">Duración</p>
-                <p className="mt-0.5 font-display text-lg font-black text-white">{duracion}</p>
-              </div>
-              <div className="border-b border-white/10 py-3 pl-3">
-                <p className="text-[10px] font-bold uppercase tracking-wider text-zinc-500">Al contado</p>
-                <p className="mt-0.5 font-display text-lg font-black text-[#E8413F]">{plan.contado}</p>
-              </div>
-              <div className="border-r border-white/10 py-3 pr-3">
-                <p className="text-[10px] font-bold uppercase tracking-wider text-zinc-500">En cuotas</p>
-                <p className="mt-0.5 font-display text-lg font-black text-white">{plan.cuotas}</p>
-              </div>
-              <div className="py-3 pl-3">
-                <p className="text-[10px] font-bold uppercase tracking-wider text-zinc-500">Empezás en</p>
-                <p className="mt-0.5 font-display text-lg font-black text-white">5 días hábiles</p>
-              </div>
+            <div className="mt-4 border-t border-white/10 pt-4">
+              <p className="font-display text-3xl font-black text-white">{plan.cuotas}</p>
+              <p className="mt-1 text-[12px] text-zinc-500">{plan.subCuotas}</p>
+              <p className="mt-3 text-[11px] font-bold uppercase tracking-wider text-zinc-500">{duracion} · Empezás en 5 días hábiles</p>
             </div>
 
             <p className="mt-4 text-[13px] leading-relaxed text-zinc-400">Incluye rutina y alimentación personalizadas, app con escáner de porciones y control de peso, videollamada de bienvenida y seguimiento por WhatsApp con Braian.</p>
