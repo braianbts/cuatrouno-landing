@@ -108,8 +108,8 @@ export default function Home() {
           <div className="mx-auto max-w-6xl px-6 sm:px-12 lg:px-20">
             <div className="reveal mb-8">
               <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.3em] text-[#E8413F]">Programas Cuatrouno</p>
-              <h2 className="font-display text-4xl font-black uppercase sm:text-5xl">Los tres programas, sin vueltas</h2>
-              <p className="mt-3 max-w-md text-[14px] text-zinc-400">Todos incluyen entrenamiento personalizado, materiales de apoyo y acompañamiento. Elegí según cuánto querés sostener el proceso.</p>
+              <h2 className="font-display text-4xl font-black uppercase sm:text-5xl">Elegí tu plan</h2>
+              <p className="mt-3 max-w-md text-[14px] text-zinc-400">Los tres incluyen rutina, alimentación y acompañamiento personalizado — la diferencia está en cuánto tiempo querés sostenerlo.</p>
             </div>
 
             <Pricing />
