@@ -5,8 +5,25 @@ import Pricing from "./components/Pricing";
 import AppSection from "./components/AppSection";
 import CredBadges from "./components/CredBadges";
 import ScrollFx from "./components/ScrollFx";
-import Diagnostico from "./components/Diagnostico";
+import { BookingProvider } from "./components/BookingContext";
+import ReservarButton from "./components/ReservarButton";
+import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import { WaIcon, IgIcon, WA_LINK, WA_LINK_MSG } from "./components/icons";
+import { BackgroundBeams } from "@/components/ui/background-beams";
+
+const testimonials = [
+  { name: "Lucía Martínez", location: "Caballito, CABA", initials: "LM", color: "#C41A1A", time: "21:14", text: "En 3 meses con Braian tuve más cambios que en años entrenando sola. Le escribís y te responde. Se nota que le interesa de verdad." },
+  { name: "Rodrigo Palacios", location: "Escobar, Zona Norte", initials: "RP", color: "#1a6bc4", time: "20:48", text: "Arranqué literalmente de cero y me daba vergüenza entrar al gym. Braian me armó algo re llevadero y hoy estoy muchísimo más fuerte. Un antes y un después." },
+  { name: "Carla González", location: "Belgrano, CABA", initials: "CG", color: "#1ac47a", time: "19:33", text: "La parte de alimentación me cambió la cabeza. Ahora como bien, entreno mejor y encima disfruto el proceso." },
+  { name: "Matías Fernández", location: "Maschwitz, Zona Norte", initials: "MF", color: "#c4a41a", time: "22:05", text: "Estaba re estancado hace más de un año. La videollamada inicial me abrió los ojos en un montón de cosas que hacía mal." },
+  { name: "Valentina Ríos", location: "Tigre, Zona Norte", initials: "VR", color: "#c41a7a", time: "18:21", text: "Entreno desde casa y siempre se me complicó ver cambios. Me adaptó todo a lo que tenía y aun así cambió muchísimo mi físico." },
+  { name: "Sebastián Herrera", location: "Benavídez, Zona Norte", initials: "SH", color: "#7a1ac4", time: "09:47", text: "Entré queriendo bajar unos kilos y terminé mejorando el físico completo. No te vende humo ni cosas imposibles. Todo serio y sostenible." },
+  { name: "Florencia Aguilar", location: "Palermo, CABA", initials: "FA", color: "#c47a1a", time: "17:02", text: "El seguimiento por WhatsApp hace toda la diferencia. Sentís que alguien está atrás tuyo ayudándote. Hoy me veo al espejo y estoy súper conforme." },
+];
+
+
+
+const movingTestimonials = testimonials.map(t => ({ quote: t.text, name: t.name, title: t.location }));
 
 const paymentLogos = [
   { src: "/assets/mercadopago-nuevo-logo.webp", name: "Mercado Pago", h: "h-7" },
@@ -16,106 +33,193 @@ const paymentLogos = [
   { src: "/assets/bna-logo.png", name: "BNA+", h: "h-7" },
 ];
 
-const shortQuotes = [
-  { text: "La parte de alimentación me cambió la cabeza.", author: "Carla G." },
-  { text: "La videollamada inicial me abrió los ojos.", author: "Matías F." },
-  { text: "El seguimiento por WhatsApp hace toda la diferencia.", author: "Florencia A." },
-];
-
 export default function Home() {
   return (
+    <BookingProvider>
     <div className="overflow-x-clip bg-[#080706] text-white">
       <Navbar />
       <main>
 
-        {/* ─── HERO + DIAGNÓSTICO ─── */}
-        <Diagnostico />
+        {/* ─── HERO ─── */}
+        <section id="inicio" className="relative flex min-h-[100svh] items-center overflow-hidden bg-[#080706] pt-24 pb-12 lg:pt-28">
+          <div
+            className="pointer-events-none absolute inset-y-0 right-0 w-full sm:w-[82%] lg:w-[60%]"
+            style={{
+              backgroundImage: "url('/assets/braian-hero.jpg')",
+              backgroundSize: "cover",
+              backgroundPosition: "58% 16%",
+              WebkitMaskImage: "linear-gradient(to right,transparent 0%,#000 24%,#000 88%,transparent 100%)",
+              maskImage: "linear-gradient(to right,transparent 0%,#000 24%,#000 88%,transparent 100%)",
+            }}
+          />
+          <div className="dot-grid pointer-events-none absolute inset-0 opacity-50" />
+          {/* mobile: heavy dark overlay so text is readable */}
+          <div className="pointer-events-none absolute inset-0 sm:hidden" style={{ background: "rgba(8,7,6,.82)" }} />
+          <div className="pointer-events-none absolute inset-0" style={{ background: "linear-gradient(to right,#080706 0%,#080706 23%,rgba(8,7,6,.80) 43%,rgba(8,7,6,.32) 62%,rgba(8,7,6,0) 82%)" }} />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-[24%]" style={{ background: "linear-gradient(to left,#080706 0%,transparent 100%)" }} />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 lg:h-40" style={{ background: "linear-gradient(to top,#080706 0%,rgba(8,7,6,.45) 32%,transparent 100%)" }} />
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-24" style={{ background: "linear-gradient(to bottom,rgba(8,7,6,.7) 0%,transparent 100%)" }} />
+          <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(ellipse 55% 75% at 0% 55%, rgba(196,26,26,.28), transparent 58%)" }} />
 
-        {/* ─── BANDA DE PRUEBA ─── */}
-        <div className="grid border-b-2 border-white/15 sm:grid-cols-3">
-          <div className="grayscale-photo relative h-[220px] border-b-2 border-white/15 sm:h-[300px] sm:border-b-0 sm:border-r-2">
-            <Image src="/assets/braian-hero.jpg" alt="Braian entrenando" fill className="object-cover" style={{ objectPosition: "58% 16%" }} />
-          </div>
-          <div className="grayscale-photo relative h-[220px] border-b-2 border-white/15 sm:h-[300px] sm:border-b-0 sm:border-r-2">
-            <Image src="/assets/cuatro-uno-local.jpg" alt="Cuatrouno Training Club" fill className="object-cover" />
-          </div>
-          <div className="grid grid-rows-2">
-            <div className="flex flex-col justify-center border-b-2 border-white/15 px-6 py-6 sm:px-8">
-              <p className="font-display text-4xl font-black leading-none text-[#E8413F]">30+</p>
-              <p className="mt-1.5 text-[13px] text-zinc-400">alumnos entrenando ahora, con seguimiento semanal</p>
+          <div className="relative z-10 mx-auto w-full max-w-6xl px-6 sm:px-12 lg:px-20">
+            <div className="max-w-xl lg:max-w-[52%]">
+<h1 className="font-display text-[2.1rem] font-black uppercase leading-[0.95] tracking-tight sm:text-5xl lg:text-[3.6rem]">
+                ¿Cuánto tiempo más<br />sin ver el cuerpo<br />que querés?
+              </h1>
+              <p className="mt-3 font-display text-[1.6rem] font-black uppercase leading-tight tracking-tight text-[#C41A1A] sm:text-4xl lg:text-[2.8rem]">
+                Hoy empieza a cambiar.
+              </p>
+
+              <p className="mt-5 max-w-md text-[15px] leading-relaxed text-zinc-300 sm:text-base">
+                Entrenamiento 100% personalizado + <strong className="text-white">app con tu rutina, alimentación y seguimiento</strong> — sin rutinas genéricas ni PDFs abandonados.
+              </p>
+
+              <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
+                <div className="flex items-center gap-2">
+                  <div className="flex text-[#E8B830]">
+                    {[0, 1, 2, 3, 4].map((i) => (
+                      <svg key={i} width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.783 1.401 8.171L12 18.896l-7.335 3.869 1.401-8.171L.132 9.211l8.2-1.193z" /></svg>
+                    ))}
+                  </div>
+                  <span className="text-[12px] font-semibold text-zinc-300">7 certificaciones internacionales</span>
+                </div>
+                <div className="h-4 w-px bg-white/15" />
+                <span className="text-[12px] font-semibold text-zinc-300">En el gym desde 2016</span>
+              </div>
+
+              <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <a href={WA_LINK_MSG} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center justify-center gap-3 rounded-md bg-[#25D366] px-7 py-4 text-sm font-black uppercase tracking-widest text-white shadow-lg shadow-[#25D366]/20 transition-all hover:bg-[#1ebe5d] hover:shadow-[#25D366]/30 active:scale-[.98]">
+                  <WaIcon size={20} />
+                  Quiero empezar ahora
+                </a>
+                <ReservarButton className="inline-flex items-center justify-center gap-2 rounded-md border border-white/15 px-6 py-4 text-sm font-bold uppercase tracking-widest text-zinc-200 transition-colors hover:border-white/30 hover:text-white">
+                  Reservar sesión
+                </ReservarButton>
+                <a href="#planes" className="inline-flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-widest text-zinc-400 transition-colors hover:text-white">
+                  Ver planes →
+                </a>
+              </div>
             </div>
-            <div className="flex flex-col justify-center px-6 py-6 sm:px-8">
-              <p className="font-display text-4xl font-black leading-none text-[#E8413F]">98%</p>
-              <p className="mt-1.5 text-[13px] text-zinc-400">de satisfacción entre quienes terminaron su programa</p>
+          </div>
+
+          {/* floating stat cards over the photo */}
+          <div className="pointer-events-none absolute bottom-16 right-4 z-10 hidden flex-col gap-3 sm:right-8 sm:bottom-10 md:flex lg:right-14">
+            <div className="reveal d1 flex items-center gap-3 rounded-xl border border-white/10 bg-black/55 px-5 py-3.5 backdrop-blur-md">
+              <span className="font-display text-2xl uppercase text-[#E8413F] lg:text-3xl">98%</span>
+              <span className="max-w-[7rem] text-[10px] font-bold uppercase leading-tight tracking-wide text-zinc-300">Satisfacción de mis alumnos</span>
+            </div>
+            <div className="reveal d2 ml-8 flex items-center gap-3 rounded-xl border border-white/10 bg-black/55 px-5 py-3.5 backdrop-blur-md">
+              <span className="font-display text-2xl uppercase text-white lg:text-3xl">30+</span>
+              <span className="max-w-[7rem] text-[10px] font-bold uppercase leading-tight tracking-wide text-zinc-300">Alumnos entrenando ahora</span>
+            </div>
+          </div>
+
+          <BackgroundBeams className="absolute inset-0 z-[1] opacity-30" />
+
+          <div className="absolute bottom-5 left-1/2 z-10 hidden -translate-x-1/2 animate-bounce opacity-30 lg:block">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+          </div>
+        </section>
+
+        {/* ─── STATS STRIP ─── */}
+        <div className="border-y border-white/[0.06] bg-[#0d0c0b]">
+          <div className="mx-auto grid max-w-6xl grid-cols-2 divide-x divide-white/[0.06] px-6 sm:grid-cols-4 sm:px-12 lg:px-20">
+            {[
+              { n: "10",  label: "Años de experiencia" },
+              { n: "30+", label: "Alumnos activos" },
+              { n: "7",   label: "Certificaciones internacionales" },
+            ].map((s) => (
+              <div key={s.label} className="flex flex-col items-center justify-center py-7 text-center">
+                <span className="font-display text-[2.2rem] font-black leading-none text-[#C41A1A] sm:text-[2.6rem]">{s.n}</span>
+                <span className="mt-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-zinc-500">{s.label}</span>
+              </div>
+            ))}
+            <div className="flex flex-col items-center justify-center py-7 text-center">
+              <span className="font-display text-[2.2rem] font-black leading-none text-[#C41A1A] sm:text-[2.6rem]">2</span>
+              <span className="mt-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-zinc-500">Marcas propias</span>
+              <div className="mt-2.5 flex flex-col gap-1">
+                <a href="https://www.instagram.com/cuatrouno_suplementos/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1 text-[9px] font-semibold text-zinc-600 transition-colors hover:text-[#C41A1A]">
+                  <svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                  @cuatrouno_suplementos
+                </a>
+                <a href="https://www.instagram.com/cuatrouno_trainingclub/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1 text-[9px] font-semibold text-zinc-600 transition-colors hover:text-[#C41A1A]">
+                  <svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                  @cuatrouno_trainingclub
+                </a>
+              </div>
             </div>
           </div>
         </div>
 
         {/* ─── SOBRE BRAIAN ─── */}
-        <section id="sobre" className="relative overflow-hidden border-b-2 border-white/15 bg-[#080706]">
+        <section id="sobre" className="relative overflow-hidden bg-[#080706]">
           <div className="flex flex-col lg:flex-row">
-            <div className="grayscale-photo relative aspect-[4/5] w-full border-b-2 border-white/15 lg:aspect-auto lg:min-h-[600px] lg:w-1/2 lg:border-b-0 lg:border-r-2">
-              <Image src="/assets/braian-diploma.jpg" alt="Braian Barrientos" fill className="object-cover object-center" />
+            <div className="relative aspect-[4/5] w-full lg:aspect-auto lg:min-h-[700px] lg:w-1/2">
+              {/* mobile: crossfade between both images */}
+              <Image src="/assets/braian-hero.jpg" alt="Braian Barrientos" fill className="img-fade-a object-cover object-[58%_16%] lg:hidden" />
+              <Image src="/assets/braian-diploma.jpg" alt="Braian Barrientos" fill className="img-fade-b object-cover object-center lg:hidden" />
+              {/* desktop: diploma only */}
+              <Image src="/assets/braian-diploma.jpg" alt="Braian Barrientos" fill className="hidden object-cover object-center lg:block" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#080706] via-[#080706]/30 to-transparent lg:hidden" />
+              <div className="absolute inset-0 hidden bg-gradient-to-r from-transparent via-transparent to-[#080706] lg:block" />
             </div>
 
-            <div className="flex flex-col justify-center px-6 py-14 sm:px-12 lg:w-1/2 lg:px-16 lg:py-20 xl:px-20">
-              <p className="reveal mb-3 text-[11px] font-bold uppercase tracking-[0.3em] text-[#E8413F]">Quién soy</p>
-              <h2 className="reveal d1 font-display text-[1.7rem] font-black uppercase leading-[1.05] sm:text-4xl xl:text-[2.5rem]">
+            <div className="relative flex flex-col justify-center px-6 py-14 sm:px-12 lg:w-1/2 lg:px-16 lg:py-20 xl:px-20">
+              <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(ellipse 90% 60% at 100% 40%, rgba(196,26,26,.12), transparent)" }} />
+              <p className="reveal mb-3 text-[11px] font-bold uppercase tracking-[0.3em] text-[#C41A1A]">Quién soy</p>
+              <h2 className="reveal d1 font-display text-[1.7rem] font-black uppercase leading-[1.05] sm:text-4xl xl:text-[2.7rem]">
                 Empecé en 2016 sin guía.
-                <span className="text-[#E8413F]"> Hoy ayudo a entrenar con estructura y resultados.</span>
+                <span className="text-[#C41A1A]"> Hoy ayudo a entrenar con <span className="text-white">estructura y resultados.</span></span>
               </h2>
               <div className="reveal d2 mt-7 space-y-5 text-[15px] leading-relaxed text-zinc-400">
                 <p>Hola, soy <strong className="text-white">Braian Barrientos</strong>, especialista en entrenamiento personalizado y suplementación deportiva, con <strong className="text-white">10 años en el rubro</strong> ayudando a personas a transformar su físico y construir hábitos sostenibles.</p>
                 <p>Empecé en el gym cometiendo todos los errores posibles. Esa experiencia me dio algo que ningún libro enseña: <strong className="text-white">entender de verdad lo que vive alguien que arranca de cero</strong>.</p>
                 <p>Fundé <strong className="text-white">Cuatrouno Training Club</strong> y <strong className="text-white">Cuatrouno Suplementos</strong>. Todo ese recorrido lo pongo al servicio de tu progreso.</p>
               </div>
-              <div className="reveal d3 mt-9 grid grid-cols-3 gap-4 border-t-2 border-white/15 pt-8">
-                <div><p className="font-display text-3xl font-black text-[#E8413F] sm:text-4xl">10</p><p className="mt-1 text-[10px] uppercase tracking-wider text-zinc-500">Años de exp.</p></div>
-                <div><p className="font-display text-3xl font-black text-[#E8413F] sm:text-4xl">30+</p><p className="mt-1 text-[10px] uppercase tracking-wider text-zinc-500">Alumnos activos</p></div>
-                <div><p className="font-display text-3xl font-black text-[#E8413F] sm:text-4xl">98%</p><p className="mt-1 text-[10px] uppercase tracking-wider text-zinc-500">Satisfacción</p></div>
+              <div className="reveal d3 mt-9 grid grid-cols-3 gap-4 border-t border-white/10 pt-8">
+                <div><p className="font-display text-3xl font-black text-[#C41A1A] sm:text-4xl">10</p><p className="mt-1 text-[10px] uppercase tracking-wider text-zinc-500">Años de exp.</p></div>
+                <div><p className="font-display text-3xl font-black text-[#C41A1A] sm:text-4xl">30+</p><p className="mt-1 text-[10px] uppercase tracking-wider text-zinc-500">Alumnos activos</p></div>
+                <div><p className="font-display text-3xl font-black text-[#C41A1A] sm:text-4xl">98%</p><p className="mt-1 text-[10px] uppercase tracking-wider text-zinc-500">Satisfacción</p></div>
               </div>
               <CredBadges />
             </div>
           </div>
         </section>
 
-        {/* ─── UN CASO, ENTERO ─── */}
-        <section className="relative overflow-hidden border-b-2 border-white/15 bg-[#080706] py-16 sm:py-20">
-          <div className="mx-auto grid max-w-6xl gap-10 px-6 sm:px-12 lg:grid-cols-[1.1fr_.9fr] lg:gap-0 lg:divide-x-2 lg:divide-white/15 lg:px-20">
-            <div className="lg:pr-14">
-              <p className="reveal mb-3 text-[11px] font-bold uppercase tracking-[0.3em] text-[#E8413F]">Testimonios</p>
-              <h2 className="reveal d1 font-display mb-6 text-3xl font-black uppercase leading-tight sm:text-4xl">Un caso, entero</h2>
-              <p className="reveal d2 max-w-xl text-[20px] leading-[1.45] text-zinc-200 sm:text-[22px]">
-                «Arranqué literalmente de cero y me daba vergüenza entrar al gym. Braian me armó algo re llevadero y hoy estoy muchísimo más fuerte. Un antes y un después.»
-              </p>
-              <p className="reveal d3 mt-4 font-bold text-white">Rodrigo Palacios <span className="font-normal text-zinc-500">— Escobar, Zona Norte · 6 meses</span></p>
-            </div>
-            <div className="reveal d4 mt-10 border-t-2 border-white/15 pt-8 lg:mt-0 lg:border-t-0 lg:pl-14 lg:pt-0">
-              {shortQuotes.map((q) => (
-                <p key={q.author} className="border-b border-white/10 py-4 text-[15px] leading-relaxed text-zinc-300 first:pt-0 last:border-b-0">
-                  «{q.text}» <span className="text-zinc-500">{q.author}</span>
-                </p>
-              ))}
+        {/* ─── TESTIMONIOS ─── */}
+        <section className="relative overflow-hidden py-16 sm:py-20" style={{ background: "linear-gradient(to bottom, #060504 0%, #0f0404 50%, #1c0505 100%)" }}>
+          <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(ellipse 90% 60% at 50% 100%, rgba(196,26,26,.30), transparent 70%)" }} />
+          <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-12 lg:px-20">
+            <div className="reveal mb-12 text-center">
+              <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.05] px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-400">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                Testimonios
+              </span>
+              <h2 className="font-display text-3xl font-black uppercase leading-tight sm:text-5xl lg:text-6xl">
+                Lo que dicen<br /><span className="text-[#C41A1A]">mis alumnos</span>
+              </h2>
             </div>
           </div>
+          <InfiniteMovingCards items={movingTestimonials} direction="left" speed="slow" pauseOnHover className="mx-auto" />
         </section>
 
         {/* ─── APP ─── */}
         <AppSection />
 
         {/* ─── PRECIOS ─── */}
-        <section id="planes" className="relative overflow-hidden border-b-2 border-white/15 bg-[#080706] py-20 sm:py-24">
-          <div className="mx-auto max-w-6xl px-6 sm:px-12 lg:px-20">
-            <div className="reveal mb-8">
-              <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.3em] text-[#E8413F]">Programas Cuatrouno</p>
-              <h2 className="font-display text-4xl font-black uppercase sm:text-5xl">Los tres programas, sin vueltas</h2>
-              <p className="mt-3 max-w-md text-[14px] text-zinc-400">Todos incluyen entrenamiento personalizado, materiales de apoyo y acompañamiento. Elegí según cuánto querés sostener el proceso.</p>
+        <section id="planes" className="relative overflow-hidden bg-[#050404] py-20 sm:py-24">
+          <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(ellipse 40% 70% at 0% 50%, rgba(196,26,26,.20), transparent 60%)" }} />
+          <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-12 lg:px-20">
+            <div className="reveal mb-8 text-center">
+              <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.3em] text-[#C41A1A]">Programas Cuatrouno</p>
+              <h2 className="font-display text-4xl font-black uppercase sm:text-5xl">Elegí tu plan</h2>
+              <p className="mx-auto mt-3 max-w-md text-[14px] text-zinc-400">Todos incluyen entrenamiento personalizado, materiales de apoyo y acompañamiento. Elegí según cuánto querés sostener el proceso.</p>
             </div>
 
             <Pricing />
 
-            <div className="reveal mt-8 flex items-start gap-4 border-2 border-white/15 px-6 py-5">
-              <div className="mt-0.5 flex h-9 w-9 flex-shrink-0 items-center justify-center bg-[#C41A1A]/15 text-[#E8413F]">
+            <div className="reveal mt-7 flex items-start gap-4 rounded-2xl border border-[#C41A1A]/20 bg-[#0f0808] px-6 py-5">
+              <div className="mt-0.5 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-[#C41A1A]/15 text-[#E8413F]">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h7v8l10-12h-7z" /></svg>
               </div>
               <div>
@@ -128,7 +232,7 @@ export default function Home() {
               <p className="text-[11px] font-bold uppercase tracking-widest text-zinc-600">Medios de pago aceptados</p>
               <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
                 {paymentLogos.map((l) => (
-                  <Image key={l.name} src={l.src} alt={l.name} width={90} height={32} className={`grayscale-photo ${l.h} w-auto object-contain opacity-60 transition-opacity hover:opacity-100`} />
+                  <Image key={l.name} src={l.src} alt={l.name} width={90} height={32} className={`${l.h} w-auto object-contain opacity-50 transition-opacity hover:opacity-100`} />
                 ))}
               </div>
             </div>
@@ -139,26 +243,27 @@ export default function Home() {
         <FAQSection />
 
         {/* ─── CTA FINAL / STATS BAND ─── */}
-        <section className="relative overflow-hidden border-b-2 border-white/15 bg-[#080706] py-20 sm:py-28">
+        <section className="relative overflow-hidden bg-[#060504] py-20 sm:py-28">
+          <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(ellipse 60% 100% at 50% 100%, rgba(196,26,26,.18), transparent 70%)" }} />
           <p aria-hidden className="font-display pointer-events-none absolute left-1/2 top-4 w-full -translate-x-1/2 whitespace-nowrap text-center text-[20vw] uppercase leading-none text-[#C41A1A]/10 sm:top-0 sm:text-[13vw]">
             Cuatrouno
           </p>
 
           <div className="relative z-10 mx-auto max-w-3xl px-5 text-center">
-            <h2 className="reveal font-display text-3xl uppercase leading-tight sm:text-4xl">¿Listo para tu<br /><span className="text-[#E8413F]">mejor versión?</span></h2>
+            <h2 className="reveal font-display text-3xl uppercase leading-tight sm:text-4xl">¿Listo para tu<br /><span className="text-[#C41A1A]">mejor versión?</span></h2>
             <p className="reveal d1 mx-auto mt-4 max-w-md text-[15px] text-zinc-400">Escribime por WhatsApp y armamos juntos el plan ideal para tu objetivo, tu rutina y tu realidad.</p>
             <div className="reveal d2 mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center">
-              <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-3 bg-[#25D366] px-8 py-5 text-sm font-black uppercase tracking-widest text-white transition-all hover:bg-[#1ebe5d] active:scale-[.99]">
+              <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-3 rounded-md bg-[#25D366] px-8 py-5 text-sm font-black uppercase tracking-widest text-white shadow-lg shadow-[#25D366]/20 transition-all hover:bg-[#1ebe5d] active:scale-[.99]">
                 <WaIcon size={20} />
                 WhatsApp
               </a>
-              <a href="#diagnostico" className="inline-flex items-center justify-center gap-2 border border-white/20 px-8 py-5 text-sm font-bold uppercase tracking-widest text-zinc-200 transition-colors hover:border-white/40 hover:text-white">
-                Hacé el diagnóstico
-              </a>
+              <ReservarButton className="inline-flex items-center justify-center gap-2 rounded-md border border-white/15 px-8 py-5 text-sm font-bold uppercase tracking-widest text-zinc-200 transition-colors hover:border-white/30 hover:text-white">
+                Reservar sesión
+              </ReservarButton>
             </div>
           </div>
 
-          <div className="reveal d3 relative z-10 mx-auto mt-16 grid max-w-4xl grid-cols-2 divide-x-2 divide-white/15 border-y-2 border-white/15 px-6 sm:grid-cols-4 sm:px-0">
+          <div className="reveal d3 relative z-10 mx-auto mt-16 grid max-w-4xl grid-cols-2 divide-x divide-white/10 border-y border-white/10 px-6 sm:grid-cols-4 sm:px-0">
             {[
               { n: "10", label: "Años de experiencia" },
               { n: "30+", label: "Alumnos activos" },
@@ -166,7 +271,7 @@ export default function Home() {
               { n: "98%", label: "Satisfacción" },
             ].map((s) => (
               <div key={s.label} className="flex flex-col items-center justify-center py-7 text-center">
-                <span className="font-display text-3xl uppercase text-[#E8413F] sm:text-4xl">{s.n}</span>
+                <span className="font-display text-3xl uppercase text-[#C41A1A] sm:text-4xl">{s.n}</span>
                 <span className="mt-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-zinc-500">{s.label}</span>
               </div>
             ))}
@@ -176,22 +281,22 @@ export default function Home() {
       </main>
 
       {/* ─── FOOTER ─── */}
-      <footer className="bg-[#080706] py-10 pb-24 lg:pb-10">
+      <footer className="border-t border-white/5 bg-[#060504] py-10 pb-24 lg:pb-10">
         <div className="mx-auto max-w-6xl px-6">
           <div className="flex flex-col items-center gap-7 sm:flex-row sm:justify-between">
-            <Image src="/assets/logo-superior-web.png" alt="Cuatrouno Training Club" width={140} height={55} className="grayscale-photo h-10 w-auto object-contain" />
+            <Image src="/assets/logo-superior-web.png" alt="Cuatrouno Training Club" width={140} height={55} className="h-12 w-auto object-contain" />
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-              <a href="https://www.instagram.com/braianbarrientos__/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2.5 border border-white/20 px-5 py-3 text-[12px] font-bold uppercase tracking-wider text-zinc-200 transition-colors hover:border-[#C41A1A] hover:text-white">
+              <a href="https://www.instagram.com/braianbarrientos__/" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center justify-center gap-2.5 rounded-md border border-white/15 px-5 py-3 text-[12px] font-bold uppercase tracking-wider text-zinc-200 transition-colors hover:border-[#C41A1A] hover:text-white">
                 <IgIcon size={18} className="text-[#E8413F]" />
                 @braianbarrientos__
               </a>
-              <a href="https://www.instagram.com/cuatrouno_suplementos/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2.5 border border-white/20 px-5 py-3 text-[12px] font-bold uppercase tracking-wider text-zinc-200 transition-colors hover:border-[#C41A1A] hover:text-white">
+              <a href="https://www.instagram.com/cuatrouno_suplementos/" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center justify-center gap-2.5 rounded-md border border-white/15 px-5 py-3 text-[12px] font-bold uppercase tracking-wider text-zinc-200 transition-colors hover:border-[#C41A1A] hover:text-white">
                 <IgIcon size={18} className="text-[#E8413F]" />
                 @cuatrouno_suplementos
               </a>
             </div>
           </div>
-          <p className="mt-8 border-t-2 border-white/15 pt-6 text-center text-[13px] text-zinc-600">© {new Date().getFullYear()} Cuatrouno Training Club. Todos los derechos reservados.</p>
+          <p className="mt-8 border-t border-white/5 pt-6 text-center text-[13px] text-zinc-600">© {new Date().getFullYear()} Cuatrouno Training Club. Todos los derechos reservados.</p>
         </div>
       </footer>
 
@@ -201,12 +306,13 @@ export default function Home() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Contactar por WhatsApp"
-        className="fixed bottom-8 right-8 z-50 hidden h-14 w-14 items-center justify-center bg-[#25D366] shadow-lg shadow-[#25D366]/30 transition-transform duration-200 hover:scale-105 active:scale-95 lg:flex"
+        className="fixed bottom-8 right-8 z-50 hidden h-14 w-14 items-center justify-center rounded-full bg-[#25D366] shadow-lg shadow-[#25D366]/30 transition-all duration-300 hover:scale-110 hover:shadow-[#25D366]/50 active:scale-95 lg:flex"
       >
         <WaIcon size={26} />
       </a>
 
       <ScrollFx />
     </div>
+    </BookingProvider>
   );
 }
