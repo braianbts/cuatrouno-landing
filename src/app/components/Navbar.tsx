@@ -3,9 +3,9 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { WaIcon, WA_LINK } from "./icons";
-import ReservarButton from "./ReservarButton";
 
 const links = [
+  { href: "#diagnostico", label: "Diagnóstico" },
   { href: "#sobre", label: "Sobre mí" },
   { href: "#planes", label: "Planes" },
   { href: "#faq", label: "FAQ" },
@@ -40,9 +40,6 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <ReservarButton className="hidden items-center gap-2 rounded-md border border-white/15 px-5 py-2.5 text-[13px] font-bold uppercase tracking-wider text-zinc-200 transition-colors hover:border-white/30 hover:text-white sm:flex">
-            Reservar
-          </ReservarButton>
           <a
             href={WA_LINK}
             target="_blank"
@@ -70,9 +67,6 @@ export default function Navbar() {
             {links.map((l) => (
               <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="rounded-md px-3 py-3 transition-colors hover:bg-white/5">{l.label}</a>
             ))}
-            <ReservarButton className="mt-2 flex items-center justify-center gap-2 rounded-md border border-white/15 px-3 py-3 text-sm font-bold uppercase tracking-wider text-zinc-200 transition-colors hover:border-white/30 hover:text-white">
-              Reservar sesión
-            </ReservarButton>
           </nav>
         </div>
       )}

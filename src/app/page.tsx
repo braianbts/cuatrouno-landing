@@ -5,8 +5,7 @@ import Pricing from "./components/Pricing";
 import AppSection from "./components/AppSection";
 import CredBadges from "./components/CredBadges";
 import ScrollFx from "./components/ScrollFx";
-import { BookingProvider } from "./components/BookingContext";
-import ReservarButton from "./components/ReservarButton";
+import Diagnostico from "./components/Diagnostico";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import { WaIcon, IgIcon, WA_LINK, WA_LINK_MSG } from "./components/icons";
 import { BackgroundBeams } from "@/components/ui/background-beams";
@@ -35,7 +34,6 @@ const paymentLogos = [
 
 export default function Home() {
   return (
-    <BookingProvider>
     <div className="overflow-x-clip bg-[#080706] text-white">
       <Navbar />
       <main>
@@ -92,9 +90,9 @@ export default function Home() {
                   <WaIcon size={20} />
                   Quiero empezar ahora
                 </a>
-                <ReservarButton className="inline-flex items-center justify-center gap-2 rounded-md border border-white/15 px-6 py-4 text-sm font-bold uppercase tracking-widest text-zinc-200 transition-colors hover:border-white/30 hover:text-white">
-                  Reservar sesión
-                </ReservarButton>
+                <a href="#diagnostico" className="inline-flex items-center justify-center gap-2 rounded-md border border-white/15 px-6 py-4 text-sm font-bold uppercase tracking-widest text-zinc-200 transition-colors hover:border-white/30 hover:text-white">
+                  Hacé el diagnóstico
+                </a>
                 <a href="#planes" className="inline-flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-widest text-zinc-400 transition-colors hover:text-white">
                   Ver planes →
                 </a>
@@ -150,6 +148,9 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        {/* ─── DIAGNÓSTICO ─── */}
+        <Diagnostico />
 
         {/* ─── SOBRE BRAIAN ─── */}
         <section id="sobre" className="relative overflow-hidden bg-[#080706]">
@@ -257,9 +258,9 @@ export default function Home() {
                 <WaIcon size={20} />
                 WhatsApp
               </a>
-              <ReservarButton className="inline-flex items-center justify-center gap-2 rounded-md border border-white/15 px-8 py-5 text-sm font-bold uppercase tracking-widest text-zinc-200 transition-colors hover:border-white/30 hover:text-white">
-                Reservar sesión
-              </ReservarButton>
+              <a href="#diagnostico" className="inline-flex items-center justify-center gap-2 rounded-md border border-white/15 px-8 py-5 text-sm font-bold uppercase tracking-widest text-zinc-200 transition-colors hover:border-white/30 hover:text-white">
+                Hacé el diagnóstico
+              </a>
             </div>
           </div>
 
@@ -313,6 +314,5 @@ export default function Home() {
 
       <ScrollFx />
     </div>
-    </BookingProvider>
   );
 }
