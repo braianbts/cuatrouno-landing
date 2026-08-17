@@ -2,30 +2,18 @@
 
 :root {
   --background: #080706;
-  --surface: #0c0b0a;
-  --foreground: #f2ede9;
+  --foreground: #f5f5f5;
   --red: #C41A1A;
-  --red-bright: #E8413F;
-  --divider: rgba(242,237,233,.16);
+  --red-bright: #E23A3A;
+  --gold: #E8B830;
   --wa: #25D366;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-archivo);
-  --font-mono: var(--font-archivo);
-
-  /* Modernist: radio 0 en todo, sin excepciones */
-  --radius-xs: 0px;
-  --radius-sm: 0px;
-  --radius-md: 0px;
-  --radius-lg: 0px;
-  --radius-xl: 0px;
-  --radius-2xl: 0px;
-  --radius-3xl: 0px;
-  --radius-4xl: 0px;
-  --radius: 0px;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 }
 
 * { -webkit-tap-highlight-color: transparent; }
@@ -35,35 +23,79 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-archivo), system-ui, Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection { background: var(--red); color: #fff; }
 
-h1, h2, h3, h4, h5, h6 { font-family: var(--font-archivo), system-ui, sans-serif; font-weight: 800; letter-spacing: -0.01em; }
+/* Anton for big display headings/numbers/wordmark; body copy stays on Geist */
+.font-display { font-family: var(--font-anton), var(--font-geist-sans), system-ui, sans-serif; font-weight: 400; letter-spacing: 0.01em; }
 
-.font-display { font-family: var(--font-archivo), system-ui, sans-serif; font-weight: 800; letter-spacing: -0.01em; }
+/* hide scrollbars on horizontal scrollers */
+.no-bar { scrollbar-width: none; -ms-overflow-style: none; }
+.no-bar::-webkit-scrollbar { display: none; }
 
-/* photography prints in black and white, Modernist rule */
-.grayscale-photo { filter: grayscale(1) contrast(1.08); }
+/* dotted texture */
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
 
-/* nav link: flat color change, no underline flourish */
-.nav-link { transition: color .15s ease; }
+/* gold foil (recommended plan) */
+.gold-foil {
+  background: linear-gradient(135deg,#3D2900 0%,#A07010 24%,#E8B830 50%,#A07010 76%,#3D2900 100%);
+}
 
-/* reveal-on-scroll (toggled by ScrollFx.tsx) — short, functional fade only */
+/* nav link underline */
+.nav-link { position: relative; }
+.nav-link::after {
+  content: ""; position: absolute; left: 0; bottom: -4px;
+  width: 0; height: 2px; background: var(--red);
+  transition: width .25s ease;
+}
+.nav-link:hover::after { width: 100%; }
+
+/* reveal-on-scroll (toggled by ScrollFx.tsx) */
 .reveal {
   opacity: 0;
-  transition: opacity .4s ease;
-  will-change: opacity;
+  transform: translateY(26px);
+  transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1);
+  will-change: opacity, transform;
 }
-.reveal.in { opacity: 1; }
-.reveal.d1 { transition-delay: .06s; }
-.reveal.d2 { transition-delay: .12s; }
-.reveal.d3 { transition-delay: .18s; }
-.reveal.d4 { transition-delay: .24s; }
+.reveal.in { opacity: 1; transform: none; }
+.reveal.d1 { transition-delay: .08s; }
+.reveal.d2 { transition-delay: .16s; }
+.reveal.d3 { transition-delay: .24s; }
+.reveal.d4 { transition-delay: .32s; }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transition: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
   html { scroll-behavior: auto; }
+}
+
+/* hero image crossfade mobile */
+@keyframes img-fade-a {
+  0%, 40%  { opacity: 1; }
+  50%, 90% { opacity: 0; }
+  100%     { opacity: 1; }
+}
+@keyframes img-fade-b {
+  0%, 40%  { opacity: 0; }
+  50%, 90% { opacity: 1; }
+  100%     { opacity: 0; }
+}
+.img-fade-a { animation: img-fade-a 7s ease-in-out infinite; }
+.img-fade-b { animation: img-fade-b 7s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .img-fade-a { animation: none; opacity: 1; }
+  .img-fade-b { animation: none; opacity: 0; }
+}
+
+/* InfiniteMovingCards */
+@keyframes scroll {
+  to { transform: translate(calc(-50% - 0.5rem)); }
+}
+.animate-scroll {
+  animation: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
 }
