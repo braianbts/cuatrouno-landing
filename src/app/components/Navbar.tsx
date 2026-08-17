@@ -7,7 +7,6 @@ import ReservarButton from "./ReservarButton";
 
 const links = [
   { href: "#sobre", label: "Sobre mí" },
-  { href: "#funciona", label: "Cómo funciona" },
   { href: "#planes", label: "Planes" },
   { href: "#faq", label: "FAQ" },
 ];

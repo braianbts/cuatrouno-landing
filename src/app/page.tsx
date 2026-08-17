@@ -22,12 +22,6 @@ const testimonials = [
 ];
 
 
-const steps = [
-  { num: "1", text: "Elegí el plan que se adapta a tu objetivo", img: "/assets/cf-1.jpg" },
-  { num: "2", text: "Videollamada con Braian para armar tu planilla personalizada", img: "/assets/cf-5.webp" },
-  { num: "3", text: "Activación de tu app con toda tu rutina, alimentación y seguimiento", img: "/assets/cf-6.jpeg" },
-];
-
 
 const movingTestimonials = testimonials.map(t => ({ quote: t.text, name: t.name, title: t.location }));
 
@@ -207,33 +201,6 @@ export default function Home() {
             </div>
           </div>
           <InfiniteMovingCards items={movingTestimonials} direction="left" speed="slow" pauseOnHover className="mx-auto" />
-        </section>
-
-        {/* ─── CÓMO FUNCIONA ─── */}
-        <section id="funciona" className="relative overflow-hidden bg-[#080706] py-16 sm:py-20">
-          <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(ellipse 80% 60% at 30% 50%, rgba(140,10,10,.18) 0%, transparent 70%)" }} />
-          <div className="relative z-10 mx-auto max-w-5xl px-6 sm:px-12 lg:px-20">
-            <div className="reveal mb-12 text-center">
-              <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.3em] text-[#C41A1A]">El proceso</p>
-              <h2 className="font-display text-3xl font-black uppercase leading-tight sm:text-5xl">¿Cómo funciona?</h2>
-              <p className="mx-auto mt-3 max-w-md text-[14px] text-zinc-400">Tres pasos simples desde que entrás hasta que arrancás a entrenar con tu plan en la mano.</p>
-            </div>
-            <div className="grid gap-6 sm:grid-cols-3">
-              {steps.map((s, i) => (
-                <div key={s.num} className={`reveal d${i + 1} group relative flex flex-col overflow-hidden rounded-2xl border border-white/8 bg-[#0c0b0a]`}>
-                  <div className="relative h-72 w-full overflow-hidden sm:h-80">
-                    <Image src={s.img} alt="" fill className="scale-105 object-cover transition-transform duration-500 group-hover:scale-110" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/10" />
-                    <span className="font-display absolute left-4 top-4 flex h-9 w-9 items-center justify-center rounded-full border border-[#C41A1A]/50 bg-[#C41A1A]/20 text-sm uppercase text-[#E8413F] backdrop-blur-sm">{s.num}</span>
-                    <div className="absolute inset-x-0 bottom-0 p-5">
-                      <p className="text-[10px] font-black uppercase tracking-wider text-[#E8413F]">Paso {s.num}</p>
-                      <p className="font-display mt-1 text-[17px] uppercase leading-snug text-white">{s.text}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
         </section>
 
         {/* ─── APP ─── */}
