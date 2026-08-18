@@ -19,6 +19,15 @@ type Plan = {
   features: string[];
 };
 
+const COMMON_FEATURES = [
+  "Rutina completa personalizada",
+  "Plan de alimentación estructurado",
+  "Guía de alimentación práctica y de suplementación",
+  "App personalizada con rutina, alimentación, escáner de porciones, control de peso y guía de compras",
+  "Videollamada de bienvenida",
+  "Soporte continuo por WhatsApp / Meet",
+];
+
 const plans: Plan[] = [
   {
     name: "Plan Mensual",
@@ -27,7 +36,7 @@ const plans: Plan[] = [
     contado: "$109.990",
     subCuotas: "o $109.990 al contado",
     subContado: "o 2x de $59.990",
-    features: ["Rutina completa personalizada", "Plan de alimentación estructurado", "Guía de alimentación práctica y de suplementación", "App personalizada con rutina, alimentación, escáner de porciones, control de peso y guía de compras", "Videollamada de bienvenida", "Soporte por WhatsApp"],
+    features: COMMON_FEATURES,
   },
   {
     name: "Plan Trimestral",
@@ -38,7 +47,7 @@ const plans: Plan[] = [
     contado: "$199.990",
     subCuotas: "o $199.990 al contado",
     subContado: "o 3x de $74.990",
-    features: ["Todo lo del Plan Mensual", "Protocolo de entrenamiento progresivo", "Guía de alimentación práctica y de suplementación", "App personalizada con rutina, alimentación, escáner de porciones, control de peso y guía de compras", "Soporte individual por WhatsApp", "Descuentos en Cuatrouno Suplementos"],
+    features: COMMON_FEATURES,
   },
   {
     name: "Plan Semestral",
@@ -47,7 +56,7 @@ const plans: Plan[] = [
     contado: "$329.990",
     subCuotas: "o $329.990 al contado",
     subContado: "o 3x de $124.990",
-    features: ["Todo lo del Plan Trimestral", "KIT inicial de suplementación ¡GRATIS!", "Indumentaria oficial Training Club", "App personalizada con rutina, alimentación, escáner de porciones, control de peso y guía de compras", "Videollamada cada 30 días", "Seguimiento continuo del progreso", "Descuentos en Cuatrouno Suplementos"],
+    features: COMMON_FEATURES,
   },
 ];
 
