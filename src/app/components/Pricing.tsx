@@ -1,23 +1,29 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { WaIcon, WA_LINK } from "./icons";
-import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { useState, useEffect, useMemo } from "react";
+import { WaIcon, WA_PHONE } from "./icons";
 
 const MESES = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
 const mesActual = () => MESES[new Date().getMonth()];
 
-type Plan = {
+type DurationKey = "mensual" | "trimestral" | "semestral";
+
+type Duration = {
+  key: DurationKey;
+  label: string;
   name: string;
   weeks: string;
-  featured?: boolean;
-  badge?: string;
   cuotas: string;
   contado: string;
   subCuotas: string;
   subContado: string;
-  features: string[];
 };
+
+const DURATIONS: Duration[] = [
+  { key: "mensual", label: "1 mes", name: "Plan Mensual", weeks: "4 semanas", cuotas: "2x $59.990", contado: "$109.990", subCuotas: "o $109.990 al contado", subContado: "o 2x de $59.990" },
+  { key: "trimestral", label: "3 meses", name: "Plan Trimestral", weeks: "12 semanas", cuotas: "3x $74.990", contado: "$199.990", subCuotas: "o $199.990 al contado", subContado: "o 3x de $74.990" },
+  { key: "semestral", label: "6 meses", name: "Plan Semestral", weeks: "24 semanas", cuotas: "3x $124.990", contado: "$329.990", subCuotas: "o $329.990 al contado", subContado: "o 3x de $124.990" },
+];
 
 const COMMON_FEATURES = [
   "Rutina completa personalizada",
@@ -28,37 +34,7 @@ const COMMON_FEATURES = [
   "Soporte continuo por WhatsApp / Meet",
 ];
 
-const plans: Plan[] = [
-  {
-    name: "Plan Mensual",
-    weeks: "1 mes · 4 semanas",
-    cuotas: "2x $59.990",
-    contado: "$109.990",
-    subCuotas: "o $109.990 al contado",
-    subContado: "o 2x de $59.990",
-    features: COMMON_FEATURES,
-  },
-  {
-    name: "Plan Trimestral",
-    weeks: "3 meses · 12 semanas",
-    featured: true,
-    badge: "Recomendado",
-    cuotas: "3x $74.990",
-    contado: "$199.990",
-    subCuotas: "o $199.990 al contado",
-    subContado: "o 3x de $74.990",
-    features: [...COMMON_FEATURES, "Protocolo de entrenamiento progresivo", "Descuentos en Cuatrouno Suplementos"],
-  },
-  {
-    name: "Plan Semestral",
-    weeks: "6 meses · 24 semanas",
-    cuotas: "3x $124.990",
-    contado: "$329.990",
-    subCuotas: "o $329.990 al contado",
-    subContado: "o 3x de $124.990",
-    features: [...COMMON_FEATURES, "Protocolo de entrenamiento progresivo", "Descuentos en Cuatrouno Suplementos", "KIT inicial de suplementación ¡GRATIS!", "Indumentaria oficial Training Club"],
-  },
-];
+const SEMESTRAL_BONUS = ["Kit de bienvenida", "Indumentaria oficial Training Club"];
 
 function Check({ gold }: { gold?: boolean }) {
   return (
@@ -69,6 +45,7 @@ function Check({ gold }: { gold?: boolean }) {
 }
 
 export default function Pricing() {
+  const [duration, setDuration] = useState<DurationKey>("trimestral");
   const [mode, setMode] = useState<"cuotas" | "contado">("cuotas");
 
   useEffect(() => {
@@ -80,83 +57,90 @@ export default function Pricing() {
     }
   }, []);
 
+  const d = DURATIONS.find((x) => x.key === duration)!;
+  const price = mode === "contado" ? d.contado : d.cuotas;
+  const sub = mode === "contado" ? d.subContado : d.subCuotas;
+  const isSemestral = duration === "semestral";
+  const features = isSemestral ? [...COMMON_FEATURES, ...SEMESTRAL_BONUS] : COMMON_FEATURES;
+
+  const waHref = useMemo(() => {
+    const msg = `¡Hola Braian! Quiero arrancar con el ${d.name} (${d.weeks}), ${price}.`;
+    return `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(msg)}`;
+  }, [d, price]);
+
   return (
-    <>
-      {/* payment toggle */}
-      <div className="reveal mb-10 flex justify-center">
-        <div className="relative flex w-[280px] rounded-full border border-white/10 bg-[#0c0b0a] p-1 text-[12px] font-bold uppercase tracking-wider">
-          <div
-            className="absolute left-1 top-1 h-[calc(100%-8px)] w-[calc(50%-4px)] rounded-full bg-[#C41A1A] transition-transform duration-300"
-            style={{ transform: mode === "contado" ? "translateX(100%)" : "translateX(0)" }}
-          />
-          <button onClick={() => setMode("cuotas")} className={`relative z-10 flex-1 rounded-full py-2 ${mode === "cuotas" ? "text-white" : "text-zinc-500"}`}>En cuotas</button>
-          <button onClick={() => setMode("contado")} className={`relative z-10 flex-1 rounded-full py-2 ${mode === "contado" ? "text-white" : "text-zinc-500"}`}>Al contado</button>
-        </div>
+    <div className="reveal mx-auto max-w-2xl">
+      {/* duration selector */}
+      <div className="mb-6 grid grid-cols-3 gap-2 rounded-xl border border-white/10 bg-[#0c0b0a] p-1.5">
+        {DURATIONS.map((opt) => (
+          <button
+            key={opt.key}
+            onClick={() => setDuration(opt.key)}
+            className={`relative flex flex-col items-center rounded-lg py-3 text-center transition-colors ${
+              duration === opt.key ? "bg-[#C41A1A] text-white" : "text-zinc-400 hover:text-white"
+            }`}
+          >
+            {opt.key === "trimestral" && (
+              <span className={`mb-1 text-[9px] font-black uppercase tracking-wider ${duration === opt.key ? "text-white/80" : "text-[#E8413F]"}`}>Recomendado</span>
+            )}
+            <span className="font-display text-lg font-black uppercase">{opt.label}</span>
+          </button>
+        ))}
       </div>
 
       {/* urgency banner */}
-      <div className="reveal mb-8 flex items-center justify-center gap-3 rounded-xl border border-[#C41A1A]/30 bg-[#C41A1A]/8 px-5 py-3.5">
-        <span className="h-2 w-2 animate-pulse rounded-full bg-[#C41A1A]" />
+      <div className="mb-6 flex items-center justify-center gap-3 rounded-xl border border-[#C41A1A]/30 bg-[#C41A1A]/8 px-5 py-3.5">
+        <span className="h-2 w-2 flex-shrink-0 animate-pulse rounded-full bg-[#C41A1A]" />
         <p className="text-center text-[13px] font-bold text-white/90">
           Acepto <span className="text-[#C41A1A]">máximo 5 alumnos nuevos por mes</span> — quedan <span className="text-[#C41A1A]">2 lugares disponibles</span> en {mesActual()}
         </p>
       </div>
 
-      <div className="grid items-stretch gap-5 md:grid-cols-3">
-        {plans.map((p) => {
-          const price = mode === "contado" ? p.contado : p.cuotas;
-          const sub = mode === "contado" ? p.subContado : p.subCuotas;
-
-          if (p.featured) {
-            return (
-              <div key={p.name} className="reveal d1 relative flex flex-col overflow-hidden rounded-2xl ring-2 ring-[#E8B830]/60 md:-mt-4">
-                <GlowingEffect disabled={false} spread={40} proximity={80} />
-                <div className="gold-foil relative px-6 pb-6 pt-6 text-center">
-                  <div className="pointer-events-none absolute inset-0" style={{ background: "linear-gradient(105deg,transparent 35%,rgba(255,255,255,.18) 50%,transparent 65%)" }} />
-                  <span className="relative z-10 mb-2 inline-block rounded bg-black/40 px-2 py-0.5 text-[10px] font-black uppercase tracking-widest text-[#3D2900]">{p.badge}</span>
-                  <p className="relative z-10 text-[10px] font-bold uppercase tracking-widest text-black/70">{p.weeks}</p>
-                  <h3 className="relative z-10 mt-1 font-display text-2xl font-black uppercase text-[#1a1206] drop-shadow-sm">{p.name}</h3>
-                </div>
-                <div className="flex flex-1 flex-col bg-[#0c0b0a] px-7 pb-7 pt-7">
-                  <div className="mb-5 text-center">
-                    <p className="font-display text-3xl font-black text-white">{price}</p>
-                    <p className="mt-1 text-[12px] text-zinc-500">{sub}</p>
-                  </div>
-                  <ul className="flex-1">
-                    {p.features.map((f) => (
-                      <li key={f} className="flex items-start gap-3 border-b border-white/6 py-2.5 text-[13px] leading-snug text-zinc-300"><Check gold /><span>{f}</span></li>
-                    ))}
-                  </ul>
-                  <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="gold-foil mt-6 flex w-full items-center justify-center gap-2 rounded-md py-3.5 text-[13px] font-black uppercase tracking-wider text-[#1a1206] transition-opacity hover:opacity-90 active:scale-[.98]">Empezar ahora</a>
-                  <p className="mt-2 text-center text-[11px] font-bold text-[#E8B830]">¡El más elegido!</p>
-                </div>
-              </div>
-            );
-          }
-
-          return (
-            <div key={p.name} className="reveal relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0c0b0a]">
-              <GlowingEffect disabled={false} spread={30} proximity={60} />
-              <div className="border-b border-white/8 bg-[#080706] px-6 pb-5 pt-6 text-center">
-                <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">{p.weeks}</p>
-                <h3 className="mt-1 font-display text-2xl font-black uppercase text-white">{p.name}</h3>
-              </div>
-              <div className="flex flex-1 flex-col px-7 pb-7 pt-7">
-                <div className="mb-5 text-center">
-                  <p className="font-display text-3xl font-black text-white">{price}</p>
-                  <p className="mt-1 text-[12px] text-zinc-500">{sub}</p>
-                </div>
-                <ul className="flex-1">
-                  {p.features.map((f) => (
-                    <li key={f} className="flex items-start gap-3 border-b border-white/6 py-2.5 text-[13px] leading-snug text-zinc-300"><Check /><span>{f}</span></li>
-                  ))}
-                </ul>
-                <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="mt-6 flex w-full items-center justify-center gap-2 rounded-md border border-white/15 bg-[#080706] py-3.5 text-[13px] font-black uppercase tracking-wider text-white transition-colors hover:bg-white/5 active:scale-[.98]"><WaIcon size={16} />Empezar ahora</a>
+      {/* the one card */}
+      <div className={`overflow-hidden rounded-2xl ${isSemestral ? "ring-2 ring-[#E8B830]/60" : "border border-white/10"}`}>
+        {isSemestral && (
+          <div className="gold-foil relative px-6 py-2.5 text-center">
+            <div className="pointer-events-none absolute inset-0" style={{ background: "linear-gradient(105deg,transparent 35%,rgba(255,255,255,.18) 50%,transparent 65%)" }} />
+            <span className="relative z-10 text-[11px] font-black uppercase tracking-widest text-[#3D2900]">Kit de bienvenida + indumentaria incluidos</span>
+          </div>
+        )}
+        <div className="bg-[#0c0b0a] px-7 py-8 sm:px-10">
+          <div className="flex flex-col items-center text-center sm:flex-row sm:items-end sm:justify-between sm:text-left">
+            <div>
+              <p className="text-[11px] font-bold uppercase tracking-widest text-zinc-500">{d.name} · {d.weeks}</p>
+              <p className="mt-1 font-display text-4xl font-black text-white">{price}</p>
+              <p className="mt-1 text-[12px] text-zinc-500">{sub}</p>
+            </div>
+            <div className="mt-4 flex w-full flex-shrink-0 sm:mt-0 sm:w-auto">
+              <div className="flex w-full border border-white/10 sm:w-auto">
+                <button onClick={() => setMode("cuotas")} className={`flex-1 rounded-md px-4 py-2 text-[12px] font-bold uppercase tracking-wider transition-colors ${mode === "cuotas" ? "bg-[#C41A1A] text-white" : "text-zinc-500 hover:text-white"}`}>En cuotas</button>
+                <button onClick={() => setMode("contado")} className={`flex-1 rounded-md px-4 py-2 text-[12px] font-bold uppercase tracking-wider transition-colors ${mode === "contado" ? "bg-[#C41A1A] text-white" : "text-zinc-500 hover:text-white"}`}>Al contado</button>
               </div>
             </div>
-          );
-        })}
+          </div>
+
+          <ul className="mt-7 grid gap-x-6 gap-y-2.5 sm:grid-cols-2">
+            {features.map((f) => (
+              <li key={f} className="flex items-start gap-3 border-b border-white/6 py-2 text-[13px] leading-snug text-zinc-300">
+                <Check gold={isSemestral && SEMESTRAL_BONUS.includes(f)} />
+                <span>{f}</span>
+              </li>
+            ))}
+          </ul>
+
+          <a
+            href={waHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`mt-7 flex w-full items-center justify-center gap-2 rounded-md py-4 text-[14px] font-black uppercase tracking-wider transition-all active:scale-[.98] ${
+              isSemestral ? "gold-foil text-[#1a1206] hover:opacity-90" : "bg-[#25D366] text-white hover:bg-[#1ebe5d]"
+            }`}
+          >
+            {!isSemestral && <WaIcon size={18} />}
+            Empezar ahora
+          </a>
+        </div>
       </div>
-    </>
+    </div>
   );
 }
