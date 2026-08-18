@@ -34,7 +34,7 @@ const COMMON_FEATURES = [
   "Soporte continuo por WhatsApp / Meet",
 ];
 
-const SEMESTRAL_BONUS = ["Kit de bienvenida", "Indumentaria oficial Training Club"];
+const SEMESTRAL_BONUS = ["Kit de bienvenida: creatina 300g + proteína 2lbs", "Indumentaria oficial Training Club"];
 
 function Check({ gold }: { gold?: boolean }) {
   return (
