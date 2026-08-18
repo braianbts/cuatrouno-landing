@@ -47,7 +47,7 @@ const plans: Plan[] = [
     contado: "$199.990",
     subCuotas: "o $199.990 al contado",
     subContado: "o 3x de $74.990",
-    features: COMMON_FEATURES,
+    features: [...COMMON_FEATURES, "Protocolo de entrenamiento progresivo", "Descuentos en Cuatrouno Suplementos"],
   },
   {
     name: "Plan Semestral",
@@ -56,7 +56,7 @@ const plans: Plan[] = [
     contado: "$329.990",
     subCuotas: "o $329.990 al contado",
     subContado: "o 3x de $124.990",
-    features: COMMON_FEATURES,
+    features: [...COMMON_FEATURES, "Protocolo de entrenamiento progresivo", "Descuentos en Cuatrouno Suplementos", "KIT inicial de suplementación ¡GRATIS!", "Indumentaria oficial Training Club"],
   },
 ];
 
