@@ -24,3 +24,8 @@ create table if not exists formularios (
 );
 
 alter table formularios enable row level security;
+
+-- permitir que el admin (is_admin()) lea las fichas desde la app
+create policy "Admins pueden ver formularios"
+  on formularios for select
+  using (is_admin());

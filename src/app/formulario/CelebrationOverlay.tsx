@@ -47,13 +47,7 @@ function RevealLine({ children, delay }: { children: React.ReactNode; delay: num
   );
 }
 
-export default function CelebrationOverlay({
-  name,
-  onContinue,
-}: {
-  name: string;
-  onContinue: () => void;
-}) {
+export default function CelebrationOverlay({ name }: { name: string }) {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
@@ -139,7 +133,7 @@ export default function CelebrationOverlay({
           />
         </motion.div>
 
-        <h2 className="font-display text-3xl uppercase leading-[1.05] text-white sm:text-4xl">
+        <h2 className="font-heading text-3xl uppercase leading-[1.05] text-white sm:text-4xl">
           <RevealLine delay={0.85}>¡Felicidades por unirte</RevealLine>
           <RevealLine delay={0.98}>
             al club, <span className="text-[#E23A3A]">{firstName}</span>!
@@ -161,21 +155,6 @@ export default function CelebrationOverlay({
             🔥
           </motion.span>
         </motion.p>
-
-        <motion.button
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.55, duration: 0.5 }}
-          onClick={onContinue}
-          className="group relative mt-4 rounded-md border border-white/15 bg-white/5 px-8 py-3 text-[12px] font-bold uppercase tracking-wider text-zinc-200 backdrop-blur-sm transition-colors hover:border-white/30 hover:text-white"
-        >
-          <motion.span
-            className="absolute inset-0 rounded-md border border-[#E23A3A]/40"
-            animate={{ opacity: [0.6, 0, 0.6], scale: [1, 1.12, 1] }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: "easeOut" }}
-          />
-          <span className="relative">Continuar</span>
-        </motion.button>
       </div>
     </motion.div>,
     document.body

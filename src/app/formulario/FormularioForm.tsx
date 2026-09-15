@@ -1,8 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence } from "motion/react";
-import { WA_PHONE } from "../components/icons";
 import CelebrationOverlay from "./CelebrationOverlay";
 
 type FormData = {
@@ -95,55 +93,15 @@ function Section({ step, title, children }: { step: string; title: string; child
   );
 }
 
-function buildWaMessage(d: FormData) {
-  const lines = [
-    "*Nueva ficha de alumno* 📋",
-    "",
-    `*Nombre:* ${d.nombre}`,
-    d.edad && `*Edad:* ${d.edad}`,
-    d.telefono && `*Teléfono:* ${d.telefono}`,
-    d.email && `*Email:* ${d.email}`,
-    (d.altura || d.peso) && `*Altura/Peso:* ${d.altura || "-"} / ${d.peso || "-"}`,
-    "",
-    "*Salud*",
-    `Lesiones o condiciones: ${d.lesiones || "-"}`,
-    `Cirugías / intervenciones: ${d.cirugias || "-"}`,
-    `Medicación: ${d.medicacion || "-"}`,
-    `Hábitos (fuma/alcohol): ${d.habitos || "-"}`,
-    `Suplementación: ${d.suplementacion || "-"}`,
-    "",
-    "*Alimentación*",
-    `Comidas por día: ${d.comidasPorDia || "-"}`,
-    `Alergias/intolerancias: ${d.alergias || "-"}`,
-    `Preferencias / no come: ${d.preferenciasComida || "-"}`,
-    `Dieta actual: ${d.dietaActual || "-"}`,
-    d.notasAlimentacion && `Algo más que deba saber: ${d.notasAlimentacion}`,
-    "",
-    "*Entrenamiento*",
-    `Objetivo: ${d.objetivo || "-"}`,
-    `Experiencia: ${d.experiencia || "-"}`,
-    `Días disponibles: ${d.diasDisponibles || "-"}`,
-    `Lugar: ${d.lugarEntrenamiento || "-"}`,
-  ].filter(Boolean);
-  return lines.join("\n");
-}
-
 export default function FormularioForm() {
   const [data, setData] = useState<FormData>(initial);
   const [sending, setSending] = useState(false);
-  const [done, setDone] = useState(false);
-  const [celebrating, setCelebrating] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
 
   const set = <K extends keyof FormData>(key: K) => (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => setData((prev) => ({ ...prev, [key]: e.target.value }));
-
-  const handleCelebrationDone = () => {
-    setCelebrating(false);
-    const msg = buildWaMessage(data);
-    window.open(`https://wa.me/${WA_PHONE}?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
-  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -168,30 +126,11 @@ export default function FormularioForm() {
     }
 
     setSending(false);
-    setDone(true);
-    setCelebrating(true);
+    setSubmitted(true);
   };
 
-  if (done) {
-    return (
-      <>
-        <div className="mx-auto flex max-w-lg flex-col items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.02] px-8 py-16 text-center">
-          <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366]/15 text-[#25D366]">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M20 6 9 17l-5-5" />
-            </svg>
-          </div>
-          <h2 className="font-display text-2xl uppercase text-white">¡Listo, {data.nombre.split(" ")[0]}!</h2>
-          <p className="max-w-sm text-[14px] leading-relaxed text-zinc-400">
-            Tu ficha quedó guardada y te llevamos a WhatsApp para enviársela directo a Braian. Si no se abrió, escribí igual —
-            ya tiene tus datos.
-          </p>
-        </div>
-        <AnimatePresence>
-          {celebrating && <CelebrationOverlay name={data.nombre} onContinue={handleCelebrationDone} />}
-        </AnimatePresence>
-      </>
-    );
+  if (submitted) {
+    return <CelebrationOverlay name={data.nombre} />;
   }
 
   return (

@@ -34,7 +34,7 @@ export default function FormularioPage() {
           />
         </Link>
         <div>
-          <h1 className="font-display text-2xl uppercase text-white sm:text-3xl">Ficha de alumno</h1>
+          <h1 className="font-heading text-2xl uppercase text-white sm:text-3xl">Ficha de alumno</h1>
           <p className="mx-auto mt-2 max-w-md text-[13px] leading-relaxed text-zinc-400 sm:text-sm">
             Completá estos datos para armar tu plan. Es rápido — solo lo esencial para arrancar.
           </p>
