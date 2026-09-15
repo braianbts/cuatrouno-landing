@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence } from "motion/react";
+import { WA_PHONE } from "../components/icons";
 import CelebrationOverlay from "./CelebrationOverlay";
 
 type FormData = {
@@ -94,6 +95,39 @@ function Section({ step, title, children }: { step: string; title: string; child
   );
 }
 
+function buildWaMessage(d: FormData) {
+  const lines = [
+    "*Nueva ficha de alumno* 📋",
+    "",
+    `*Nombre:* ${d.nombre}`,
+    d.edad && `*Edad:* ${d.edad}`,
+    d.telefono && `*Teléfono:* ${d.telefono}`,
+    d.email && `*Email:* ${d.email}`,
+    (d.altura || d.peso) && `*Altura/Peso:* ${d.altura || "-"} / ${d.peso || "-"}`,
+    "",
+    "*Salud*",
+    `Lesiones o condiciones: ${d.lesiones || "-"}`,
+    `Cirugías / intervenciones: ${d.cirugias || "-"}`,
+    `Medicación: ${d.medicacion || "-"}`,
+    `Hábitos (fuma/alcohol): ${d.habitos || "-"}`,
+    `Suplementación: ${d.suplementacion || "-"}`,
+    "",
+    "*Alimentación*",
+    `Comidas por día: ${d.comidasPorDia || "-"}`,
+    `Alergias/intolerancias: ${d.alergias || "-"}`,
+    `Preferencias / no come: ${d.preferenciasComida || "-"}`,
+    `Dieta actual: ${d.dietaActual || "-"}`,
+    d.notasAlimentacion && `Algo más que deba saber: ${d.notasAlimentacion}`,
+    "",
+    "*Entrenamiento*",
+    `Objetivo: ${d.objetivo || "-"}`,
+    `Experiencia: ${d.experiencia || "-"}`,
+    `Días disponibles: ${d.diasDisponibles || "-"}`,
+    `Lugar: ${d.lugarEntrenamiento || "-"}`,
+  ].filter(Boolean);
+  return lines.join("\n");
+}
+
 export default function FormularioForm() {
   const [data, setData] = useState<FormData>(initial);
   const [sending, setSending] = useState(false);
@@ -104,6 +138,12 @@ export default function FormularioForm() {
   const set = <K extends keyof FormData>(key: K) => (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => setData((prev) => ({ ...prev, [key]: e.target.value }));
+
+  const handleCelebrationDone = () => {
+    setCelebrating(false);
+    const msg = buildWaMessage(data);
+    window.open(`https://wa.me/${WA_PHONE}?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -143,11 +183,12 @@ export default function FormularioForm() {
           </div>
           <h2 className="font-display text-2xl uppercase text-white">¡Listo, {data.nombre.split(" ")[0]}!</h2>
           <p className="max-w-sm text-[14px] leading-relaxed text-zinc-400">
-            Tu ficha quedó guardada. Braian ya la tiene para armar tu plan — no hace falta que hagas nada más.
+            Tu ficha quedó guardada y te llevamos a WhatsApp para enviársela directo a Braian. Si no se abrió, escribí igual —
+            ya tiene tus datos.
           </p>
         </div>
         <AnimatePresence>
-          {celebrating && <CelebrationOverlay name={data.nombre} onContinue={() => setCelebrating(false)} />}
+          {celebrating && <CelebrationOverlay name={data.nombre} onContinue={handleCelebrationDone} />}
         </AnimatePresence>
       </>
     );
