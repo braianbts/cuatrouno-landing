@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# form submissions (datos de alumnos, no versionar)
+/data
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
